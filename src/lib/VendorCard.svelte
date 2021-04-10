@@ -11,13 +11,7 @@
 		<h1>{name}</h1>
 		{#if imgSrc}
 			<div class="cardImage">
-				<img
-					class="pure-img"
-					src="./vendorPictures500/{imgSrc}"
-					srcset="./vendorPictures500/{imgSrc} 500w, ./vendorPictures1000/{imgSrc} 1000w"
-					sizes="(max-width: 600px) 500px, 1000px"
-					alt="Logo of ${name}"
-				/>
+				<img class="pure-img" loading="lazy" src="./vendorPictures500/{imgSrc}" alt="Logo of ${name}" />
 			</div>
 		{/if}
 		{#if videoSrc}

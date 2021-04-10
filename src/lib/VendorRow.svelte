@@ -11,7 +11,11 @@
 </script>
 
 <tr>
-	<td><a href={url}>{name}</a></td>
+	{#if url}
+		<td><a href={url}>{name}</a></td>
+	{:else}
+		<td>{name}</td>
+	{/if}
 	<td>{license}</td>
 	<td>{setup}</td>
 	<td>{nativeIntegrations}</td>

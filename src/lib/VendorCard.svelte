@@ -11,14 +11,22 @@
 		<h1>{name}</h1>
 		{#if imgSrc}
 			<div class="cardImage">
-				<img class="pure-img" src={imgSrc} alt="Logo of ${name}" />
+				<img
+					class="pure-img"
+					src="./vendorPictures500/{imgSrc}"
+					srcset="./vendorPictures500/{imgSrc} 500w, ./vendorPictures1000/{imgSrc} 1000w"
+					sizes="(max-width: 600px) 500px, 1000px"
+					alt="Logo of ${name}"
+				/>
 			</div>
 		{/if}
 		{#if videoSrc}
-			<iframe title="Video showing ${name}" width="100%" height="300" src={videoSrc} />
+			<iframe loading="lazy" title="Video showing ${name}" width="100%" height="300" src={videoSrc} />
 		{/if}
 		<p>{desc}</p>
-		<a class="pure-button" href={url}>Read more.</a>
+		{#if url}
+			<a class="pure-button" href={url}>Read more.</a>
+		{/if}
 	</div>
 </div>
 

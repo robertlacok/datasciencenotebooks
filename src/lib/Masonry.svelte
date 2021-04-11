@@ -4,7 +4,7 @@
 	export let maxColWidth = 500;
 	export let gap = 20;
 	export let id = `id`; // https://svelte.dev/tutorial/keyed-each-blocks
-	export let width = 0;
+	export let width = 900;
 	export let height = 0;
 	export let animate = true;
 

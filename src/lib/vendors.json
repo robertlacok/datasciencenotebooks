@@ -2,7 +2,7 @@
   "vendors": [
     {
       "name": "Jupyter",
-      "imgSrc": "jupyter.png",
+      "imgSrc": "jupyter.jpeg",
       "desc": "Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages. There's a number of vendors offering Jupyter notebooks as a managed service.",
       "url": "https://jupyter.org/",
       "license": "Open Source",
@@ -15,7 +15,7 @@
     },
     {
       "name": "Amazon SageMaker",
-      "imgSrc": "sagemaker.png",
+      "imgSrc": "sagemaker.jpeg",
       "desc": "Amazon SageMaker helps data scientists and developers to prepare, build, train, and deploy high-quality machine learning (ML) models quickly by bringing together a broad set of capabilities purpose-built for ML.",
       "url": "https://aws.amazon.com/sagemaker",
       "license": "Proprietary",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Google Colab",
-      "imgSrc": "colab.png",
+      "imgSrc": "colab.jpeg",
       "desc": "Colab notebooks allow you to combine executable code and rich text in a single document, along with images, HTML, LaTeX and more.",
       "url": "https://colab.research.google.com/",
       "license": "Proprietary",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Deepnote",
-      "imgSrc": "deepnote.png",
+      "imgSrc": "deepnote.jpeg",
       "desc": "Deepnote is a new kind of data science notebook. Jupyter-compatible with real-time collaboration and running in the cloud. Oh, and it's free.",
       "url": "https://deepnote.com/",
       "license": "Proprietary",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Databricks Notebooks",
-      "imgSrc": "databricks.png",
+      "imgSrc": "databricks.jpeg",
       "desc": "A notebook is a web-based interface to a document that contains runnable code, visualizations, and narrative text.",
       "url": "https://databricks.com/product/collaborative-notebooks",
       "license": "",
@@ -67,7 +67,7 @@
     },
     {
       "name": "CoCalc",
-      "imgSrc": "cocalc.png",
+      "imgSrc": "cocalc.jpeg",
       "desc": "Your best choice for teaching remote scientific courses!",
       "url": "https://cocalc.com/",
       "license": "",
@@ -80,7 +80,7 @@
     },
     {
       "name": "Hex",
-      "imgSrc": "hex.png",
+      "imgSrc": "hex.jpeg",
       "desc": "The Data Workspace for Teams. Work with data in collaborative SQL and Python notebooks. Share as interactive data apps that anyone can use.",
       "url": "https://hex.tech",
       "license": "",
@@ -93,7 +93,7 @@
     },
     {
       "name": "Kaggle Notebooks",
-      "imgSrc": "kaggle.png",
+      "imgSrc": "kaggle.jpeg",
       "desc": "Explore and run machine learning code with Kaggle Notebooks, a cloud computational environment that enables reproducible and collaborative analysis.",
       "url": "https://www.kaggle.com/code",
       "license": "",
@@ -120,7 +120,7 @@
     },
     {
       "name": "Nextjournal",
-      "imgSrc": "nextjournal.png",
+      "imgSrc": "nextjournal.jpeg",
       "desc": "Runs anything you can put into a Docker container. Improve your workflow with polyglot notebooks, automatic versioning and real-time collaboration. Save time and money with on-demand provisioning, including GPU support.",
       "url": "https://nextjournal.com/",
       "license": "",
@@ -133,7 +133,7 @@
     },
     {
       "name": "Jetbrains Datalore",
-      "imgSrc": "datalore.png",
+      "imgSrc": "datalore.jpeg",
       "desc": "A powerful online environment for Jupyter notebooks. Use smart coding assistance for Python in online Jupyter notebooks, run code on powerful CPUs and GPUs, collaborate in real-time, and easily share the results.",
       "url": "https://datalore.jetbrains.com/",
       "license": "",
@@ -146,7 +146,7 @@
     },
     {
       "name": "Observable",
-      "imgSrc": "observable.png",
+      "imgSrc": "observable.jpeg",
       "desc": "Make sense of the world with data, together. Explore, visualize, and analyze data. Collaborate with the community. Learn and be inspired. Share insights with the world.",
       "url": "https://observablehq.com/",
       "license": "",
@@ -159,7 +159,7 @@
     },
     {
       "name": "Mode Notebooks",
-      "imgSrc": "mode.png",
+      "imgSrc": "mode.jpeg",
       "desc": "Native R & Python Notebooks. From SQL, explore your analysis using R or Python Notebooks.",
       "url": "https://mode.com/notebooks/",
       "license": "",
@@ -172,7 +172,7 @@
     },
     {
       "name": "Zepl",
-      "imgSrc": "zepl.png",
+      "imgSrc": "zepl.jpeg",
       "desc": "Notebook-powered analytics for enterprise teams.",
       "url": "https://www.zepl.com/",
       "license": "",
@@ -185,7 +185,7 @@
     },
     {
       "name": "Polynote",
-      "imgSrc": "polynote.png",
+      "imgSrc": "polynote.jpeg",
       "desc": " Polynote is a different kind of notebook. It supports mixing multiple languages in one notebook, and sharing data between them seamlessly. It encourages reproducible notebooks with its immutable data model.",
       "url": "https://polynote.org/",
       "license": "",
@@ -198,7 +198,7 @@
     },
     {
       "name": "Zeppelin",
-      "imgSrc": "zeppelin.png",
+      "imgSrc": "zeppelin.jpeg",
       "desc": "Web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala and more.",
       "url": "https://zeppelin.apache.org/",
       "license": "",
@@ -211,7 +211,7 @@
     },
     {
       "name": "Count",
-      "imgSrc": "count.png",
+      "imgSrc": "count.jpeg",
       "desc": "The BI notebook built for analysts. Simplify your workflow, collaborate with others and create the analysis your company craves in record time.",
       "url": "https://count.co/",
       "license": "",
@@ -224,7 +224,7 @@
     },
     {
       "name": "nteract",
-      "imgSrc": "nteract.png",
+      "imgSrc": "nteract.jpeg",
       "desc": "nteract is an open-source organization committed to creating fantastic interactive computing experiences that allow people to collaborate with ease.",
       "url": "https://nteract.io/",
       "license": "",

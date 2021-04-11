@@ -11,11 +11,11 @@
 		<h1>{name}</h1>
 		{#if imgSrc}
 			<div class="cardImage">
-				<img class="pure-img" loading="lazy" src="./vendorPictures500/{imgSrc}" alt="Logo of ${name}" />
+				<img class="pure-img" loading="lazy" src="./vendorPicturesJPG/{imgSrc}" alt="Logo of {name}" />
 			</div>
 		{/if}
 		{#if videoSrc}
-			<iframe loading="lazy" title="Video showing ${name}" width="100%" height="300" src={videoSrc} />
+			<iframe loading="lazy" title="Video showing {name}" width="100%" height="300" src={videoSrc} />
 		{/if}
 		<p>{desc}</p>
 		{#if url}

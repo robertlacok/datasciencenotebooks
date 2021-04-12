@@ -2,7 +2,7 @@
 
 ## Developing
 
-Installed dependencies:
+Install dependencies:
 
 ```bash
 npm install

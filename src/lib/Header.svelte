@@ -9,8 +9,8 @@
 		<div class="pure-u-0 pure-u-md-4-24" />
 		<div class="pure-u-1 pure-u-md-16-24">
 			<p>
-				Data science gets done in notebooks. They are a powerful interface for exploratory
-				programming, and the flexible format allows combining code with visualisations and insights.
+				Data science gets done in notebooks. They are a powerful interface for exploratory programming, and the flexible
+				format allows combining code with visualisations and insights.
 			</p>
 		</div>
 		<div class="pure-u-0 pure-u-md-4-24" />

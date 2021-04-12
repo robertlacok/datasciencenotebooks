@@ -1,4 +1,4 @@
-<div class="card">
+<div class="table">
 	<div class="scrolling-wrapper">
 		<table class="pure-table pure-table-striped">
 			<thead>
@@ -32,7 +32,7 @@
 		overflow-y: hidden;
 		white-space: nowrap;
 	}
-	.card {
+	.table {
 		width: calc(100% - 1rem);
 		margin: 3rem 0.5rem;
 		border-radius: 5px;

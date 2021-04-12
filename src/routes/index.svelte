@@ -4,6 +4,7 @@
 	import VendorRow from '$lib/VendorRow.svelte';
 	import VendorTable from '$lib/VendorTable.svelte';
 	import VendorGrid from '$lib/VendorGrid.svelte';
+	import FAQ from '$lib/FAQ.svelte';
 </script>
 
 <Header />
@@ -15,3 +16,5 @@
 		<VendorRow {...v} />
 	{/each}
 </VendorTable>
+
+<FAQ />

@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"posthog-js": "^1.9.7",
 		"purecss": "^2.0.5"
 	}
 }

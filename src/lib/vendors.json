@@ -107,7 +107,7 @@
     {
       "name": "Facebook Bento",
       "imgSrc": "",
-      "videoSrc": "https://www.youtube.com//embed/f3UfVX4_PD4",
+      "videoSrc": "https://www.youtube.com/embed/f3UfVX4_PD4",
       "desc": "An internal Facebook tool, presented at JupyterCon 2020.",
       "url": "",
       "license": "Proprietary",
@@ -246,6 +246,19 @@
       "collaboration": "Using git",
       "versioning": "Using git",
       "reproducibility": "Problematic",
+      "notebooksAsProducts": "No"
+    },
+    {
+      "name": "Pluto.jl",
+      "imgSrc": "pluto.jpeg",
+      "desc": "Writing a notebook is not just about writing the final document — Pluto empowers the experiments and discoveries that are essential to getting there.",
+      "url": "https://github.com/fonsp/Pluto.jl",
+      "license": "Open Source",
+      "setup": "Local",
+      "nativeIntegrations": "No",
+      "collaboration": "Using git",
+      "versioning": "Using git",
+      "reproducibility": "Reactivity",
       "notebooksAsProducts": "No"
     }
   ]

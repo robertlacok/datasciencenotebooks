@@ -28,7 +28,7 @@
 		-moz-border-radius: 5px;
 	}
 	.scrolling-wrapper {
-		overflow-x: scroll;
+		overflow-x: auto;
 		overflow-y: hidden;
 		white-space: nowrap;
 	}

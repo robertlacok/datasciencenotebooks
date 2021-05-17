@@ -9,7 +9,7 @@
 
 <Header />
 
-<VendorGrid />
+<VendorGrid items={VendorList.vendors} />
 
 <VendorTable>
 	{#each VendorList.vendors as v}

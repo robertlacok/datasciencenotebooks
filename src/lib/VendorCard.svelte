@@ -11,7 +11,7 @@
 		<h1>{name}</h1>
 		{#if imgSrc}
 			<div class="cardImage">
-				<img class="pure-img" loading="lazy" src="./vendorPicturesJPG/{imgSrc}" alt="Logo of {name}" />
+				<img class="pure-img" loading="lazy" src="/vendorPicturesJPG/{imgSrc}" alt="Logo of {name}" />
 			</div>
 		{/if}
 		{#if videoSrc}
@@ -19,7 +19,7 @@
 		{/if}
 		<p>{desc}</p>
 		{#if url}
-			<a class="pure-button" href={url}>Read more.</a>
+			<a class="pure-button" href={url}>Read more</a>
 		{/if}
 	</div>
 </div>

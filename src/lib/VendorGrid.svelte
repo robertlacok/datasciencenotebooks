@@ -4,7 +4,7 @@
 
 	import Masonry from './Masonry.svelte';
 
-	let items = VendorList.vendors;
+	export let items;
 	let [minColWidth, maxColWidth, gap] = [400, 600, 10];
 	let width, height;
 </script>

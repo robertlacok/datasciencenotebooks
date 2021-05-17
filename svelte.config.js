@@ -1,16 +1,11 @@
-const sveltePreprocess = require('svelte-preprocess');
-const netlify = require('@sveltejs/adapter-netlify');
-const pkg = require('./package.json');
+import netlify from '@sveltejs/adapter-netlify';
+import sveltePreprocess from 'svelte-preprocess';
 
-/** @type {import('@sveltejs/kit').Config} */
-module.exports = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
+export default {
 	preprocess: sveltePreprocess(),
 	kit: {
 		adapter: netlify(),
 
-		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		prerender: {
 			pages: [
@@ -225,11 +220,6 @@ module.exports = {
 				'/compare/count/pluto',
 				'/compare/nteract/pluto'
 			]
-		},
-		vite: {
-			ssr: {
-				noExternal: Object.keys(pkg.dependencies || {})
-			}
 		}
 	}
 };

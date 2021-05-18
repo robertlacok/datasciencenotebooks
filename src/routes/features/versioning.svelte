@@ -29,7 +29,7 @@
 					version notebooks using <code>git</code> – but it's rarely a good experience.
 				</p>
 				<p>
-					The <code>.ipynb</code> format is a verbose JSON with plenty of metadata, variable outputs and binary blob.
+					The <code>.ipynb</code> format is a verbose JSON with plenty of metadata, variable outputs and binary blobs.
 					That prevents
 					<code>git diff</code> from doing a good job.
 				</p>

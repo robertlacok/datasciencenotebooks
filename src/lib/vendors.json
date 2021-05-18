@@ -54,7 +54,7 @@
       "collaboration": "Real-time",
       "versioning": "Native",
       "reproducibility": "Environment, reactivity",
-      "notebooksAsProducts": "Yes"
+      "notebooksAsProducts": "Interactive applications, scheduled runs, articles"
     },
     {
       "slug": "databricks",

@@ -10,7 +10,8 @@
 				</p>
 				<small>
 					© Data Science Notebooks 2021. Made with <a href="https://svelte.dev">Svelte</a> and
-					<a href="https://icons8.com">Icon8</a>.
+					<a href="https://icons8.com">Icon8</a>. Open source (MIT license), open
+					<a href="https://github.com/robertlacok/datasciencenotebooks">GitHub</a>.
 				</small>
 			</div>
 			<div class="pure-u-0 pure-u-md-4-24" />

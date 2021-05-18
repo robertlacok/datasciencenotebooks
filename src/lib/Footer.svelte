@@ -3,6 +3,7 @@
 		<div class="pure-g">
 			<div class="pure-u-0 pure-u-md-4-24" />
 			<div class="pure-u-1 pure-u-md-16-24">
+				<h3><a href="/">datasciencenotebook.org</a></h3>
 				<p>
 					Data science notebooks are a new category of tools. We present a vendor neutral comparison of different
 					solutions, aiming to help data scientists pick the right tooling.

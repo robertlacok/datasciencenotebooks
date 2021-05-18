@@ -37,6 +37,9 @@
 	const otherVendors = VendorList.vendors.filter((obj) => {
 		return obj.slug !== vendor;
 	});
+	const otherVendorsCompareUrl = otherVendors.map((obj) => {
+		return { ...obj, url: `/compare/${vendor}/${obj.slug}` };
+	});
 </script>
 
 <div class="header">
@@ -53,7 +56,7 @@
 
 <VendorTable>
 	<VendorRow {...vendorInfo} />
-	{#each otherVendors as v}
+	{#each otherVendorsCompareUrl as v}
 		<VendorRow {...v} />
 	{/each}
 </VendorTable>

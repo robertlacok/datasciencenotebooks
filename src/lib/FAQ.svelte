@@ -13,15 +13,20 @@
 					>popular talk</a
 				>.
 			</p>
+			<p>
+				Some more thoughts on <a href="/features/versioning">versioning</a> and
+				<a href="/features/realtime-collaboration">real-time collaboration</a>.
+			</p>
 		</article>
 	</div>
 	<div class="pure-u-1 pure-u-md-1-2">
 		<article>
 			<h2>About the author</h2>
 			<p>
-				My name is Robert Lacok and I'm a product manager at <a href="https://deepnote.com/">Deepnote</a>. I do my best
-				to stay on top of all new developments in the field, and I wanted to share the information with the world. I
-				tried to be unbiased - if you believe any companies are missing or misrepresented, please
+				My name is <a href="https://www.linkedin.com/in/robert-lacok/">Robert Lacok</a> and I'm a product manager at
+				<a href="https://deepnote.com/">Deepnote</a>. I do my best to stay on top of all new developments in the field,
+				and I wanted to share the information with the world. I tried to be unbiased - if you believe any companies are
+				missing or misrepresented, please
 				<a href="mailto:robert@deepnote.com">reach out</a>.
 			</p>
 		</article>

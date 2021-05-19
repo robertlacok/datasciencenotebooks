@@ -13,7 +13,6 @@
 	];
 
 	const featuresFormatted = [
-		'Platform',
 		'License',
 		'Ease of setup',
 		'Native integrations',

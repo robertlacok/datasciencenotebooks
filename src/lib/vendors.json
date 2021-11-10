@@ -280,6 +280,34 @@
       "versioning": "Using git",
       "reproducibility": "Reactivity",
       "notebooksAsProducts": "No"
+    },
+    {
+      "slug": "query-me",
+      "name": "Query.me",
+      "imgSrc": "query-me.jpeg",
+      "desc": "Collaborative SQL Notebooks. A better way for data teams to analyze, unite & deliver.",
+      "url": "https://query.me",
+      "license": "Proprietary",
+      "setup": "Fully managed",
+      "nativeIntegrations": "SQL databases",
+      "collaboration": "Asynchrounous",
+      "versioning": "No",
+      "reproducibility": "OK (only SQL)",
+      "notebooksAsProducts": "Public notebooks, shared reports"
+    },
+    {
+      "slug": "querybook",
+      "name": "Querybook",
+      "imgSrc": "querybook.jpeg",
+      "desc": "Discover, analyze, and collaborate. Querybook is Pinterest’s open-source big data IDE via a notebook interface.",
+      "url": "https://www.querybook.org/",
+      "license": "Open Source",
+      "setup": "Local (hard) or on a server (hard)",
+      "nativeIntegrations": "Rich plugin ecosystem",
+      "collaboration": "Real-time",
+      "versioning": "No",
+      "reproducibility": "OK (only SQL)",
+      "notebooksAsProducts": "Scheduled runs"
     }
   ]
 }

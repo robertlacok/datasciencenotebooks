@@ -8,6 +8,7 @@
 					<th>Ease of setup</th>
 					<th>Native integrations</th>
 					<th>Collaboration</th>
+					<th>Comments</th>
 					<th>Versioning</th>
 					<th>Reproducibility</th>
 					<th>Notebooks as products</th>

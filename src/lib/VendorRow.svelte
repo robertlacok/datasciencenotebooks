@@ -5,6 +5,7 @@
 	export let setup;
 	export let nativeIntegrations;
 	export let collaboration;
+	export let comments;
 	export let versioning;
 	export let reproducibility;
 	export let notebooksAsProducts;
@@ -20,6 +21,7 @@
 	<td>{setup}</td>
 	<td>{nativeIntegrations}</td>
 	<td>{collaboration}</td>
+	<td>{comments}</td>
 	<td>{versioning}</td>
 	<td>{reproducibility}</td>
 	<td>{notebooksAsProducts}</td>

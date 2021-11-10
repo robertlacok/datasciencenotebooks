@@ -10,6 +10,7 @@
       "setup": "Local (easy) or on a server (hard)",
       "nativeIntegrations": "N/A",
       "collaboration": "Using git",
+      "comments": "No",
       "versioning": "Using git",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "Plugins & python packages"
@@ -24,6 +25,7 @@
       "setup": "Fully managed (but hard)",
       "nativeIntegrations": "Within AWS",
       "collaboration": "Shared copies",
+      "comments": "No",
       "versioning": "Using git",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "No"
@@ -38,6 +40,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Google Drive",
       "collaboration": "Shared copies",
+      "comments": "No",
       "versioning": "No",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "Parametrized inputs"
@@ -52,6 +55,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Many",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "Native",
       "reproducibility": "Environment, reactivity",
       "notebooksAsProducts": "Interactive applications, scheduled runs, articles"
@@ -66,6 +70,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Data ingest tools",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "Native",
       "reproducibility": "Environment",
       "notebooksAsProducts": "Scheduled runs"
@@ -80,6 +85,7 @@
       "setup": "Fully managed + self-hosting",
       "nativeIntegrations": "No",
       "collaboration": "Real-time",
+      "comments": "No",
       "versioning": "Native",
       "reproducibility": "Environment",
       "notebooksAsProducts": "No"
@@ -94,8 +100,9 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Data stores",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "Native",
-      "reproducibility": "Environment",
+      "reproducibility": "Environment, reactivity",
       "notebooksAsProducts": "Interactive applications"
     },
     {
@@ -108,6 +115,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Kaggle Datasets",
       "collaboration": "Shared copies",
+      "comments": "No",
       "versioning": "Native",
       "reproducibility": "Environment",
       "notebooksAsProducts": "Articles"
@@ -123,6 +131,7 @@
       "setup": "N/A",
       "nativeIntegrations": "Internal data stores",
       "collaboration": "Asynchrounous",
+      "comments": "Unclear",
       "versioning": "Unclear",
       "reproducibility": "Unclear",
       "notebooksAsProducts": "Reports"
@@ -137,6 +146,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Secrets, buckets",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "Native",
       "reproducibility": "Environment",
       "notebooksAsProducts": "Articles"
@@ -151,6 +161,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Secrets, S3",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "No",
       "reproducibility": "Environment, reactivity",
       "notebooksAsProducts": "Articles"
@@ -165,6 +176,7 @@
       "setup": "In the browser",
       "nativeIntegrations": "No",
       "collaboration": "Asynchronous",
+      "comments": "Yes",
       "versioning": "No",
       "reproducibility": "Environment, reactivity",
       "notebooksAsProducts": "Interactive applications"
@@ -179,6 +191,7 @@
       "setup": "Local",
       "nativeIntegrations": "No",
       "collaboration": "Using git",
+      "comments": "Using git, in PRs",
       "versioning": "Using git, has pretty diffing",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "No"
@@ -193,6 +206,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Many",
       "collaboration": "Asynchronous",
+      "comments": "No",
       "versioning": "Only on queries",
       "reproducibility": "Environment",
       "notebooksAsProducts": "Shared reports"
@@ -207,6 +221,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Many",
       "collaboration": "Real-time",
+      "comments": "Yes",
       "versioning": "Native",
       "reproducibility": "Environment",
       "notebooksAsProducts": "Scheduled runs, shared reports"
@@ -221,6 +236,7 @@
       "setup": "Local (hard) or on a server (hard)",
       "nativeIntegrations": "No",
       "collaboration": "Using git",
+      "comments": "No",
       "versioning": "Using git",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "No"
@@ -235,6 +251,7 @@
       "setup": "Local (hard) or on a server (hard)",
       "nativeIntegrations": "No",
       "collaboration": "Asynchronous (on server)",
+      "comments": "No",
       "versioning": "Using git",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "No"
@@ -249,6 +266,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "Data stores",
       "collaboration": "Real-time",
+      "comments": "No",
       "versioning": "No",
       "reproducibility": "OK (only SQL)",
       "notebooksAsProducts": "Shared reports"
@@ -263,6 +281,7 @@
       "setup": "Local",
       "nativeIntegrations": "No",
       "collaboration": "Using git",
+      "comments": "No",
       "versioning": "Using git",
       "reproducibility": "Problematic",
       "notebooksAsProducts": "No"
@@ -277,6 +296,7 @@
       "setup": "Local",
       "nativeIntegrations": "No",
       "collaboration": "Using git",
+      "comments": "Using git, in PRs",
       "versioning": "Using git",
       "reproducibility": "Reactivity",
       "notebooksAsProducts": "No"
@@ -291,6 +311,7 @@
       "setup": "Fully managed",
       "nativeIntegrations": "SQL databases",
       "collaboration": "Asynchrounous",
+      "comments": "No",
       "versioning": "No",
       "reproducibility": "OK (only SQL)",
       "notebooksAsProducts": "Public notebooks, shared reports"
@@ -305,6 +326,7 @@
       "setup": "Local (hard) or on a server (hard)",
       "nativeIntegrations": "Rich plugin ecosystem",
       "collaboration": "Real-time",
+      "comments": "No",
       "versioning": "No",
       "reproducibility": "OK (only SQL)",
       "notebooksAsProducts": "Scheduled runs"

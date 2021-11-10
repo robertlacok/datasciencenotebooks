@@ -7,6 +7,7 @@
 		'setup',
 		'nativeIntegrations',
 		'collaboration',
+		'comments',
 		'versioning',
 		'reproducibility',
 		'notebooksAsProducts'
@@ -17,6 +18,7 @@
 		'Ease of setup',
 		'Native integrations',
 		'Collaboration',
+		'Comments',
 		'Versioning',
 		'Reproducibility',
 		'Notebooks as products'

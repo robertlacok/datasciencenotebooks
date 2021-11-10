@@ -14,7 +14,7 @@
 				>.
 			</p>
 			<p>
-				Some more thoughts on <a href="/features/versioning">versioning</a> and
+				Some more thoughts on <a href="/features/versioning">versioning</a>, <a href="/features/comments">comments</a> and
 				<a href="/features/realtime-collaboration">real-time collaboration</a>.
 			</p>
 		</article>

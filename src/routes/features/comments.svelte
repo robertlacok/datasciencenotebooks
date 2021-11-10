@@ -4,7 +4,7 @@
 	import VendorList from '$lib/vendors.json';
 
 	const rtcVendors = VendorList.vendors.filter((obj) => {
-		if (obj.versioning.includes('Native')) {
+		if (obj.comments.includes('Yes')) {
 			return obj;
 		}
 	});
@@ -13,8 +13,8 @@
 <div class="header">
 	<div class="pure-g">
 		<div class="pure-u-1">
-			<h1>Versioning Jupyter notebooks</h1>
-			<p>It's hard. Explore other notebooks in the meantime.</p>
+			<h1>Comments in Jupyter notebooks</h1>
+			<p>GitHub PRs don't really cut it. Explore other options.</p>
 		</div>
 	</div>
 </div>
@@ -25,22 +25,19 @@
 		<div class="pure-u-md-1-2 pure-u-1">
 			<div class="column">
 				<p>
-					Data science is a programming discipline, and it often adopts software engineering tools. Teams usually
-					version notebooks using <code>git</code> – but it's rarely a good experience.
+					Data science is a team sport, and the conversation needs to include a number of stakeholders. 
 				</p>
 				<p>
-					The <code>.ipynb</code> format is a verbose JSON with plenty of metadata, variable outputs and binary blobs.
-					That prevents
-					<code>git diff</code> from doing a good job.
+					There are technical people, other data scientists, who can often offer their point of view on the methods or the technical implementation.
 				</p>
 				<p>
-					Some alternatives are converting it to markdown (a popular tool is <a
-						href="https://github.com/mwouts/jupytext">jupytext</a
-					>), or integrating a review tool, such as <a href="https://www.reviewnb.com/">ReviewNB</a>.
+					Then there are business stakeholders or domain experts, who can offer unique insights on the bigger picture and overall goal, review the conclusion and take action. 
 				</p>
 				<p>
-					A new generation of tools aims to solve these problems. They version notebooks natively, allowing to travel
-					back and forth in time and program exploratively.
+					Currently, Jupyter notebooks offer a solo experience. Code reviews with technical peers in GitHub are problematic, and collaboration with business stakholders requires introducing several degrees of separation from the original work (such as screnshots in Slides).
+				</p>
+				<p>
+					A new generation of tools aims to solve these problems. They help prepare the narratives using notebooks, present them in views appropriate for non-technical people, and tighten the feedback loop.
 				</p>
 			</div>
 		</div>

@@ -1,3 +1,10 @@
+<script>
+import posthog from "posthog-js";
+	function handleClap() {
+		posthog.capture('clap')
+	}
+</script>
+
 <div class="pure-g">
 	<div class="pure-u-1 pure-u-md-1-2">
 		<article>
@@ -29,11 +36,15 @@
 				missing or misrepresented, please
 				<a href="mailto:robert@deepnote.com">reach out</a>.
 			</p>
+			<p>Is this page useful? <button class="button-small pure-button" on:click={handleClap}>Clap 👏</button></p>
 		</article>
 	</div>
 </div>
 
 <style>
+	.button-small {
+            font-size: 85%;
+        }
 	article {
 		padding: 1rem;
 	}

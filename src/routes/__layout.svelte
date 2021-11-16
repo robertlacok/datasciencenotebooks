@@ -6,7 +6,11 @@
 
 	onMount(() => {
 		if (!window.location.href.includes('127.0.0.1') && !window.location.href.includes('localhost')) {
+			// Prod
 			posthog.init('phc_Vw4J1JUtEPD8SDy8nFmBebNm7HVHBEMq004chDx0BTm', { api_host: 'https://app.posthog.com' })
+		} else {
+			// Dev
+			posthog.init('phc_DBvSm2bV5dDy1uvfvKNqc1rsDzMLMgMyBWMYdNZXun5', { api_host: 'https://app.posthog.com' })
 		}
 	});
 </script>

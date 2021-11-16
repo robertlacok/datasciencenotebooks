@@ -6,7 +6,7 @@
 
 	onMount(() => {
 		if (!window.location.href.includes('127.0.0.1') && !window.location.href.includes('localhost')) {
-			posthog.init('Rs1YBgu0wLj-JxJseLQbaNt3h1ORj2tRfB5_7oW2owI', { api_host: 'https://app.posthog.com' });
+			posthog.init('phc_Vw4J1JUtEPD8SDy8nFmBebNm7HVHBEMq004chDx0BTm', { api_host: 'https://app.posthog.com' })
 		}
 	});
 </script>

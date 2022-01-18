@@ -3,7 +3,7 @@
 		<table class="pure-table pure-table-striped">
 			<thead>
 				<tr>
-					<th>Platform</th>
+					<th class="sticky-col">Platform</th>
 					<th>License</th>
 					<th>Ease of setup</th>
 					<th>Native integrations</th>
@@ -32,6 +32,15 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		white-space: nowrap;
+	}
+	.sticky-col {
+		position: -webkit-sticky;
+		position: sticky;
+		background-color: white;
+		width: 180px;
+		min-width: 180px;
+		max-width: 180px;
+		left: 0px;
 	}
 	.table {
 		width: calc(100% - 1rem);

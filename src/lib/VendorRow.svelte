@@ -13,9 +13,9 @@
 
 <tr>
 	{#if url}
-		<td><a href={url}>{name}</a></td>
+		<td class="sticky-col"><a href={url}>{name}</a></td>
 	{:else}
-		<td>{name}</td>
+		<td class="sticky-col">{name}</td>
 	{/if}
 	<td>{license}</td>
 	<td>{setup}</td>
@@ -30,5 +30,15 @@
 <style>
 	a {
 		color: inherit;
+	}
+
+	.sticky-col {
+		position: -webkit-sticky;
+		position: sticky;
+		background-color: white;
+		width: 180px;
+		min-width: 180px;
+		max-width: 180px;
+		left: 0px;
 	}
 </style>

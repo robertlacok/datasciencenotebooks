@@ -175,9 +175,9 @@
       "license": "Proprietary",
       "setup": "In the browser",
       "nativeIntegrations": "No",
-      "collaboration": "Asynchronous",
+      "collaboration": "Real-time and Asynchronous",
       "comments": "Yes",
-      "versioning": "No",
+      "versioning": "Yes",
       "reproducibility": "Environment, reactivity",
       "notebooksAsProducts": "Interactive applications"
     },

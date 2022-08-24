@@ -226,6 +226,21 @@
             "notebooksAsProducts": "Scheduled runs, shared reports"
         },
         {
+            "slug": "noteable",
+            "name": "Noteable",
+            "imgSrc": "noteable.jpeg",
+            "desc": "Noteable is a collaborative notebook platform that enables teams to use and visualize data, together.",
+            "url": "https://noteable.io/",
+            "license": "Proprietary",
+            "setup": "Fully managed + self-hosting",
+            "nativeIntegrations": "Many",
+            "collaboration": "Real-time",
+            "comments": "Yes",
+            "versioning": "Native",
+            "reproducibility": "Environment",
+            "notebooksAsProducts": "No"
+        },
+        {
             "slug": "polynote",
             "name": "Polynote",
             "imgSrc": "polynote.jpeg",

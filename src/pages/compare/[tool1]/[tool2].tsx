@@ -3,7 +3,6 @@ import type {
   GetStaticPathsResult,
   GetStaticPropsContext,
   GetStaticPropsResult,
-  NextPage,
 } from "next";
 import { Fragment } from "react";
 import { Seo } from "../../../components/Seo";

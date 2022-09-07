@@ -1,3 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"]
+  "extends": ["next/core-web-vitals", "prettier", "react-app"],
+  "rules": {
+    "no-empty-pattern": ["off"]
+  }
 }

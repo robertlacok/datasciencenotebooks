@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { Fragment } from "react";
 import { Seo } from "../components/Seo";
 import { SidebarLayout } from "../components/SidebarLayout";

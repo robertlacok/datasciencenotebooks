@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --no-lint",
     "start": "next start",
     "lint": "yarn lint:prettier && yarn lint:next",
-    "lint:next": "next lint",
+    "lint:next": "next lint --max-warnings 0",
     "lint:prettier": "prettier --check src/",
     "lint-fix": "yarn lint-fix:prettier && yarn lint-fix:next",
     "lint-fix:next": "next lint --fix",
@@ -31,6 +31,7 @@
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
     "prettier": "^2.7.1",
     "typescript": "4.8.2",
     "vercel": "^28.2.2"

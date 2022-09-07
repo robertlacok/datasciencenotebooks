@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.17.0
+          cache: 'yarn'
+      - name: Lint
+        run: yarn lint
+      - name: Build
+        run: yarn vercel -t ${{ secrets.VERCEL_TOKEN }} build --prod
+      - name: Deploy
+        run: yarn vercel -t ${{ secrets.VERCEL_TOKEN }} deploy --prebuilt --prod

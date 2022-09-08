@@ -165,6 +165,21 @@ export const notebookTools = {
   }),
 };
 
+type NotebookToolId = keyof typeof notebookTools;
+
+export const getNotebookTool = (toolId: string) => {
+  if (!(toolId in notebookTools)) {
+    throw new Error(`No notebook tool ${toolId}`);
+  }
+
+  return notebookTools[toolId as NotebookToolId];
+};
+
+export const JUPYTER_NOTEBOOK_ID: NotebookToolId = "jupyter";
+
+export const notebookToolIds = Object.keys(notebookTools) as NotebookToolId[];
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _dummyExampleNotebookTool = createNotebookTool({
   name: "",
   id: "",

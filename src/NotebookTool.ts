@@ -45,12 +45,17 @@ export interface NotebookFeatures {
   managementVersioning:
     | { type: "fileBased" }
     | { type: "none" }
-    | { type: "built-in" };
+    | { type: "builtIn" };
   managementCollaborativeEditing:
     | { type: "fileBased" }
     | { type: "jupyterRealtime" }
     | { type: "realtime" }
     | { type: "asynchronous" }
+    | { type: "none" };
+  managementComments:
+    | { type: "fileBased" }
+    | { type: "inNotebook" }
+    | { type: "outOfNotebook" }
     | { type: "none" };
   managementNotebookOrganization:
     | { type: "fileBased" }
@@ -73,6 +78,42 @@ export interface NotebookFeatures {
     | { type: "proprietary" }
     | { type: "openSource"; ossLicense: string };
 }
+
+interface FeatureCategory {
+  type: "setup" | "features" | "management" | "licensing";
+  features: (keyof NotebookFeatures)[];
+}
+
+export const featureCategories: FeatureCategory[] = [
+  {
+    type: "setup",
+    features: ["setupManaged", "setupSelfHost"],
+  },
+  {
+    type: "features",
+    features: [
+      "featuresJupyterCompatible",
+      "featuresLanguages",
+      "featuresDataSources",
+      "featuresDataVisualization",
+      "featuresReactivity",
+    ],
+  },
+  {
+    type: "management",
+    features: [
+      "managementReproducability",
+      "managementVersioning",
+      "managementCollaborativeEditing",
+      "managementComments",
+      "managementNotebookOrganization",
+    ],
+  },
+  {
+    type: "licensing",
+    features: ["licensingLicense", "licensingPrice"],
+  },
+];
 
 export type NotebookFeaturesRecord = {
   [TFeatureKey in keyof NotebookFeatures]?: NotebookFeatures[TFeatureKey][];

@@ -22,6 +22,11 @@ export const notebookTools = {
         { type: "jupyterRealtime" },
       ],
       managementNotebookOrganization: [{ type: "fileBased" }],
+      managementComments: [
+        {
+          type: "fileBased",
+        },
+      ],
       managementReproducability: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
 
@@ -99,6 +104,11 @@ export const notebookTools = {
           type: "wiki",
         },
       ],
+      managementComments: [
+        {
+          type: "inNotebook",
+        },
+      ],
       managementReproducability: [
         {
           type: "environment",
@@ -109,7 +119,7 @@ export const notebookTools = {
       ],
       managementVersioning: [
         {
-          type: "built-in",
+          type: "builtIn",
         },
       ],
 
@@ -153,11 +163,16 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
+      managementComments: [
+        {
+          type: "inNotebook",
+        },
+      ],
       managementReproducability: [
         { type: "environment" },
         { type: "execution" },
       ],
-      managementVersioning: [{ type: "built-in" }],
+      managementVersioning: [{ type: "builtIn" }],
 
       licensingLicense: [],
       licensingPrice: [],

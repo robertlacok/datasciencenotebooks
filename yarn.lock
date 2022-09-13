@@ -2804,6 +2804,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^2.0.11":
+  version: 2.0.11
+  resolution: "@heroicons/react@npm:2.0.11"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 9049e12bdb9bb1cc2ebc555877f538055ae01828bda781f0a7f3b2fe17aff8b6337d8562c5984bfe09ee77e95befd4e62854a58c9900c2e2650798b15ab807c3
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.10.4":
   version: 0.10.4
   resolution: "@humanwhocodes/config-array@npm:0.10.4"
@@ -4677,6 +4686,7 @@ __metadata:
     "@chakra-ui/system": ^2.2.9
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
+    "@heroicons/react": ^2.0.11
     "@types/node": 18.7.15
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6

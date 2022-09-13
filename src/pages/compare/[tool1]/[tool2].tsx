@@ -4,9 +4,12 @@ import type {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
+import { useRouter } from "next/router";
 import { Fragment } from "react";
+import { VerticalComparisonTable } from "../../../components/ComparisonTable";
 import { Seo } from "../../../components/Seo";
 import { SidebarLayout } from "../../../components/SidebarLayout";
+import { getNotebookTool } from "../../../notebookTools";
 
 export function getStaticProps({
   params,
@@ -35,11 +38,17 @@ interface IndividualToolPageProps {
 }
 
 function IndividualToolPage({ toolName1, toolName2 }: IndividualToolPageProps) {
+  const router = useRouter();
+
+  const { tool1: tool1Id, tool2: tool2Id } = router.query;
+  const tool1 = getNotebookTool(tool1Id as string);
+  const tool2 = getNotebookTool(tool2Id as string);
+
   return (
     <Fragment>
       <Seo title={`${toolName1} vs ${toolName2} | Data science notebooks`} />
       <SidebarLayout>
-        {toolName1} vs {toolName2}
+        <VerticalComparisonTable tools={[tool1, tool2]} />
       </SidebarLayout>
     </Fragment>
   );

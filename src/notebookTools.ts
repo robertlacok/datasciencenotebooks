@@ -174,8 +174,23 @@ export const notebookTools = {
       ],
       managementVersioning: [{ type: "builtIn" }],
 
-      licensingLicense: [],
-      licensingPrice: [],
+      licensingLicense: [
+        {
+          type: "proprietary",
+        },
+      ],
+      licensingPrice: [
+        {
+          type: "freeTier",
+        },
+        {
+          type: "freeTrial",
+          length: "1 month",
+        },
+        {
+          type: "payPerUser",
+        },
+      ],
     },
   }),
 };

@@ -45,22 +45,25 @@ function IndividualToolPage({}: IndividualToolPageProps) {
         <Heading>{tool.name}</Heading>
 
         <Table>
-          {featureCategories.map((featureCategory) => {
-            return (
-              <Fragment key={featureCategory.type}>
-                <Thead>
-                  <Tr pt={8}>
-                    <Th colSpan={2}>{featureCategory.type}</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {featureCategory.features.map((featureId) => {
-                    const toolFeatureCapabilities = tool.features[featureId];
+          <Thead>
+            <Tr pt={8}>
+              {featureCategories.map((featureCategory) => {
+                return (
+                  <Th key={featureCategory.type}>{featureCategory.type}</Th>
+                );
+              })}
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              {featureCategories.map((featureCategory) => {
+                return (
+                  <Td key={featureCategory.type}>
+                    {featureCategory.features.map((featureId) => {
+                      const toolFeatureCapabilities = tool.features[featureId];
 
-                    return (
-                      <Tr key={featureId}>
-                        <Td>{featureId}</Td>
-                        <Td>
+                      return (
+                        <div key={featureId}>
                           {toolFeatureCapabilities
                             ? toolFeatureCapabilities.map(
                                 (capability, index) => (
@@ -68,14 +71,14 @@ function IndividualToolPage({}: IndividualToolPageProps) {
                                 )
                               )
                             : "Unknown"}
-                        </Td>
-                      </Tr>
-                    );
-                  })}
-                </Tbody>
-              </Fragment>
-            );
-          })}
+                        </div>
+                      );
+                    })}
+                  </Td>
+                );
+              })}
+            </Tr>
+          </Tbody>
         </Table>
       </SidebarLayout>
     </Fragment>

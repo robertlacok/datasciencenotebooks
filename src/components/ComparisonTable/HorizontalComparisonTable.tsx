@@ -1,4 +1,5 @@
 import {
+  Box,
   Table,
   TableContainer,
   Tbody,
@@ -7,56 +8,162 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import { Fragment } from "react";
 import type { NotebookTool } from "../../NotebookTool";
 import { languageNameMap } from "./notebookFeatureDetails";
 
 interface HorizontalComparisonTableProps {
   tools: NotebookTool[];
+  frozenToolIds?: string[];
 }
 
 const CELL_WIDTH = 48;
 
 export function HorizontalComparisonTable({
   tools,
+  frozenToolIds = [],
 }: HorizontalComparisonTableProps) {
+  const orderedTools = tools.sort((fst, snd) => {
+    const isFstFrozen = frozenToolIds.includes(fst.id);
+    const isSndFrozen = frozenToolIds.includes(snd.id);
+    if (isFstFrozen && isSndFrozen) {
+      return 0;
+    }
+
+    if (!isFstFrozen && !isSndFrozen) {
+      return 0;
+    }
+
+    return isFstFrozen ? -1 : 1;
+  });
+
   return (
     <Fragment>
-      <TableContainer whiteSpace="break-spaces">
-        <Table sx={{ tableLayout: "fixed" }}>
-          <Thead>
-            <Tr pt={8}>
-              <Th position="sticky" left={0} bg="white" w={CELL_WIDTH} />
-              <Th w={CELL_WIDTH}>Setup</Th>
-              <Th w={CELL_WIDTH}>Jupyter compatibility</Th>
-              <Th w={CELL_WIDTH}>Programming languages</Th>
-              <Th w={CELL_WIDTH}>Data visualization</Th>
-              <Th w={CELL_WIDTH}>Collaborative editing</Th>
-              <Th w={CELL_WIDTH}>Pricing</Th>
-              <Th w={CELL_WIDTH}>License</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {tools.map((tool) => {
-              return (
-                <Tr key={tool.id}>
-                  <Th position="sticky" left={0} w={CELL_WIDTH} bg="white">
-                    {tool.name}
-                  </Th>
-                  <Td w={CELL_WIDTH}>{getSetupSummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getJupyterCompatibilitySummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getProgrammingLanguagesSummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getDataVisualizationSummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getCollaborationSummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getPricingSummary(tool)}</Td>
-                  <Td w={CELL_WIDTH}>{getLicenseSummary(tool)}</Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
-        </Table>
-      </TableContainer>
+      <ScrollSync>
+        <div>
+          <ScrollSyncPane>
+            <TableContainer
+              sx={{
+                "&::-webkit-scrollbar": {
+                  display: "none",
+                },
+                scrollbarWidth: "none",
+              }}
+              whiteSpace="break-spaces"
+              position="sticky"
+              top={0}
+              bg="white"
+              zIndex={1}
+            >
+              <Box>
+                <Table sx={{ tableLayout: "fixed" }}>
+                  <Thead>
+                    <Tr pt={8}>
+                      <Th
+                        position="sticky"
+                        left={0}
+                        bg="white"
+                        w={CELL_WIDTH}
+                      />
+                      <Th position="sticky" top={0} w={CELL_WIDTH}>
+                        Setup
+                      </Th>
+                      <Th w={CELL_WIDTH}>Jupyter compatibility</Th>
+                      <Th w={CELL_WIDTH}>Programming languages</Th>
+                      <Th w={CELL_WIDTH}>Data visualization</Th>
+                      <Th w={CELL_WIDTH}>Collaborative editing</Th>
+                      <Th w={CELL_WIDTH}>Pricing</Th>
+                      <Th w={CELL_WIDTH}>License</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {orderedTools.map((tool) => {
+                      if (!frozenToolIds.includes(tool.id)) {
+                        return null;
+                      }
+
+                      return <NotebookToolTableRow key={tool.id} tool={tool} />;
+                    })}
+                  </Tbody>
+                </Table>
+              </Box>
+            </TableContainer>
+          </ScrollSyncPane>
+          <ScrollSyncPane>
+            <TableContainer
+              sx={{
+                "&::-webkit-scrollbar": {
+                  display: "none",
+                },
+                scrollbarWidth: "none",
+              }}
+              whiteSpace="break-spaces"
+            >
+              <Table sx={{ tableLayout: "fixed" }}>
+                <Tbody>
+                  {orderedTools.map((tool) => {
+                    if (frozenToolIds.includes(tool.id)) {
+                      return null;
+                    }
+
+                    return <NotebookToolTableRow key={tool.id} tool={tool} />;
+                  })}
+                </Tbody>
+              </Table>
+              {/* extra-large container to force scrolling so we can test sticky scroll */}
+              <Box h="xl" />
+            </TableContainer>
+          </ScrollSyncPane>
+          <ScrollSyncPane>
+            <TableContainer position="sticky" bottom={0}>
+              <Table sx={{ tableLayout: "fixed" }}>
+                <Tbody>
+                  <Tr>
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                    <Td w={CELL_WIDTH} />
+                  </Tr>
+                </Tbody>
+              </Table>
+            </TableContainer>
+          </ScrollSyncPane>
+        </div>
+      </ScrollSync>
     </Fragment>
+  );
+}
+
+interface NotebookToolTableRowProps {
+  tool: NotebookTool;
+}
+
+function NotebookToolTableRow({ tool }: NotebookToolTableRowProps) {
+  return (
+    <Tr>
+      <Td
+        position="sticky"
+        left={0}
+        w={CELL_WIDTH}
+        bg="white"
+        fontSize="lg"
+        fontWeight="bold"
+      >
+        {tool.name}
+      </Td>
+      <Td w={CELL_WIDTH}>{getSetupSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getJupyterCompatibilitySummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getProgrammingLanguagesSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getDataVisualizationSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getCollaborationSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getPricingSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{getLicenseSummary(tool)}</Td>
+    </Tr>
   );
 }
 

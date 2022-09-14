@@ -1,3 +1,4 @@
+import { Box, Heading, Text } from "@chakra-ui/react";
 import type {
   GetStaticPathsContext,
   GetStaticPathsResult,
@@ -6,10 +7,16 @@ import type {
 } from "next";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
-import { VerticalComparisonTable } from "../../../components/ComparisonTable";
+import {
+  ComparisonTableRow,
+  ComparisonTableSideCell,
+  ComparisonTableToolCell,
+  HorizontalComparisonTable,
+  VerticalComparisonTable,
+} from "../../../components/ComparisonTable";
 import { Seo } from "../../../components/Seo";
 import { SidebarLayout } from "../../../components/SidebarLayout";
-import { getNotebookTool } from "../../../notebookTools";
+import { getNotebookTool, notebookTools } from "../../../notebookTools";
 
 export function getStaticProps({
   params,
@@ -46,9 +53,26 @@ function IndividualToolPage({ toolName1, toolName2 }: IndividualToolPageProps) {
 
   return (
     <Fragment>
-      <Seo title={`${toolName1} vs ${toolName2} | Data science notebooks`} />
+      <Seo title={`${tool1.name} vs ${tool2.name} | Data science notebooks`} />
       <SidebarLayout>
-        <VerticalComparisonTable tools={[tool1, tool2]} />
+        <ComparisonTableRow mb={12} pt={12}>
+          <ComparisonTableSideCell />
+          <ComparisonTableToolCell>
+            <Heading as="h1" size="2xl" color="gray.800" mb={4}>
+              {tool1.name} vs {tool2.name}
+            </Heading>
+            <Text fontSize="lg" color="gray.600">
+              Comparing two data science notebooks.
+            </Text>
+          </ComparisonTableToolCell>
+        </ComparisonTableRow>
+        <Box mb={12}>
+          <VerticalComparisonTable tools={[tool1, tool2]} />
+        </Box>
+        <HorizontalComparisonTable
+          frozenToolIds={[tool1.id, tool2.id]}
+          tools={Object.values(notebookTools)}
+        />
       </SidebarLayout>
     </Fragment>
   );

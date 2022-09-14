@@ -3467,6 +3467,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-scroll-sync@npm:^0.8.4":
+  version: 0.8.4
+  resolution: "@types/react-scroll-sync@npm:0.8.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: 74c34b10bf5c0ceae944fa43da647b66213e2354402874baecdac45b32648094fe3c274a1ea18e4c24e66388db597725fce6db4b4dd484c4e723e043ac5effae
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*, @types/react@npm:18.0.18":
   version: 18.0.18
   resolution: "@types/react@npm:18.0.18"
@@ -4690,6 +4699,7 @@ __metadata:
     "@types/node": 18.7.15
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
+    "@types/react-scroll-sync": ^0.8.4
     eslint: 8.23.0
     eslint-config-next: 12.2.5
     eslint-config-prettier: ^8.5.0
@@ -4699,6 +4709,7 @@ __metadata:
     prettier: ^2.7.1
     react: 18.2.0
     react-dom: 18.2.0
+    react-scroll-sync: ^0.11.0
     typescript: 4.8.2
     vercel: ^28.2.2
   languageName: unknown
@@ -7543,7 +7554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -7690,6 +7701,18 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 2c7fe9cbd766f5e54beb4bec2e2efb2de3583037b23fef8fa511ab426ed7f1ae992382db5acd8ab5bfb030a4b93a06a2ebca41377d6eeaf0e6791bb0a59616a4
+  languageName: node
+  linkType: hard
+
+"react-scroll-sync@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "react-scroll-sync@npm:0.11.0"
+  dependencies:
+    prop-types: ^15.5.7
+  peerDependencies:
+    react: 16.x || 17.x || 18.x
+    react-dom: 16.x || 17.x || 18.x
+  checksum: 8b505cc8c4e83aa3e11d9a7f60677694a10dcd0f9d5818767b3364dff5b461b32ee707bd7bac0ebefd1662c8c49f066ef9871703208f4bd6a23937d37e73809f
   languageName: node
   linkType: hard
 

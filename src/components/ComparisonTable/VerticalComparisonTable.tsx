@@ -14,7 +14,7 @@ export function VerticalComparisonTable({
   tools,
 }: VerticalComparisonTableProps) {
   return (
-    <Fragment>
+    <div>
       <ComparisonTableRow py={4} bgColor="white" position="sticky" top="0">
         <ComparisonTableSideCell />
         {tools.map((tool) => {
@@ -85,7 +85,7 @@ export function VerticalComparisonTable({
           </Fragment>
         );
       })}
-    </Fragment>
+    </div>
   );
 }
 
@@ -96,14 +96,16 @@ const categoryNames = {
   licensing: "Licensing",
 };
 
-function ComparisonTableRow(props: FlexProps) {
+export function ComparisonTableRow(props: FlexProps) {
   return <Flex p={1} {...props} />;
 }
 
-function ComparisonTableSideCell(props: BoxProps) {
+export const COMPARISON_TABLE_SIDE_CELL_WIDTH = 64;
+
+export function ComparisonTableSideCell(props: BoxProps) {
   return <Box pr={1} py={1} pl={3} flex="0 0 auto" w={64} {...props} />;
 }
 
-function ComparisonTableToolCell(props: BoxProps) {
+export function ComparisonTableToolCell(props: BoxProps) {
   return <Box px={4} py={1} flex="1 0 auto" w={128} {...props} />;
 }

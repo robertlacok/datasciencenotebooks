@@ -5,6 +5,7 @@ import type {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import {
@@ -16,7 +17,12 @@ import {
 } from "../../../components/ComparisonTable";
 import { Seo } from "../../../components/Seo";
 import { SidebarLayout } from "../../../components/SidebarLayout";
-import { getNotebookTool, notebookTools } from "../../../notebookTools";
+import {
+  getNotebookTool,
+  notebookToolIds,
+  notebookTools,
+} from "../../../notebookTools";
+import { routes } from "../../../routes";
 
 export function getStaticProps({
   params,
@@ -35,7 +41,11 @@ export function getStaticProps({
 export function getStaticPaths({}: GetStaticPathsContext): GetStaticPathsResult {
   return {
     fallback: false,
-    paths: ["/compare/jupyter/deepnote", "/compare/deepnote/jupyter"],
+    paths: notebookToolIds.flatMap((tool1) =>
+      notebookToolIds
+        .filter((tool2) => tool1 !== tool2)
+        .map((tool2) => routes.compare({ tool1, tool2 }))
+    ),
   };
 }
 
@@ -54,6 +64,12 @@ function IndividualToolPage({ toolName1, toolName2 }: IndividualToolPageProps) {
   return (
     <Fragment>
       <Seo title={`${tool1.name} vs ${tool2.name} | Data science notebooks`} />
+      <Head>
+        <link
+          rel="canonical"
+          href={routes.compareCanonical({ tool1: tool1.id, tool2: tool2.id })}
+        />
+      </Head>
       <SidebarLayout>
         <ComparisonTableRow mb={12} pt={12}>
           <ComparisonTableSideCell />

@@ -24,17 +24,12 @@ import {
 } from "../../../notebookTools";
 import { routes } from "../../../routes";
 
-export function getStaticProps({
-  params,
-}: GetStaticPropsContext<{
+export function getStaticProps({}: GetStaticPropsContext<{
   tool1: string;
   tool2: string;
 }>): GetStaticPropsResult<IndividualToolPageProps> {
   return {
-    props: {
-      toolName1: params?.tool1 ?? "",
-      toolName2: params?.tool2 ?? "",
-    },
+    props: {},
   };
 }
 
@@ -49,12 +44,9 @@ export function getStaticPaths({}: GetStaticPathsContext): GetStaticPathsResult 
   };
 }
 
-interface IndividualToolPageProps {
-  toolName1: string;
-  toolName2: string;
-}
+interface IndividualToolPageProps {}
 
-function IndividualToolPage({ toolName1, toolName2 }: IndividualToolPageProps) {
+function IndividualToolPage({}: IndividualToolPageProps) {
   const router = useRouter();
 
   const { tool1: tool1Id, tool2: tool2Id } = router.query;
@@ -85,8 +77,16 @@ function IndividualToolPage({ toolName1, toolName2 }: IndividualToolPageProps) {
         <Box mb={12}>
           <VerticalComparisonTable tools={[tool1, tool2]} />
         </Box>
+        <ComparisonTableRow mb={2} mt={6}>
+          <ComparisonTableSideCell />
+          <ComparisonTableToolCell>
+            <Heading as="h2" size="lg" color="gray.800" mb={4}>
+              Compare with other tools
+            </Heading>
+          </ComparisonTableToolCell>
+        </ComparisonTableRow>
         <HorizontalComparisonTable
-          frozenToolIds={[tool1.id, tool2.id]}
+          toolsToCompare={[tool1, tool2]}
           tools={Object.values(notebookTools)}
         />
       </SidebarLayout>

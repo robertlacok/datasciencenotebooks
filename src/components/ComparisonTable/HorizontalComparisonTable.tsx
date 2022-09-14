@@ -7,36 +7,28 @@ import {
   Th,
   Thead,
   Tr,
+  Link,
 } from "@chakra-ui/react";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 import type { NotebookTool } from "../../NotebookTool";
 import { languageNameMap } from "./notebookFeatureDetails";
+import NextLink from "next/link";
+import { routes } from "../../routes";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 interface HorizontalComparisonTableProps {
   tools: NotebookTool[];
-  frozenToolIds?: string[];
+  toolsToCompare?: NotebookTool[];
 }
 
 const CELL_WIDTH = 48;
 
 export function HorizontalComparisonTable({
   tools,
-  frozenToolIds = [],
+  toolsToCompare = [],
 }: HorizontalComparisonTableProps) {
-  const orderedTools = tools.sort((fst, snd) => {
-    const isFstFrozen = frozenToolIds.includes(fst.id);
-    const isSndFrozen = frozenToolIds.includes(snd.id);
-    if (isFstFrozen && isSndFrozen) {
-      return 0;
-    }
-
-    if (!isFstFrozen && !isSndFrozen) {
-      return 0;
-    }
-
-    return isFstFrozen ? -1 : 1;
-  });
+  const toolsToCompareIds = new Set(toolsToCompare.map((tool) => tool.id));
 
   return (
     <Fragment>
@@ -65,6 +57,7 @@ export function HorizontalComparisonTable({
                         left={0}
                         bg="white"
                         w={CELL_WIDTH}
+                        zIndex={2}
                       />
                       <Th position="sticky" top={0} w={CELL_WIDTH}>
                         Setup
@@ -78,12 +71,14 @@ export function HorizontalComparisonTable({
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {orderedTools.map((tool) => {
-                      if (!frozenToolIds.includes(tool.id)) {
-                        return null;
-                      }
-
-                      return <NotebookToolTableRow key={tool.id} tool={tool} />;
+                    {toolsToCompare.map((tool) => {
+                      return (
+                        <NotebookToolTableRow
+                          key={tool.id}
+                          toolsToCompare={[]}
+                          tool={tool}
+                        />
+                      );
                     })}
                   </Tbody>
                 </Table>
@@ -102,12 +97,18 @@ export function HorizontalComparisonTable({
             >
               <Table sx={{ tableLayout: "fixed" }}>
                 <Tbody>
-                  {orderedTools.map((tool) => {
-                    if (frozenToolIds.includes(tool.id)) {
+                  {tools.map((tool) => {
+                    if (toolsToCompareIds.has(tool.id)) {
                       return null;
                     }
 
-                    return <NotebookToolTableRow key={tool.id} tool={tool} />;
+                    return (
+                      <NotebookToolTableRow
+                        key={tool.id}
+                        toolsToCompare={toolsToCompare}
+                        tool={tool}
+                      />
+                    );
                   })}
                 </Tbody>
               </Table>
@@ -141,20 +142,60 @@ export function HorizontalComparisonTable({
 
 interface NotebookToolTableRowProps {
   tool: NotebookTool;
+  toolsToCompare: NotebookTool[];
 }
 
-function NotebookToolTableRow({ tool }: NotebookToolTableRowProps) {
+function NotebookToolTableRow({
+  tool,
+  toolsToCompare,
+}: NotebookToolTableRowProps) {
+  const usableToolsToCompare = toolsToCompare.filter(
+    (toolToCompare) => toolToCompare.id !== tool.id
+  );
+
   return (
     <Tr>
-      <Td
-        position="sticky"
-        left={0}
-        w={CELL_WIDTH}
-        bg="white"
-        fontSize="lg"
-        fontWeight="bold"
-      >
-        {tool.name}
+      <Td position="sticky" left={0} w={CELL_WIDTH} bg="white">
+        <NextLink href={routes.tool({ tool: tool.id })} passHref>
+          <Link
+            display="flex"
+            alignItems="center"
+            fontSize="lg"
+            fontWeight="bold"
+          >
+            <Box w={6} h={6} mr={2}>
+              <ArrowRightCircleIcon />
+            </Box>
+            {tool.name}
+          </Link>
+        </NextLink>
+        {usableToolsToCompare.length > 0 ? (
+          <Box fontSize="xs" mt={2}>
+            Compare with
+            <Box display="inline-block">
+              {usableToolsToCompare.map((toolToCompare, index) => {
+                const elements: ReactNode[] = [
+                  <NextLink
+                    key={toolToCompare.id}
+                    href={routes.compareCanonical({
+                      tool1: tool.id,
+                      tool2: toolToCompare.id,
+                    })}
+                    passHref
+                  >
+                    <Link color="blue.600">{toolToCompare.name}</Link>
+                  </NextLink>,
+                ];
+
+                if (index !== usableToolsToCompare.length - 1) {
+                  elements.push(", ");
+                }
+
+                return elements;
+              })}
+            </Box>
+          </Box>
+        ) : null}
       </Td>
       <Td w={CELL_WIDTH}>{getSetupSummary(tool)}</Td>
       <Td w={CELL_WIDTH}>{getJupyterCompatibilitySummary(tool)}</Td>

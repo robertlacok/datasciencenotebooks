@@ -13,9 +13,7 @@ export function Seo({
     <Head>
       <title>{title}</title>
       {description ? (
-        <meta key="description" name="description">
-          {description}
-        </meta>
+        <meta key="description" name="description" content={description} />
       ) : null}
 
       <meta key="og:title" property="og:title" content={title} />

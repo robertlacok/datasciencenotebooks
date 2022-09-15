@@ -21,7 +21,10 @@ import type { NotebookTool } from "../NotebookTool";
 function Home() {
   return (
     <Fragment>
-      <Seo />
+      <Seo
+        title="Data science notebooks"
+        description="Data science gets done in notebooks. Compare different notebook tools at datasciencenotebook.org."
+      />
       <SidebarLayout>
         <Box w="container.md" pt={12} px={4} mx="auto">
           <Box mb={16}>

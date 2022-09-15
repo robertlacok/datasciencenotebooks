@@ -72,13 +72,10 @@ function ToolCard({ tool }: ToolCardProps) {
       borderColor="gray.200"
       borderWidth="1px"
       borderStyle="solid"
-      cursor="pointer"
       sx={{
         breakInside: "avoid",
       }}
     >
-      {/* <NextLink href={routes.tool({ tool: tool.id })} passHref>
-        <LinkOverlay> */}
       {tool.screenshot ? (
         <Box mb={4} borderRadius="md" overflow="hidden">
           <Image
@@ -117,8 +114,6 @@ function ToolCard({ tool }: ToolCardProps) {
           ) : null}
         </ButtonGroup>
       </Flex>
-      {/* </LinkOverlay>
-      </NextLink> */}
     </LinkBox>
   );
 }

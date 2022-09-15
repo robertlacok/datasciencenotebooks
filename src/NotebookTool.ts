@@ -1,9 +1,13 @@
+import type { StaticImageData } from "next/image";
+
 export interface NotebookTool {
   name: string;
   id: string;
   lastUpdatedAt: string;
   features: NotebookFeaturesRecord;
   description: string;
+  screenshot?: StaticImageData;
+  websiteUrl?: string;
 }
 
 export const createNotebookTool = (tool: NotebookTool) => tool;

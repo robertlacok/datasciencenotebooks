@@ -8,6 +8,7 @@ import {
   Thead,
   Tr,
   Link,
+  TableContainerProps,
 } from "@chakra-ui/react";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import { Fragment, ReactNode } from "react";
@@ -16,13 +17,22 @@ import { languageNameMap } from "./notebookFeatureDetails";
 import NextLink from "next/link";
 import { routes } from "../../routes";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import { cssVar, HTMLChakraProps } from "@chakra-ui/system";
 
 interface HorizontalComparisonTableProps {
   tools: NotebookTool[];
   toolsToCompare?: NotebookTool[];
 }
 
+const mainContainerGutter = cssVar("main-container-gutter");
+
 const CELL_WIDTH = 48;
+
+const scrollPushVars = {
+  sideBarWidth: cssVar("sidebar-width"),
+  containerWidth: cssVar("container-width"),
+  containerPadding: cssVar("container-padding"),
+};
 
 export function HorizontalComparisonTable({
   tools,
@@ -33,7 +43,11 @@ export function HorizontalComparisonTable({
   return (
     <Fragment>
       <ScrollSync>
-        <div>
+        <Box
+          sx={{
+            [mainContainerGutter.variable]: `calc((100vw - var(--chakra-sizes-container-md) - var(--chakra-sizes-64)) / 2 - var(--chakra-space-1))`,
+          }}
+        >
           <ScrollSyncPane>
             <TableContainer
               sx={{
@@ -48,33 +62,30 @@ export function HorizontalComparisonTable({
               bg="white"
               zIndex={1}
             >
-              <Box>
+              <OffsetHorizontalScrollBox>
                 <Table sx={{ tableLayout: "fixed" }}>
                   <Thead>
                     <Tr pt={8}>
-                      <Th
-                        position="sticky"
-                        left={0}
-                        bg="white"
-                        w={CELL_WIDTH}
-                        zIndex={2}
-                      />
-                      <Th position="sticky" top={0} w={CELL_WIDTH}>
+                      <TableTh position="sticky" left={0} zIndex={2}>
+                        Tool
+                      </TableTh>
+                      <TableTh position="sticky" top={0}>
                         Setup
-                      </Th>
-                      <Th w={CELL_WIDTH}>Jupyter compatibility</Th>
-                      <Th w={CELL_WIDTH}>Programming languages</Th>
-                      <Th w={CELL_WIDTH}>Data visualization</Th>
-                      <Th w={CELL_WIDTH}>Collaborative editing</Th>
-                      <Th w={CELL_WIDTH}>Pricing</Th>
-                      <Th w={CELL_WIDTH}>License</Th>
+                      </TableTh>
+                      <TableTh>Jupyter compatibility</TableTh>
+                      <TableTh>Programming languages</TableTh>
+                      <TableTh>Data visualization</TableTh>
+                      <TableTh>Collaborative editing</TableTh>
+                      <TableTh>Pricing</TableTh>
+                      <TableTh>License</TableTh>
                     </Tr>
                   </Thead>
                   <Tbody>
                     {toolsToCompare.map((tool) => {
                       return (
-                        <NotebookToolTableRow
+                        <TableToolRow
                           key={tool.id}
+                          isComparison
                           toolsToCompare={[]}
                           tool={tool}
                         />
@@ -82,7 +93,7 @@ export function HorizontalComparisonTable({
                     })}
                   </Tbody>
                 </Table>
-              </Box>
+              </OffsetHorizontalScrollBox>
             </TableContainer>
           </ScrollSyncPane>
           <ScrollSyncPane>
@@ -95,66 +106,81 @@ export function HorizontalComparisonTable({
               }}
               whiteSpace="break-spaces"
             >
-              <Table sx={{ tableLayout: "fixed" }}>
-                <Tbody>
-                  {tools.map((tool) => {
-                    if (toolsToCompareIds.has(tool.id)) {
-                      return null;
-                    }
+              <OffsetHorizontalScrollBox>
+                <Table sx={{ tableLayout: "fixed" }}>
+                  <Tbody>
+                    {tools.map((tool) => {
+                      if (toolsToCompareIds.has(tool.id)) {
+                        return null;
+                      }
 
-                    return (
-                      <NotebookToolTableRow
-                        key={tool.id}
-                        toolsToCompare={toolsToCompare}
-                        tool={tool}
-                      />
-                    );
-                  })}
-                </Tbody>
-              </Table>
+                      return (
+                        <TableToolRow
+                          key={tool.id}
+                          toolsToCompare={toolsToCompare}
+                          tool={tool}
+                        />
+                      );
+                    })}
+                  </Tbody>
+                </Table>
+              </OffsetHorizontalScrollBox>
               {/* extra-large container to force scrolling so we can test sticky scroll */}
               <Box h="xl" />
             </TableContainer>
           </ScrollSyncPane>
           <ScrollSyncPane>
             <TableContainer position="sticky" bottom={0}>
-              <Table sx={{ tableLayout: "fixed" }}>
-                <Tbody>
-                  <Tr>
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                    <Td w={CELL_WIDTH} />
-                  </Tr>
-                </Tbody>
-              </Table>
+              <OffsetHorizontalScrollBox>
+                <Table sx={{ tableLayout: "fixed" }}>
+                  <Tbody>
+                    <Tr>
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                      <Td w={CELL_WIDTH} />
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </OffsetHorizontalScrollBox>
             </TableContainer>
           </ScrollSyncPane>
-        </div>
+        </Box>
       </ScrollSync>
     </Fragment>
   );
 }
 
-interface NotebookToolTableRowProps {
+interface TableToolRowProps {
   tool: NotebookTool;
   toolsToCompare: NotebookTool[];
+  isComparison?: boolean;
 }
 
-function NotebookToolTableRow({
+function TableToolRow({
   tool,
   toolsToCompare,
-}: NotebookToolTableRowProps) {
+  isComparison,
+}: TableToolRowProps) {
   const usableToolsToCompare = toolsToCompare.filter(
     (toolToCompare) => toolToCompare.id !== tool.id
   );
 
   return (
-    <Tr>
+    <Tr
+      sx={{
+        "&.is-comparison td": {
+          bg: "blue.50",
+          borderColor: "blue.200",
+          color: "blue.800",
+        },
+      }}
+      className={isComparison ? "is-comparison" : ""}
+    >
       <Td position="sticky" left={0} w={CELL_WIDTH} bg="white">
         <NextLink href={routes.tool({ tool: tool.id })} passHref>
           <Link
@@ -205,6 +231,34 @@ function NotebookToolTableRow({
       <Td w={CELL_WIDTH}>{getPricingSummary(tool)}</Td>
       <Td w={CELL_WIDTH}>{getLicenseSummary(tool)}</Td>
     </Tr>
+  );
+}
+
+function TableTh(props: HTMLChakraProps<"th">) {
+  return (
+    <Th
+      w={CELL_WIDTH}
+      borderColor="gray.400"
+      borderBottomWidth="medium"
+      bg="white"
+      verticalAlign="bottom"
+      color="gray.700"
+      {...props}
+    />
+  );
+}
+
+function OffsetHorizontalScrollBox(props: TableContainerProps) {
+  return (
+    <Box
+      sx={{
+        [scrollPushVars.containerPadding.variable]: "spacing.4",
+        [scrollPushVars.containerWidth.variable]: "container.lg",
+        [scrollPushVars.sideBarWidth.variable]: "64",
+        paddingLeft: mainContainerGutter.reference,
+      }}
+      {...props}
+    />
   );
 }
 

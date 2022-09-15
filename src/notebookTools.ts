@@ -1,5 +1,9 @@
 import { createNotebookTool } from "./NotebookTool";
 
+import jupyterScreenshot from "./toolScreenshots/jupyter.png";
+import deepnoteScreenshot from "./toolScreenshots/deepnote.png";
+import observableScreenshot from "./toolScreenshots/observable.png";
+
 export const notebookTools = {
   jupyter: createNotebookTool({
     name: "Jupyter",
@@ -7,6 +11,8 @@ export const notebookTools = {
     description:
       "Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages. There's a number of vendors offering Jupyter notebooks as a managed service.",
     lastUpdatedAt: "2022-09-07T23:40:01.819Z",
+    screenshot: jupyterScreenshot,
+    websiteUrl: "https://jupyter.org/",
     features: {
       setupManaged: [{ type: "no" }],
       setupSelfHost: [{ type: "yes", setupTime: "hours" }],
@@ -41,6 +47,8 @@ export const notebookTools = {
     description:
       "Deepnote is a new kind of data science notebook. Jupyter-compatible with real-time collaboration and running in the cloud. Oh, and it's free.",
     lastUpdatedAt: "2022-09-07T23:40:01.819Z",
+    screenshot: deepnoteScreenshot,
+    websiteUrl: "https://deepnote.com/",
     features: {
       setupManaged: [
         {
@@ -147,6 +155,8 @@ export const notebookTools = {
     id: "observable",
     lastUpdatedAt: "2022-09-07T23:40:01.819Z",
     description: "",
+    screenshot: observableScreenshot,
+    websiteUrl: "https://observablehq.com/",
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "no" }],
@@ -215,6 +225,8 @@ const _dummyExampleNotebookTool = createNotebookTool({
   id: "",
   lastUpdatedAt: "",
   description: "",
+  screenshot: undefined,
+  websiteUrl: undefined,
   features: {
     setupManaged: [],
     setupSelfHost: [],

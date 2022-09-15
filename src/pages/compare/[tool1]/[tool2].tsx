@@ -9,12 +9,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import {
-  ComparisonTableRow,
-  ComparisonTableSideCell,
-  ComparisonTableToolCell,
   HorizontalComparisonTable,
   VerticalComparisonTable,
 } from "../../../components/ComparisonTable";
+import { ContentContainer } from "../../../components/ContentContainer";
 import { Seo } from "../../../components/Seo";
 import { SidebarLayout } from "../../../components/SidebarLayout";
 import {
@@ -63,28 +61,25 @@ function IndividualToolPage({}: IndividualToolPageProps) {
         />
       </Head>
       <SidebarLayout>
-        <ComparisonTableRow mb={12} pt={12}>
-          <ComparisonTableSideCell />
-          <ComparisonTableToolCell>
+        <ContentContainer>
+          <Box mb={12} pt={12}>
             <Heading as="h1" size="2xl" color="gray.800" mb={4}>
               {tool1.name} vs {tool2.name}
             </Heading>
             <Text fontSize="lg" color="gray.600">
               Comparing two data science notebooks.
             </Text>
-          </ComparisonTableToolCell>
-        </ComparisonTableRow>
-        <Box mb={12}>
-          <VerticalComparisonTable tools={[tool1, tool2]} />
-        </Box>
-        <ComparisonTableRow mb={2} mt={6}>
-          <ComparisonTableSideCell />
-          <ComparisonTableToolCell>
-            <Heading as="h2" size="lg" color="gray.800" mb={4}>
-              Compare with other tools
-            </Heading>
-          </ComparisonTableToolCell>
-        </ComparisonTableRow>
+          </Box>
+          <Box mb={12}>
+            <VerticalComparisonTable tools={[tool1, tool2]} />
+          </Box>
+        </ContentContainer>
+        <ContentContainer>
+          <Heading as="h2" size="lg" color="gray.800" mb={4}>
+            Compare with other tools
+          </Heading>
+        </ContentContainer>
+
         <HorizontalComparisonTable
           toolsToCompare={[tool1, tool2]}
           tools={Object.values(notebookTools)}

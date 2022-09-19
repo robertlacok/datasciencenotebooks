@@ -14,21 +14,21 @@ import {
   HorizontalComparisonTable,
   notebookFeatureDetails,
   renderFeatureItem,
-} from "../components/ComparisonTable";
-import { ContentContainer } from "../components/ContentContainer";
-import { Seo } from "../components/Seo";
-import { SidebarLayout } from "../components/SidebarLayout";
+} from "../../components/ComparisonTable";
+import { ContentContainer } from "../../components/ContentContainer";
+import { Seo } from "../../components/Seo";
+import { SidebarLayout } from "../../components/SidebarLayout";
 import {
   featureCategories,
   FeatureCategory,
   NotebookTool,
-} from "../NotebookTool";
+} from "../../NotebookTool";
 import {
   getNotebookTool,
   notebookToolIds,
   notebookTools,
-} from "../notebookTools";
-import { routes } from "../routes";
+} from "../../notebookTools";
+import { routes } from "../../routes";
 
 export function getStaticProps({
   params,
@@ -43,7 +43,7 @@ export function getStaticProps({
 export function getStaticPaths({}: GetStaticPathsContext): GetStaticPathsResult {
   return {
     fallback: false,
-    paths: notebookToolIds.map((tool) => routes.tool({ tool })),
+    paths: notebookToolIds.map((tool) => routes.toolAlternatives({ tool })),
   };
 }
 
@@ -57,12 +57,12 @@ function IndividualToolPage({}: IndividualToolPageProps) {
 
   return (
     <Fragment>
-      <Seo title={`${tool.name} | Data science notebooks`} />
+      <Seo title={`Alternatives to ${tool.name} | Data science notebooks`} />
       <SidebarLayout>
         <ContentContainer>
           <Box mb={12} pt={12}>
             <Heading as="h1" size="2xl" color="gray.800">
-              {tool.name}
+              Alternatives to {tool.name}
             </Heading>
             {tool.screenshot ? (
               <Box maxWidth="md" mt={4}>
@@ -74,21 +74,29 @@ function IndividualToolPage({}: IndividualToolPageProps) {
                 {tool.description}
               </Text>
             ) : null}
-            <Box mt={4}>
-              <Button
-                as="a"
-                rel="noopener noreferrer"
-                href={tool.websiteUrl}
-                rightIcon={
-                  <Box w={5}>
-                    <ArrowTopRightOnSquareIcon />
-                  </Box>
-                }
-              >
-                Website
-              </Button>
-            </Box>
+            {tool.websiteUrl ? (
+              <Box mt={4}>
+                <Button
+                  as="a"
+                  rel="noopener noreferrer"
+                  href={tool.websiteUrl}
+                  rightIcon={
+                    <Box w={5}>
+                      <ArrowTopRightOnSquareIcon />
+                    </Box>
+                  }
+                >
+                  Website
+                </Button>
+              </Box>
+            ) : null}
           </Box>
+        </ContentContainer>
+        <HorizontalComparisonTable
+          toolsToCompare={[tool]}
+          tools={Object.values(notebookTools)}
+        />
+        <ContentContainer mt={8}>
           <Heading as="h2" size="lg" color="gray.800" mb={4}>
             {tool.name} breakdown
           </Heading>
@@ -102,18 +110,6 @@ function IndividualToolPage({}: IndividualToolPageProps) {
             ))}
           </Box>
         </ContentContainer>
-        <ContentContainer mb={4} mt={8}>
-          <Heading as="h2" size="lg" color="gray.800" mb={4}>
-            Alternatives to {tool.name}
-          </Heading>
-          <Text fontSize="lg" color="gray.600">
-            Compare {tool.name} with other data science notebook tools.
-          </Text>
-        </ContentContainer>
-        <HorizontalComparisonTable
-          toolsToCompare={[tool]}
-          tools={Object.values(notebookTools)}
-        />
       </SidebarLayout>
     </Fragment>
   );

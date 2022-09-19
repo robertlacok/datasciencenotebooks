@@ -19,7 +19,7 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
 
     for (const toolId of notebookToolIds) {
       stream.write({
-        url: routes.tool({ tool: toolId }),
+        url: routes.toolAlternatives({ tool: toolId }),
         changefreq: "weekly",
         priority: 0.8,
         lastmod: findLastUpdated([notebookTools[toolId]]),

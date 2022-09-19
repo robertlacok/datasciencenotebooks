@@ -64,15 +64,11 @@ export function VerticalComparisonTable({
               </Text>
               <Box>
                 <ButtonGroup>
-                  <NextLink href={routes.tool({ tool: tool.id })} passHref>
-                    <Button as="a">More info</Button>
-                  </NextLink>
                   {tool.websiteUrl ? (
                     <NextLink href={tool.websiteUrl} passHref>
                       <Button
                         as="a"
                         rel="noopener noreferrer"
-                        variant="ghost"
                         rightIcon={
                           <Box w={5}>
                             <ArrowTopRightOnSquareIcon />
@@ -83,6 +79,14 @@ export function VerticalComparisonTable({
                       </Button>
                     </NextLink>
                   ) : null}
+                  <NextLink
+                    href={routes.toolAlternatives({ tool: tool.id })}
+                    passHref
+                  >
+                    <Button as="a" variant="ghost">
+                      Alternatives
+                    </Button>
+                  </NextLink>
                 </ButtonGroup>
               </Box>
             </ComparisonTableToolCell>

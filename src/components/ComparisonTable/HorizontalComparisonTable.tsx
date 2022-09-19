@@ -182,7 +182,7 @@ function TableToolRow({
       className={isComparison ? "is-comparison" : ""}
     >
       <Td position="sticky" left={0} w={CELL_WIDTH} bg="white">
-        <NextLink href={routes.tool({ tool: tool.id })} passHref>
+        <NextLink href={routes.toolAlternatives({ tool: tool.id })} passHref>
           <Link
             display="flex"
             alignItems="center"

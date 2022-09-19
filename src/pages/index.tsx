@@ -29,13 +29,8 @@ function Home() {
         <Box w="container.md" pt={12} px={4} mx="auto">
           <Box mb={16}>
             <Heading size="xl" mb={4} color="gray.800">
-              Data science notebooks
+              Explore notebook tools
             </Heading>
-            <Text lineHeight="tall" color="gray.600">
-              Data science gets done in notebooks. They are a powerful interface
-              for exploratory programming, and the flexible format allows
-              combining code with visualisations and insights.
-            </Text>
           </Box>
           <Box
             columnGap="4"
@@ -93,15 +88,11 @@ function ToolCard({ tool }: ToolCardProps) {
       </Text>
       <Flex justifyContent="flex-start">
         <ButtonGroup>
-          <NextLink href={routes.tool({ tool: tool.id })} passHref>
-            <Button as="a">More info</Button>
-          </NextLink>
           {tool.websiteUrl ? (
             <NextLink href={tool.websiteUrl} passHref>
               <Button
                 as="a"
                 rel="noopener noreferrer"
-                variant="ghost"
                 rightIcon={
                   <Box w={5}>
                     <ArrowTopRightOnSquareIcon />
@@ -112,6 +103,11 @@ function ToolCard({ tool }: ToolCardProps) {
               </Button>
             </NextLink>
           ) : null}
+          <NextLink href={routes.toolAlternatives({ tool: tool.id })} passHref>
+            <Button as="a" variant="ghost">
+              Alternatives
+            </Button>
+          </NextLink>
         </ButtonGroup>
       </Flex>
     </LinkBox>

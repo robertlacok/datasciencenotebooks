@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Head>
         <link rel="favicon" href="/favicon.ico" sizes="any" />
-        <link rel="favicon" href={faviconSvg} type="image/svg+xml" />
+        <link rel="favicon" href={faviconSvg.src} type="image/svg+xml" />
       </Head>
       <Component {...pageProps} />
     </ChakraProvider>

@@ -315,19 +315,19 @@ export const notebookFeatureDetails: {
         case "effortful":
           return (
             <NotebookFeatureListItem icon={ExclamationTriangleIcon}>
-              With effort, you can make reproducable environments
+              With effort, you can make reproducible environments
             </NotebookFeatureListItem>
           );
         case "environment":
           return (
             <NotebookFeatureListItem icon={ArrowPathRoundedSquareIcon}>
-              Environments are reproducable by default
+              Environments are reproducible by default
             </NotebookFeatureListItem>
           );
         case "execution":
           return (
             <NotebookFeatureListItem icon={ArrowPathRoundedSquareIcon}>
-              Execution is reproducable by default
+              Execution is reproducible by default
             </NotebookFeatureListItem>
           );
         case "none":

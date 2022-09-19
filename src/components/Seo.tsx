@@ -1,5 +1,6 @@
 import Head from "next/head";
-
+import { PUBLIC_URL } from "../config";
+import socialImageUrl from "../images/social-image.png";
 interface SeoProps {
   title?: string;
   description?: string;
@@ -24,6 +25,11 @@ export function Seo({
           content={description}
         />
       ) : null}
+      <meta
+        key="og:image"
+        property="og:image"
+        content={new URL(socialImageUrl.src, PUBLIC_URL).href}
+      />
     </Head>
   );
 }

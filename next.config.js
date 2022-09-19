@@ -6,7 +6,7 @@ function getDevelopmentServerEnv(phase) {
   }
 
   return {
-    PUBLIC_URL: "http://localhost:3000",
+    NEXT_PUBLIC_URL: "http://localhost:3000",
   };
 }
 

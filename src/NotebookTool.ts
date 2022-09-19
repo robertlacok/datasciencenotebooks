@@ -83,7 +83,7 @@ export interface NotebookFeatures {
     | { type: "openSource"; ossLicense: string };
 }
 
-interface FeatureCategory {
+export interface FeatureCategory {
   type: "setup" | "features" | "management" | "licensing";
   features: (keyof NotebookFeatures)[];
 }

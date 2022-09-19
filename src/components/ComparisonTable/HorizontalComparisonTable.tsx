@@ -197,7 +197,7 @@ function TableToolRow({
         </NextLink>
         {usableToolsToCompare.length > 0 ? (
           <Box fontSize="xs" mt={2}>
-            Compare with
+            Compare with{" "}
             <Box display="inline-block">
               {usableToolsToCompare.map((toolToCompare, index) => {
                 const elements: ReactNode[] = [

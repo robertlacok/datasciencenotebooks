@@ -455,3 +455,10 @@ function NotebookFeatureListItem({
     </Flex>
   );
 }
+
+export const categoryNames = {
+  setup: "Setup",
+  features: "Features",
+  management: "Management",
+  licensing: "Licensing",
+};

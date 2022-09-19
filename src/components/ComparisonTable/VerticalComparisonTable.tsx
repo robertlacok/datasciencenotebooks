@@ -1,11 +1,24 @@
-import { Heading, Flex, BoxProps, Box, FlexProps } from "@chakra-ui/react";
+import {
+  Heading,
+  Flex,
+  BoxProps,
+  Box,
+  FlexProps,
+  ButtonGroup,
+  Button,
+  Text,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { featureCategories, NotebookTool } from "../../NotebookTool";
 import {
+  categoryNames,
   notebookFeatureDetails,
   renderFeatureItem,
 } from "./notebookFeatureDetails";
+import NextLink from "next/link";
+import { routes } from "../../routes";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 interface VerticalComparisonTableProps {
   tools: NotebookTool[];
@@ -36,7 +49,7 @@ export function VerticalComparisonTable({
       <ComparisonTableRow>
         {tools.map((tool) => {
           return (
-            <ComparisonTableToolCell key={tool.id} color="gray.600">
+            <ComparisonTableToolCell key={tool.id}>
               {tool.screenshot ? (
                 <Box mb={4} borderRadius="lg" overflow="hidden">
                   <Image
@@ -46,7 +59,32 @@ export function VerticalComparisonTable({
                   />
                 </Box>
               ) : null}
-              {tool.description}
+              <Text color="gray.600" mb={4}>
+                {tool.description}
+              </Text>
+              <Box>
+                <ButtonGroup>
+                  <NextLink href={routes.tool({ tool: tool.id })} passHref>
+                    <Button as="a">More info</Button>
+                  </NextLink>
+                  {tool.websiteUrl ? (
+                    <NextLink href={tool.websiteUrl} passHref>
+                      <Button
+                        as="a"
+                        rel="noopener noreferrer"
+                        variant="ghost"
+                        rightIcon={
+                          <Box w={5}>
+                            <ArrowTopRightOnSquareIcon />
+                          </Box>
+                        }
+                      >
+                        Website
+                      </Button>
+                    </NextLink>
+                  ) : null}
+                </ButtonGroup>
+              </Box>
             </ComparisonTableToolCell>
           );
         })}
@@ -105,22 +143,11 @@ export function VerticalComparisonTable({
   );
 }
 
-const categoryNames = {
-  setup: "Setup",
-  features: "Features",
-  management: "Management",
-  licensing: "Licensing",
-};
-
 export function ComparisonTableRow(props: FlexProps) {
   return <Flex mx={-5} p={1} {...props} />;
 }
 
 export const COMPARISON_TABLE_SIDE_CELL_WIDTH = 64;
-
-// export function ComparisonTableSideCell(props: BoxProps) {
-//   return <Box pr={1} py={1} pl={3} flex="0 0 auto" w={64} {...props} />;
-// }
 
 export function ComparisonTableToolCell(props: BoxProps) {
   return <Box px={4} py={1} flex="1 0 auto" w={128} {...props} />;

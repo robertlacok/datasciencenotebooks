@@ -85,7 +85,7 @@ function ToolCard({ tool }: ToolCardProps) {
           />
         </Box>
       ) : null}
-      <Heading size="md" mb={2} color="gray.800">
+      <Heading as="h3" size="md" mb={2} color="gray.800">
         {tool.name}
       </Heading>
       <Text color="gray.600" mb={4}>

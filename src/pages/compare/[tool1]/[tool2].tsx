@@ -77,10 +77,14 @@ function IndividualToolPage({}: IndividualToolPageProps) {
             <VerticalComparisonTable tools={[tool1, tool2]} />
           </Box>
         </ContentContainer>
-        <ContentContainer>
+        <ContentContainer mb={4}>
           <Heading as="h2" size="lg" color="gray.800" mb={4}>
-            Compare with other tools
+            Alternatives to {tool1.name} and {tool2.name}
           </Heading>
+          <Text fontSize="lg" color="gray.600">
+            Compare {tool1.name} and {tool2.name} with other data science
+            notebook tools.
+          </Text>
         </ContentContainer>
 
         <HorizontalComparisonTable

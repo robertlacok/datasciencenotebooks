@@ -18,6 +18,14 @@ module.exports = (phase, config) => {
     env: {
       ...getDevelopmentServerEnv(phase),
     },
+    rewrites: () => {
+      return [
+        {
+          source: "/sitemap.xml",
+          destination: "/api/sitemap",
+        },
+      ];
+    },
   };
 
   return nextConfig;

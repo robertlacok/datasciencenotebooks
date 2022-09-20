@@ -66,12 +66,14 @@ export function HorizontalComparisonTable({
                 <Table sx={{ tableLayout: "fixed" }}>
                   <Thead>
                     <Tr pt={8}>
-                      <TableTh position="sticky" left={0} zIndex={2}>
+                      <TableTh
+                        position={{ base: "static", sm: "sticky" }}
+                        left={0}
+                        zIndex={2}
+                      >
                         Tool
                       </TableTh>
-                      <TableTh position="sticky" top={0}>
-                        Setup
-                      </TableTh>
+                      <TableTh>Setup</TableTh>
                       <TableTh>Jupyter compatibility</TableTh>
                       <TableTh>Programming languages</TableTh>
                       <TableTh>Data visualization</TableTh>
@@ -181,7 +183,12 @@ function TableToolRow({
       }}
       className={isComparison ? "is-comparison" : ""}
     >
-      <Td position="sticky" left={0} w={CELL_WIDTH} bg="white">
+      <Td
+        position={{ base: "static", sm: "sticky" }}
+        left={0}
+        w={CELL_WIDTH}
+        bg="white"
+      >
         <NextLink href={routes.toolAlternatives({ tool: tool.id })} passHref>
           <Link
             display="flex"

@@ -438,7 +438,15 @@ function NotebookFeatureListItem({
   children,
 }: NotebookFeatureListItemProps) {
   return (
-    <Flex lineHeight="tall" align="start" mb={2}>
+    <Flex
+      lineHeight="tall"
+      align="start"
+      mb={2}
+      direction={{
+        base: "column",
+        sm: "row",
+      }}
+    >
       <Flex
         marginTop="3px"
         align="center"
@@ -446,7 +454,14 @@ function NotebookFeatureListItem({
         w="20px"
         h="20px"
         flex="0 0 auto"
-        mr={2}
+        mr={{
+          base: 0,
+          sm: 2,
+        }}
+        mb={{
+          base: 1,
+          sm: 0,
+        }}
         color="gray.500"
       >
         <IconComponent width={20} height={20} />

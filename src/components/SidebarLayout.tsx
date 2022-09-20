@@ -83,8 +83,8 @@ export function SidebarMain(props: BoxProps) {
         [SIDEBAR_BREAKPOINT]: SIDEBAR_WIDTH,
       }}
       paddingTop={{
-        base: "6",
-        [SIDEBAR_BREAKPOINT]: 0,
+        base: 24,
+        [SIDEBAR_BREAKPOINT]: 12,
       }}
       {...props}
     />
@@ -135,7 +135,12 @@ export function SidebarLayout({ children }: SidebarLayoutProps) {
         onClose={onClose}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent
+          bgColor="gray.50"
+          borderRightWidth="1px"
+          borderRightStyle="solid"
+          borderRightColor="gray.200"
+        >
           <DrawerCloseButton />
 
           <DrawerBody pt={12}>

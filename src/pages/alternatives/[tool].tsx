@@ -1,5 +1,4 @@
-import { Box, Heading, Text, Button } from "@chakra-ui/react";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import type {
   GetStaticPathsContext,
   GetStaticPathsResult,
@@ -18,6 +17,7 @@ import {
 import { ContentContainer } from "../../components/ContentContainer";
 import { Seo } from "../../components/Seo";
 import { SidebarLayout } from "../../components/SidebarLayout";
+import { ToolLinkList } from "../../components/ToolLinkList";
 import {
   featureCategories,
   FeatureCategory,
@@ -59,38 +59,23 @@ function IndividualToolPage({}: IndividualToolPageProps) {
     <Fragment>
       <Seo title={`Alternatives to ${tool.name} | Data science notebooks`} />
       <SidebarLayout>
-        <ContentContainer>
-          <Box mb={12} pt={12}>
-            <Heading as="h1" size="2xl" color="gray.800">
-              Alternatives to {tool.name}
-            </Heading>
-            {tool.screenshot ? (
-              <Box maxWidth="md" mt={4}>
-                <Image layout="responsive" alt="" src={tool.screenshot} />
-              </Box>
-            ) : null}
-            {tool.description ? (
-              <Text fontSize="lg" color="gray.600" mt={4}>
-                {tool.description}
-              </Text>
-            ) : null}
-            {tool.websiteUrl ? (
-              <Box mt={4}>
-                <Button
-                  as="a"
-                  rel="noopener noreferrer"
-                  href={tool.websiteUrl}
-                  rightIcon={
-                    <Box w={5}>
-                      <ArrowTopRightOnSquareIcon />
-                    </Box>
-                  }
-                >
-                  Website
-                </Button>
-              </Box>
-            ) : null}
-          </Box>
+        <ContentContainer mb={12}>
+          <Heading as="h1" size="2xl" color="gray.800">
+            Alternatives to {tool.name}
+          </Heading>
+          {tool.screenshot ? (
+            <Box maxWidth="md" mt={4}>
+              <Image layout="responsive" alt="" src={tool.screenshot} />
+            </Box>
+          ) : null}
+          {tool.description ? (
+            <Text fontSize="lg" color="gray.600" mt={4}>
+              {tool.description}
+            </Text>
+          ) : null}
+          {tool.websiteUrl ? (
+            <ToolLinkList mt={4} tool={tool} includeAlternatives={false} />
+          ) : null}
         </ContentContainer>
         <HorizontalComparisonTable
           toolsToCompare={[tool]}

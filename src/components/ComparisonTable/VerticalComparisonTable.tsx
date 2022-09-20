@@ -1,13 +1,4 @@
-import {
-  Heading,
-  Flex,
-  BoxProps,
-  Box,
-  FlexProps,
-  ButtonGroup,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, Flex, BoxProps, Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { featureCategories, NotebookTool } from "../../NotebookTool";
@@ -16,9 +7,7 @@ import {
   notebookFeatureDetails,
   renderFeatureItem,
 } from "./notebookFeatureDetails";
-import NextLink from "next/link";
-import { routes } from "../../routes";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { ToolLinkList } from "../ToolLinkList";
 
 interface VerticalComparisonTableProps {
   tools: NotebookTool[];
@@ -62,33 +51,7 @@ export function VerticalComparisonTable({
               <Text color="gray.600" mb={4}>
                 {tool.description}
               </Text>
-              <Box>
-                <ButtonGroup>
-                  {tool.websiteUrl ? (
-                    <NextLink href={tool.websiteUrl} passHref>
-                      <Button
-                        as="a"
-                        rel="noopener noreferrer"
-                        rightIcon={
-                          <Box w={5}>
-                            <ArrowTopRightOnSquareIcon />
-                          </Box>
-                        }
-                      >
-                        Website
-                      </Button>
-                    </NextLink>
-                  ) : null}
-                  <NextLink
-                    href={routes.toolAlternatives({ tool: tool.id })}
-                    passHref
-                  >
-                    <Button as="a" variant="ghost">
-                      Alternatives
-                    </Button>
-                  </NextLink>
-                </ButtonGroup>
-              </Box>
+              <ToolLinkList tool={tool} />
             </ComparisonTableToolCell>
           );
         })}
@@ -147,8 +110,14 @@ export function VerticalComparisonTable({
   );
 }
 
-export function ComparisonTableRow(props: FlexProps) {
-  return <Flex mx={-5} p={1} {...props} />;
+export function ComparisonTableRow({ children, ...props }: BoxProps) {
+  return (
+    <Box overflowX="hidden" {...props}>
+      <Flex mx={-5} p={1}>
+        {children}
+      </Flex>
+    </Box>
+  );
 }
 
 export const COMPARISON_TABLE_SIDE_CELL_WIDTH = 64;

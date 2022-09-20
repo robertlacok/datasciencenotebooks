@@ -65,7 +65,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
       </Head>
       <SidebarLayout>
         <ContentContainer>
-          <Box mb={12} pt={12}>
+          <Box mb={12}>
             <Heading as="h1" size="2xl" color="gray.800" mb={4}>
               {tool1.name} vs {tool2.name}
             </Heading>

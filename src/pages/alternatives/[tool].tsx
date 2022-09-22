@@ -13,6 +13,7 @@ import {
   HorizontalComparisonTable,
   notebookFeatureDetails,
   renderFeatureItem,
+  UnknownFeatureListItem,
 } from "../../components/ComparisonTable";
 import { ContentContainer } from "../../components/ContentContainer";
 import { Seo } from "../../components/Seo";
@@ -26,7 +27,7 @@ import {
 import {
   getNotebookTool,
   notebookToolIds,
-  notebookTools,
+  notebookToolsInCanonicalOrder,
 } from "../../notebookTools";
 import { routes } from "../../routes";
 
@@ -64,7 +65,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
             Alternatives to {tool.name}
           </Heading>
           {tool.screenshot ? (
-            <Box maxWidth="md" mt={4}>
+            <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
               <Image layout="responsive" alt="" src={tool.screenshot} />
             </Box>
           ) : null}
@@ -79,7 +80,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
         </ContentContainer>
         <HorizontalComparisonTable
           toolsToCompare={[tool]}
-          tools={Object.values(notebookTools)}
+          tools={notebookToolsInCanonicalOrder}
         />
         <ContentContainer mt={8}>
           <Heading as="h2" size="lg" color="gray.800" mb={4}>
@@ -137,13 +138,15 @@ function FeatureCard({ tool, featureCategory }: FeatureCardProps) {
             >
               {notebookFeatureDetails[featureId].title}
             </Heading>
-            {toolFeatureCapabilities
-              ? toolFeatureCapabilities.map((capability, index) => (
-                  <div key={index}>
-                    {renderFeatureItem(featureId, capability)}
-                  </div>
-                ))
-              : "Unknown"}
+            {toolFeatureCapabilities ? (
+              toolFeatureCapabilities.map((capability, index) => (
+                <div key={index}>
+                  {renderFeatureItem(featureId, capability)}
+                </div>
+              ))
+            ) : (
+              <UnknownFeatureListItem />
+            )}
           </div>
         );
       })}

@@ -18,7 +18,7 @@ import { SidebarLayout } from "../../../components/SidebarLayout";
 import {
   getNotebookTool,
   notebookToolIds,
-  notebookTools,
+  notebookToolsInCanonicalOrder,
 } from "../../../notebookTools";
 import { routes } from "../../../routes";
 
@@ -89,7 +89,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
 
         <HorizontalComparisonTable
           toolsToCompare={[tool1, tool2]}
-          tools={Object.values(notebookTools)}
+          tools={notebookToolsInCanonicalOrder}
         />
       </SidebarLayout>
     </Fragment>

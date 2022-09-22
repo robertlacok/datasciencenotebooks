@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
 import { Seo } from "../components/Seo";
 import { SidebarLayout } from "../components/SidebarLayout";
-import { notebookTools } from "../notebookTools";
+import { notebookToolsInCanonicalOrder } from "../notebookTools";
 import type { NotebookTool } from "../NotebookTool";
 import { ContentContainer } from "../components/ContentContainer";
 import { ToolLinkList } from "../components/ToolLinkList";
@@ -33,7 +33,7 @@ function Home() {
             }}
             mb={12}
           >
-            {Object.values(notebookTools).map((tool) => (
+            {notebookToolsInCanonicalOrder.map((tool) => (
               <ToolCard key={tool.id} tool={tool} />
             ))}
           </Box>
@@ -43,7 +43,7 @@ function Home() {
             Compare tool features
           </Heading>
         </ContentContainer>
-        <HorizontalComparisonTable tools={Object.values(notebookTools)} />
+        <HorizontalComparisonTable tools={notebookToolsInCanonicalOrder} />
       </SidebarLayout>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, FlexProps } from "@chakra-ui/react";
 import {
   ClipboardDocumentCheckIcon,
   BuildingOfficeIcon,
@@ -23,6 +23,7 @@ import {
   ExclamationTriangleIcon,
   ArrowPathRoundedSquareIcon,
   ClockIcon,
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import type { ComponentProps, ComponentType, ReactNode } from "react";
 import type { NotebookFeatures } from "../../NotebookTool";
@@ -111,10 +112,22 @@ export const notebookFeatureDetails: {
               Connect to data warehouses ({feature.examples})
             </NotebookFeatureListItem>
           );
-        case "databses":
+        case "databases":
           return (
             <NotebookFeatureListItem icon={CircleStackIcon}>
               Connect to databases ({feature.examples})
+            </NotebookFeatureListItem>
+          );
+        case "generic":
+          return (
+            <NotebookFeatureListItem icon={CircleStackIcon}>
+              {feature.text}
+            </NotebookFeatureListItem>
+          );
+        case "fileStorage":
+          return (
+            <NotebookFeatureListItem icon={FolderIcon}>
+              Provided file storage
             </NotebookFeatureListItem>
           );
       }
@@ -147,6 +160,12 @@ export const notebookFeatureDetails: {
           return (
             <NotebookFeatureListItem icon={CodeBracketSquareIcon}>
               JS data visualization (e.g. D3, Vega)
+            </NotebookFeatureListItem>
+          );
+        case "julia":
+          return (
+            <NotebookFeatureListItem icon={CodeBracketSquareIcon}>
+              Julia data visualization
             </NotebookFeatureListItem>
           );
         case "jupyterVisualization":
@@ -427,15 +446,20 @@ export const languageNameMap = {
   js: "JS",
   python: "Python",
   sql: "SQL",
+  julia: "Julia",
+  scala: "Scala",
+  r: "R",
+  spark: "Spark",
 };
-interface NotebookFeatureListItemProps {
+interface NotebookFeatureListItemProps extends FlexProps {
   icon?: ComponentType<ComponentProps<"svg">>;
   children?: ReactNode;
 }
 
-function NotebookFeatureListItem({
+export function NotebookFeatureListItem({
   icon: IconComponent = ArrowRightCircleIcon,
   children,
+  ...props
 }: NotebookFeatureListItemProps) {
   return (
     <Flex
@@ -446,6 +470,7 @@ function NotebookFeatureListItem({
         base: "column",
         sm: "row",
       }}
+      {...props}
     >
       <Flex
         marginTop="3px"
@@ -468,6 +493,14 @@ function NotebookFeatureListItem({
       </Flex>
       <Box color="gray.800">{children}</Box>
     </Flex>
+  );
+}
+
+export function UnknownFeatureListItem() {
+  return (
+    <NotebookFeatureListItem icon={QuestionMarkCircleIcon} opacity={0.7}>
+      Unknown
+    </NotebookFeatureListItem>
   );
 }
 

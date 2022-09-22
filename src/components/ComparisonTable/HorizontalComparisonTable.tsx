@@ -9,6 +9,7 @@ import {
   Tr,
   Link,
   TableContainerProps,
+  chakra,
 } from "@chakra-ui/react";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import { Fragment, ReactNode } from "react";
@@ -127,14 +128,12 @@ export function HorizontalComparisonTable({
                   </Tbody>
                 </Table>
               </OffsetHorizontalScrollBox>
-              {/* extra-large container to force scrolling so we can test sticky scroll */}
-              <Box h="xl" />
             </TableContainer>
           </ScrollSyncPane>
           <ScrollSyncPane>
             <TableContainer position="sticky" bottom={0}>
               <OffsetHorizontalScrollBox>
-                <Table sx={{ tableLayout: "fixed" }}>
+                <Table sx={{ tableLayout: "fixed" }} variant="unstyled">
                   <Tbody>
                     <Tr>
                       <Td w={CELL_WIDTH} />
@@ -196,7 +195,7 @@ function TableToolRow({
             fontSize="lg"
             fontWeight="bold"
           >
-            <Box w={6} h={6} mr={2}>
+            <Box w={6} h={6} mr={2} flex="0 0 auto">
               <ArrowRightCircleIcon />
             </Box>
             {tool.name}
@@ -230,13 +229,21 @@ function TableToolRow({
           </Box>
         ) : null}
       </Td>
-      <Td w={CELL_WIDTH}>{getSetupSummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getJupyterCompatibilitySummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getProgrammingLanguagesSummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getDataVisualizationSummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getCollaborationSummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getPricingSummary(tool)}</Td>
-      <Td w={CELL_WIDTH}>{getLicenseSummary(tool)}</Td>
+      <Td w={CELL_WIDTH}>{withUnkownDisplayed(getSetupSummary(tool))}</Td>
+      <Td w={CELL_WIDTH}>
+        {withUnkownDisplayed(getJupyterCompatibilitySummary(tool))}
+      </Td>
+      <Td w={CELL_WIDTH}>
+        {withUnkownDisplayed(getProgrammingLanguagesSummary(tool))}
+      </Td>
+      <Td w={CELL_WIDTH}>
+        {withUnkownDisplayed(getDataVisualizationSummary(tool))}
+      </Td>
+      <Td w={CELL_WIDTH}>
+        {withUnkownDisplayed(getCollaborationSummary(tool))}
+      </Td>
+      <Td w={CELL_WIDTH}>{withUnkownDisplayed(getPricingSummary(tool))}</Td>
+      <Td w={CELL_WIDTH}>{withUnkownDisplayed(getLicenseSummary(tool))}</Td>
     </Tr>
   );
 }
@@ -267,6 +274,14 @@ function OffsetHorizontalScrollBox(props: TableContainerProps) {
       {...props}
     />
   );
+}
+
+function withUnkownDisplayed(node: ReactNode) {
+  if (!node) {
+    return <chakra.span color="gray.400">Unknown</chakra.span>;
+  }
+
+  return node;
 }
 
 function getSetupSummary(tool: NotebookTool) {
@@ -329,7 +344,9 @@ function getDataVisualizationSummary(tool: NotebookTool) {
 
   const canVisualizeWithCode = tool.features.featuresDataVisualization.some(
     (capability) =>
-      capability.type === "js" || capability.type === "jupyterVisualization"
+      capability.type === "js" ||
+      capability.type === "jupyterVisualization" ||
+      capability.type === "julia"
   );
   const canVisualizeWithUi = tool.features.featuresDataVisualization.some(
     (capability) => capability.type === "ui"

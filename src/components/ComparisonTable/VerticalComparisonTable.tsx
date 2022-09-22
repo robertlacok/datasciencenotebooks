@@ -6,6 +6,7 @@ import {
   categoryNames,
   notebookFeatureDetails,
   renderFeatureItem,
+  UnknownFeatureListItem,
 } from "./notebookFeatureDetails";
 import { ToolLinkList } from "../ToolLinkList";
 
@@ -90,13 +91,15 @@ export function VerticalComparisonTable({
                         >
                           {notebookFeatureDetails[featureId].title}
                         </Heading>
-                        {toolFeatureCapabilities
-                          ? toolFeatureCapabilities.map((capability, index) => (
-                              <div key={index}>
-                                {renderFeatureItem(featureId, capability)}
-                              </div>
-                            ))
-                          : "Unknown"}
+                        {toolFeatureCapabilities ? (
+                          toolFeatureCapabilities.map((capability, index) => (
+                            <div key={index}>
+                              {renderFeatureItem(featureId, capability)}
+                            </div>
+                          ))
+                        ) : (
+                          <UnknownFeatureListItem />
+                        )}
                       </ComparisonTableToolCell>
                     );
                   })}

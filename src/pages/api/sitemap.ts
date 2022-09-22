@@ -3,7 +3,11 @@ import { SitemapStream, streamToPromise } from "sitemap";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PUBLIC_URL } from "../../config";
 import { routes } from "../../routes";
-import { notebookToolIds, notebookTools } from "../../notebookTools";
+import {
+  notebookToolIds,
+  notebookTools,
+  notebookToolsInCanonicalOrder,
+} from "../../notebookTools";
 import type { NotebookTool } from "../../NotebookTool";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
@@ -14,7 +18,7 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       url: routes.home(),
       changefreq: "daily",
       priority: 0.7,
-      lastmod: findLastUpdated(Object.values(notebookTools)),
+      lastmod: findLastUpdated(notebookToolsInCanonicalOrder),
     });
 
     for (const toolId of notebookToolIds) {

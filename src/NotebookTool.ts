@@ -34,17 +34,23 @@ export interface NotebookFeatures {
   featuresJupyterCompatible: { type: "yes" } | { type: "no" };
   featuresLanguages:
     | { type: "jupyterLanguages" }
-    | { type: "language"; language: "sql" | "js" | "python" };
+    | {
+        type: "language";
+        language: "sql" | "js" | "python" | "r" | "scala" | "spark" | "julia";
+      };
   featuresDataSources:
     | { type: "jupyterDataSources" }
     | { type: "dataWarehouses"; examples: string }
-    | { type: "databses"; examples: string }
+    | { type: "databases"; examples: string }
+    | { type: "generic"; text: string }
+    | { type: "fileStorage" }
     | { type: "js" };
   featuresReactivity: { type: "none" } | { type: "some" } | { type: "full" };
   featuresDataVisualization:
     | { type: "jupyterVisualization" }
     | { type: "ui" }
-    | { type: "js" };
+    | { type: "js" }
+    | { type: "julia" };
 
   managementVersioning:
     | { type: "fileBased" }

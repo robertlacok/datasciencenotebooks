@@ -69,6 +69,7 @@ function ToolCard({ tool }: ToolCardProps) {
       {tool.screenshot ? (
         <Box mb={4} borderRadius="md" overflow="hidden">
           <Image
+            sizes="(max-width: 1000px) 100vw, 1000px"
             src={tool.screenshot}
             layout="responsive"
             alt={`A screenshot of ${tool.name}`}

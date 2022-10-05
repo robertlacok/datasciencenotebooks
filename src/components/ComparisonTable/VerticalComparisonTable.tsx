@@ -43,6 +43,7 @@ export function VerticalComparisonTable({
               {tool.screenshot ? (
                 <Box mb={4} borderRadius="lg" overflow="hidden">
                   <Image
+                    sizes="(max-width: 1000px) 100vw, 1000px"
                     layout="responsive"
                     src={tool.screenshot}
                     alt={`A screenshot of ${tool.name}`}

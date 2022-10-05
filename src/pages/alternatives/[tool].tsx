@@ -66,7 +66,12 @@ function IndividualToolPage({}: IndividualToolPageProps) {
           </Heading>
           {tool.screenshot ? (
             <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
-              <Image layout="responsive" alt="" src={tool.screenshot} />
+              <Image
+                sizes="(max-width: 1000px) 100vw, 1000px"
+                layout="responsive"
+                alt=""
+                src={tool.screenshot}
+              />
             </Box>
           ) : null}
           {tool.description ? (

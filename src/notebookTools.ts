@@ -122,8 +122,8 @@ export const notebookTools = {
     lastUpdatedAt: "2022-09-22T04:27:53.532Z",
     description:
       "Amazon SageMaker helps data scientists and developers to prepare, build, train, and deploy high-quality machine learning (ML) models quickly by bringing together a broad set of capabilities purpose-built for ML.",
-    screenshot: colabScreenshot,
-    websiteUrl: "https://colab.research.google.com/",
+    screenshot: sagemakerScreenshot,
+    websiteUrl: "https://aws.amazon.com/sagemaker",
     features: {
       setupManaged: [{ type: "yes", setupTime: "hours" }],
       setupSelfHost: [{ type: "no" }],
@@ -154,8 +154,8 @@ export const notebookTools = {
     lastUpdatedAt: "2022-09-22T04:27:53.532Z",
     description:
       "Colab notebooks allow you to combine executable code and rich text in a single document, along with images, HTML, LaTeX and more.",
-    screenshot: sagemakerScreenshot,
-    websiteUrl: "https://aws.amazon.com/sagemaker",
+    screenshot: colabScreenshot,
+    websiteUrl: "https://colab.research.google.com/",
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "no" }],

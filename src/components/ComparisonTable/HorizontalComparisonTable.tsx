@@ -29,12 +29,6 @@ const mainContainerGutter = cssVar("main-container-gutter");
 
 const CELL_WIDTH = 48;
 
-const scrollPushVars = {
-  sideBarWidth: cssVar("sidebar-width"),
-  containerWidth: cssVar("container-width"),
-  containerPadding: cssVar("container-padding"),
-};
-
 export function HorizontalComparisonTable({
   tools,
   toolsToCompare = [],
@@ -46,7 +40,7 @@ export function HorizontalComparisonTable({
       <ScrollSync>
         <Box
           sx={{
-            [mainContainerGutter.variable]: `calc((100vw - var(--chakra-sizes-container-md) - var(--chakra-sizes-64)) / 2 - var(--chakra-space-1))`,
+            [mainContainerGutter.variable]: `calc((100vw - var(--chakra-sizes-container-lg) - var(--chakra-sizes-64)) / 2 - var(--chakra-space-1))`,
           }}
         >
           <ScrollSyncPane>
@@ -266,9 +260,6 @@ function OffsetHorizontalScrollBox(props: TableContainerProps) {
   return (
     <Box
       sx={{
-        [scrollPushVars.containerPadding.variable]: "spacing.4",
-        [scrollPushVars.containerWidth.variable]: "container.lg",
-        [scrollPushVars.sideBarWidth.variable]: "64",
         paddingLeft: mainContainerGutter.reference,
       }}
       {...props}

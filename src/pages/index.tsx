@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text, chakra } from "@chakra-ui/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
@@ -8,6 +8,9 @@ import { notebookToolsInCanonicalOrder } from "../notebookTools";
 import type { NotebookTool } from "../NotebookTool";
 import { ContentContainer } from "../components/ContentContainer";
 import { ToolLinkList } from "../components/ToolLinkList";
+import NextLink from "next/link";
+import { routes } from "../routes";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 function Home() {
   return (
@@ -76,9 +79,21 @@ function ToolCard({ tool }: ToolCardProps) {
           />
         </Box>
       ) : null}
-      <Heading as="h3" size="md" mb={2} color="gray.800">
-        {tool.name}
-      </Heading>
+      <NextLink href={routes.tool({ tool: tool.id })} passHref>
+        <chakra.a display="flex" data-group alignItems="center" mb={2}>
+          <Box w={6} h={6} mr={2} flex="0 0 auto">
+            <ArrowRightCircleIcon />
+          </Box>
+          <Heading
+            as="h3"
+            size="md"
+            color="gray.800"
+            _groupHover={{ textDecoration: "underline" }}
+          >
+            {tool.name}
+          </Heading>
+        </chakra.a>
+      </NextLink>
       <Text color="gray.600" mb={4}>
         {tool.description}
       </Text>

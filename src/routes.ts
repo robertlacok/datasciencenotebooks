@@ -6,5 +6,7 @@ export const routes = {
     const [tool1Canonical, tool2Canonical] = [tool1, tool2].sort();
     return routes.compare({ tool1: tool1Canonical, tool2: tool2Canonical });
   },
-  toolAlternatives: ({ tool }: { tool: string }) => `/alternatives/${tool}`,
+  tool: ({ tool }: { tool: string }) => `/${tool}`,
+  toolAlternatives: ({ tool }: { tool: string }) =>
+    `${routes.tool({ tool })}#alternatives`,
 };

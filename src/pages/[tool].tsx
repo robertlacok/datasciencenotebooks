@@ -14,22 +14,22 @@ import {
   notebookFeatureDetails,
   renderFeatureItem,
   UnknownFeatureListItem,
-} from "../../components/ComparisonTable";
-import { ContentContainer } from "../../components/ContentContainer";
-import { Seo } from "../../components/Seo";
-import { SidebarLayout } from "../../components/SidebarLayout";
-import { ToolLinkList } from "../../components/ToolLinkList";
+} from "../components/ComparisonTable";
+import { ContentContainer } from "../components/ContentContainer";
+import { Seo } from "../components/Seo";
+import { SidebarLayout } from "../components/SidebarLayout";
+import { ToolLinkList } from "../components/ToolLinkList";
 import {
   featureCategories,
   FeatureCategory,
   NotebookTool,
-} from "../../NotebookTool";
+} from "../NotebookTool";
 import {
   getNotebookTool,
   notebookToolIds,
   notebookToolsInCanonicalOrder,
-} from "../../notebookTools";
-import { routes } from "../../routes";
+} from "../notebookTools";
+import { routes } from "../routes";
 
 export function getStaticProps({
   params,
@@ -44,7 +44,7 @@ export function getStaticProps({
 export function getStaticPaths({}: GetStaticPathsContext): GetStaticPathsResult {
   return {
     fallback: false,
-    paths: notebookToolIds.map((tool) => routes.toolAlternatives({ tool })),
+    paths: notebookToolIds.map((tool) => routes.tool({ tool })),
   };
 }
 
@@ -60,9 +60,9 @@ function IndividualToolPage({}: IndividualToolPageProps) {
     <Fragment>
       <Seo title={`Alternatives to ${tool.name} | Data science notebooks`} />
       <SidebarLayout>
-        <ContentContainer mb={12}>
-          <Heading as="h1" size="2xl" color="gray.800">
-            Alternatives to {tool.name}
+        <ContentContainer mb={8}>
+          <Heading as="h1" size="2xl" color="gray.800" mb={4}>
+            {tool.name}
           </Heading>
           {tool.screenshot ? (
             <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
@@ -79,19 +79,8 @@ function IndividualToolPage({}: IndividualToolPageProps) {
               {tool.description}
             </Text>
           ) : null}
-          {tool.websiteUrl ? (
-            <ToolLinkList mt={4} tool={tool} includeAlternatives={false} />
-          ) : null}
-        </ContentContainer>
-        <HorizontalComparisonTable
-          toolsToCompare={[tool]}
-          tools={notebookToolsInCanonicalOrder}
-        />
-        <ContentContainer mt={8}>
-          <Heading as="h2" size="lg" color="gray.800" mb={4}>
-            {tool.name} breakdown
-          </Heading>
-          <Box columnGap={4} sx={{ columnCount: 2 }}>
+          <ToolLinkList mt={4} tool={tool} />
+          <Box columnGap={4} sx={{ columnCount: 2 }} mt={12}>
             {featureCategories.map((category) => (
               <FeatureCard
                 key={category.type}
@@ -101,6 +90,15 @@ function IndividualToolPage({}: IndividualToolPageProps) {
             ))}
           </Box>
         </ContentContainer>
+        <ContentContainer mb={12}>
+          <Heading as="h2" size="lg" color="gray.800" id="alternatives">
+            Alternatives to {tool.name}
+          </Heading>
+        </ContentContainer>
+        <HorizontalComparisonTable
+          toolsToCompare={[tool]}
+          tools={notebookToolsInCanonicalOrder}
+        />
       </SidebarLayout>
     </Fragment>
   );

@@ -9,6 +9,7 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
+  Link,
 } from "@chakra-ui/react";
 import { Fragment, ReactNode, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -60,16 +61,60 @@ function SidebarContent() {
           priority
         />
       </Box>
-      <Text size="md" lineHeight="tall" mb={4}>
-        Testing testing 123
-      </Text>
       {router.pathname !== homeRoute ? (
         <NextLink href={homeRoute} passHref>
-          <Button as="a" variant="outline">
+          <Button as="a" variant="outline" mb={4}>
             View all notebooks
           </Button>
         </NextLink>
       ) : null}
+      <Box fontSize="sm" lineHeight="tall" color="gray.600">
+        <Text mb={2}>
+          Data science gets done in notebooks. This website exists to compare
+          the features in different data science notebook tools.
+        </Text>
+        <Text mb={2}>
+          My name is{" "}
+          <Link
+            color="blue.500"
+            href="https://www.linkedin.com/in/robert-lacok/"
+            rel="noopener noreferrer"
+          >
+            Robert Lacok
+          </Link>
+          , and I’m a data notebook enthusiast. Because I keep on top of the
+          latest developments in the space, I wanted to share it with the world.
+          If you want to learn more about notebooks, let’s chat!
+        </Text>
+        <Text>
+          I’m also a product manager at{" "}
+          <Link
+            color="blue.500"
+            href="https://deepnote.com"
+            rel="noopener noreferrer"
+          >
+            Deepnote
+          </Link>
+          . I try to be unbiased - if you believe any tools are missing or
+          misrepresented, please{" "}
+          <Link
+            color="blue.500"
+            href="mailto:robert@deepnote.com"
+            rel="noopener noreferrer"
+          >
+            email me
+          </Link>{" "}
+          or
+          <Link
+            color="blue.500"
+            href="https://github.com/robertlacok/datasciencenotebooks"
+            rel="noopener noreferrer"
+          >
+            open a pull request on Github
+          </Link>
+          .
+        </Text>
+      </Box>
     </Fragment>
   );
 }

@@ -10,6 +10,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   Link,
+  LinkProps,
 } from "@chakra-ui/react";
 import { Fragment, ReactNode, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -75,49 +76,49 @@ function SidebarContent() {
         </Text>
         <Text mb={2}>
           My name is{" "}
-          <Link
+          <SidebarLink
             color="blue.500"
             href="https://www.linkedin.com/in/robert-lacok/"
             rel="noopener noreferrer"
           >
             Robert Lacok
-          </Link>
+          </SidebarLink>
           , and I’m a data notebook enthusiast. Because I keep on top of the
           latest developments in the space, I wanted to share it with the world.
           If you want to learn more about notebooks, let’s chat!
         </Text>
         <Text>
           I’m also a product manager at{" "}
-          <Link
+          <SidebarLink
             color="blue.500"
             href="https://deepnote.com"
             rel="noopener noreferrer"
           >
             Deepnote
-          </Link>
+          </SidebarLink>
           . I try to be unbiased - if you believe any tools are missing or
           misrepresented, please{" "}
-          <Link
+          <SidebarLink
             color="blue.500"
             href="mailto:robert@deepnote.com"
             rel="noopener noreferrer"
           >
             email me
-          </Link>{" "}
-          or
-          <Link
-            color="blue.500"
-            href="https://github.com/robertlacok/datasciencenotebooks"
-            rel="noopener noreferrer"
-          >
+          </SidebarLink>{" "}
+          or{" "}
+          <SidebarLink href="https://github.com/robertlacok/datasciencenotebooks">
             open a pull request on Github
-          </Link>
+          </SidebarLink>
           .
         </Text>
       </Box>
     </Fragment>
   );
 }
+
+const SidebarLink = (props: LinkProps) => (
+  <Link rel="noopener noreferrer" color="blue.500" {...props} />
+);
 
 export function SidebarMain(props: BoxProps) {
   return (

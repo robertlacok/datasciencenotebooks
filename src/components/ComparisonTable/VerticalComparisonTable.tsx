@@ -71,6 +71,7 @@ export function VerticalComparisonTable({
               color="gray.700"
               pt={4}
               px={4}
+              mb={2}
             >
               {categoryNames[featureCategory.type]}
             </ComparisonTableRow>
@@ -84,10 +85,10 @@ export function VerticalComparisonTable({
                       <ComparisonTableToolCell key={tool.id}>
                         <Heading
                           as="h3"
-                          fontWeight="normal"
+                          fontWeight="bold"
                           fontSize="sm"
                           lineHeight="tall"
-                          color="gray.600"
+                          color="gray.800"
                           mb={1}
                         >
                           {notebookFeatureDetails[featureId].title}

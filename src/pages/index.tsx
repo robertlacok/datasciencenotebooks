@@ -29,7 +29,7 @@ function Home() {
           {/* this would be better as a masonry layout, but */}
           {/* there's still no way to do this in a way that doesn't require JS */}
           <Flex wrap="wrap" mx={-2}>
-            {notebookToolsInCanonicalOrder.map((tool) => (
+            {notebookToolsInCanonicalOrder.map((tool, index) => (
               <Flex
                 key={tool.id}
                 flex="1 1 auto"
@@ -37,7 +37,7 @@ function Home() {
                 w={{ base: "100%", sm: "50%" }}
                 p={2}
               >
-                <ToolCard tool={tool} />
+                <ToolCard tool={tool} isAboveTheFold={index <= 3} />
               </Flex>
             ))}
           </Flex>
@@ -55,9 +55,10 @@ function Home() {
 
 interface ToolCardProps {
   tool: NotebookTool;
+  isAboveTheFold: boolean;
 }
 
-function ToolCard({ tool }: ToolCardProps) {
+function ToolCard({ tool, isAboveTheFold }: ToolCardProps) {
   return (
     <Box
       flex="1 1 auto"
@@ -74,6 +75,7 @@ function ToolCard({ tool }: ToolCardProps) {
             src={tool.screenshot}
             layout="responsive"
             alt={`A screenshot of ${tool.name}`}
+            priority={isAboveTheFold}
           />
         </Box>
       ) : null}

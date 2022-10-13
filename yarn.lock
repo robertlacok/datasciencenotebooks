@@ -1456,6 +1456,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@builder.io/partytown@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "@builder.io/partytown@npm:0.7.1"
+  bin:
+    partytown: bin/partytown.cjs
+  checksum: 32dd51f98056f1583bfe168141c79c5dca39f71ce6b377e0a645f8709f32a85c9536a1fa419dd14b9433a13c7faa2b4006eda4e66d8ab947c4ce67d4228e9ec0
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/accordion@npm:2.0.12":
   version: 2.0.12
   resolution: "@chakra-ui/accordion@npm:2.0.12"
@@ -4713,6 +4722,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "datasciencenotebooks@workspace:."
   dependencies:
+    "@builder.io/partytown": ^0.7.1
     "@chakra-ui/cli": ^2.1.7
     "@chakra-ui/react": ^2.3.1
     "@chakra-ui/system": ^2.2.9

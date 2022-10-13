@@ -979,18 +979,37 @@ export function getNotebookTool(toolId: string) {
   return notebookTools[toolId as NotebookToolId];
 }
 
-export const notebookToolsInCanonicalOrder = Object.values(notebookTools).sort(
-  (fst, snd) => {
-    const fstFeatureCount = countNotebookToolFeatures(fst);
-    const sndFeatureCount = countNotebookToolFeatures(snd);
+const topNotebookToolOrder: NotebookToolId[] = [
+  "jupyter",
+  "sagemaker",
+  "colab",
+  "deepnote",
+  "hex",
+  "databricks",
+];
 
-    if (fstFeatureCount !== sndFeatureCount) {
-      return sndFeatureCount - fstFeatureCount;
-    }
+/**
+ * Our default ordering of notebooks is:
+ * - top tools in Jupyter-compatible space
+ * - the rest ordered by:
+ *   * completeness of data we have for them, then
+ *   * alphabetically
+ */
+export const notebookToolsInCanonicalOrder = [
+  ...topNotebookToolOrder.map((id) => notebookTools[id]),
+  ...Object.values(notebookTools)
+    .filter((tool) => !topNotebookToolOrder.includes(tool.id as NotebookToolId))
+    .sort((fst, snd) => {
+      const fstFeatureCount = countNotebookToolFeatures(fst);
+      const sndFeatureCount = countNotebookToolFeatures(snd);
 
-    return fst.name.toLowerCase().localeCompare(snd.name.toLowerCase());
-  }
-);
+      if (fstFeatureCount !== sndFeatureCount) {
+        return sndFeatureCount - fstFeatureCount;
+      }
+
+      return fst.name.toLowerCase().localeCompare(snd.name.toLowerCase());
+    }),
+];
 
 function countNotebookToolFeatures(tool: NotebookTool) {
   return Object.values(tool.features).filter((feature) => !!feature).length;

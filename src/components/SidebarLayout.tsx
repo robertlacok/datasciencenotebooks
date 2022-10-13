@@ -20,7 +20,7 @@ import { useRouter } from "next/router";
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
 const SIDEBAR_WIDTH = "64";
-const SIDEBAR_BREAKPOINT = "md";
+export const SIDEBAR_BREAKPOINT = "md";
 
 export function Sidebar(props: BoxProps) {
   return (
@@ -129,7 +129,7 @@ export function SidebarMain(props: BoxProps) {
       }}
       paddingTop={{
         base: 24,
-        [SIDEBAR_BREAKPOINT]: 12,
+        [SIDEBAR_BREAKPOINT]: 8,
       }}
       {...props}
     />

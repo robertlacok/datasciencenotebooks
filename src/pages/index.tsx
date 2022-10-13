@@ -1,9 +1,9 @@
-import { Box, Heading, Text, chakra } from "@chakra-ui/react";
+import { Box, Heading, Text, chakra, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
 import { Seo } from "../components/Seo";
-import { SidebarLayout } from "../components/SidebarLayout";
+import { SidebarLayout, SIDEBAR_BREAKPOINT } from "../components/SidebarLayout";
 import { notebookToolsInCanonicalOrder } from "../notebookTools";
 import type { NotebookTool } from "../NotebookTool";
 import { ContentContainer } from "../components/ContentContainer";
@@ -20,26 +20,27 @@ function Home() {
         description="Data science gets done in notebooks. Compare different notebook tools at datasciencenotebook.org."
       />
       <SidebarLayout>
-        <ContentContainer>
-          <Box mb={16}>
-            <Heading size="2xl" mb={4} color="gray.800">
-              Explore notebook tools
+        <ContentContainer mb={8}>
+          <Box mb={8} display={{ base: "block", [SIDEBAR_BREAKPOINT]: "none" }}>
+            <Heading size="2xl" as="h1" color="gray.800">
+              Data science notebooks
             </Heading>
           </Box>
-          <Box
-            columnGap="4"
-            sx={{
-              columnCount: {
-                base: 1,
-                sm: 2,
-              },
-            }}
-            mb={12}
-          >
+          {/* this would be better as a masonry layout, but */}
+          {/* there's still no way to do this in a way that doesn't require JS */}
+          <Flex wrap="wrap" mx={-2}>
             {notebookToolsInCanonicalOrder.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
+              <Flex
+                key={tool.id}
+                flex="1 1 auto"
+                direction="column"
+                w={{ base: "100%", sm: "50%" }}
+                p={2}
+              >
+                <ToolCard tool={tool} />
+              </Flex>
             ))}
-          </Box>
+          </Flex>
         </ContentContainer>
         <ContentContainer>
           <Heading as="h2" size="lg" color="gray.800">
@@ -59,15 +60,12 @@ interface ToolCardProps {
 function ToolCard({ tool }: ToolCardProps) {
   return (
     <Box
+      flex="1 1 auto"
       p={4}
-      mb={4}
       borderRadius="lg"
       borderColor="gray.200"
       borderWidth="1px"
       borderStyle="solid"
-      sx={{
-        breakInside: "avoid",
-      }}
     >
       {tool.screenshot ? (
         <Box mb={4} borderRadius="md" overflow="hidden">

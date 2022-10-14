@@ -14,6 +14,15 @@ module.exports = (phase, config) => {
     experimental: {
       nextScriptWorkers: true,
     },
+    async redirects() {
+      return [
+        {
+          source: "/alternatives/:slug",
+          destination: "/:slug#alternatives",
+          permanent: true,
+        },
+      ];
+    },
   };
 
   return nextConfig;

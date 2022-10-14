@@ -19,6 +19,7 @@ import NextLink from "next/link";
 import { routes } from "../../routes";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { cssVar, HTMLChakraProps } from "@chakra-ui/system";
+import { sidebarWidthVar } from "../SidebarLayout";
 
 interface HorizontalComparisonTableProps {
   tools: NotebookTool[];
@@ -40,7 +41,7 @@ export function HorizontalComparisonTable({
       <ScrollSync>
         <Box
           sx={{
-            [mainContainerGutter.variable]: `calc((100vw - var(--chakra-sizes-container-lg) - var(--chakra-sizes-64)) / 2 - var(--chakra-space-1))`,
+            [mainContainerGutter.variable]: `calc((100vw - var(--chakra-sizes-container-lg) - ${sidebarWidthVar.reference}) / 2 - var(--chakra-space-1))`,
           }}
         >
           <ScrollSyncPane>

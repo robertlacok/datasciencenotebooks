@@ -439,23 +439,6 @@ export const notebookTools = {
     },
   }),
 
-  bento: createNotebookTool({
-    name: "Facebook Bento",
-    id: "bento",
-    description: "An internal Facebook tool, presented at JupyterCon 2020.",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
-    websiteUrl:
-      "https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/",
-    screenshot: undefined,
-    features: {
-      licensingLicense: [
-        {
-          type: "proprietary",
-        },
-      ],
-    },
-  }),
-
   nextjournal: createNotebookTool({
     name: "Nextjournal",
     id: "nextjournal",

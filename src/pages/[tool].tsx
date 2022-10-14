@@ -58,7 +58,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
 
   return (
     <Fragment>
-      <Seo title={`Alternatives to ${tool.name} | Data science notebooks`} />
+      <Seo title={`${tool.name} | Data science notebooks`} />
       <SidebarLayout>
         <ContentContainer mb={8}>
           <Heading as="h1" size="2xl" color="gray.800" mb={4}>
@@ -67,7 +67,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
           {tool.screenshot ? (
             <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
               <Image
-                sizes="(max-width: 1000px) 100vw, 1000px"
+                sizes="(max-width: 500px) 100vw, 500px"
                 layout="responsive"
                 alt=""
                 src={tool.screenshot}

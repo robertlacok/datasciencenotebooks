@@ -1,34 +1,45 @@
 {
-	"name": "platform-institute",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"start": "svelte-kit start",
-		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --write ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-netlify": "1.0.0-next.12",
-		"@sveltejs/adapter-node": "1.0.0-next.20",
-		"@sveltejs/kit": "1.0.0-next.103",
-		"@typescript-eslint/eslint-plugin": "^4.19.0",
-		"@typescript-eslint/parser": "^4.19.0",
-		"eslint": "^7.22.0",
-		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-svelte3": "^3.1.0",
-		"prettier": "~2.2.1",
-		"prettier-plugin-svelte": "^2.2.0",
-		"sass": "^1.0.0",
-		"svelte": "^3.29.0",
-		"svelte-preprocess": "^4.0.0",
-		"tslib": "^2.0.0",
-		"typescript": "^4.0.0",
-		"vite": "^2.1.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"posthog-js": "^1.9.7",
-		"purecss": "^2.0.5"
-	}
+  "name": "datasciencenotebooks",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "yarn lint && next build --no-lint",
+    "start": "next start",
+    "lint": "yarn lint:prettier && yarn lint:next",
+    "lint:next": "next lint --max-warnings 0",
+    "lint:prettier": "prettier --check src/",
+    "lint-fix": "yarn lint-fix:prettier && yarn lint-fix:next",
+    "lint-fix:next": "next lint --fix",
+    "lint-fix:prettier": "prettier --write src/"
+  },
+  "dependencies": {
+    "@builder.io/partytown": "^0.7.1",
+    "@chakra-ui/react": "^2.3.1",
+    "@chakra-ui/system": "^2.2.9",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@heroicons/react": "^2.0.11",
+    "framer-motion": "^7.2.1",
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scroll-sync": "^0.11.0",
+    "sitemap": "^7.1.1"
+  },
+  "devDependencies": {
+    "@chakra-ui/cli": "^2.1.7",
+    "@types/node": "18.7.15",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
+    "@types/react-scroll-sync": "^0.8.4",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.7.1",
+    "typescript": "4.8.2",
+    "vercel": "^28.2.2"
+  },
+  "packageManager": "yarn@3.2.3"
 }

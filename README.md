@@ -1,25 +1,27 @@
 # Data Science Notebooks
 
-## Developing
+Live at [datasciencenotebook.org](https://datasciencenotebook.org)
 
-Install dependencies:
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-```bash
-npm install
-```
+## Getting Started
 
-Start a development server:
+First, install dependencies:
 
 ```bash
-npm run dev
+yarn
 ```
 
-## Deployment
+Then, run the development server:
 
-Pushing to the `main` branch builds and deploys the project with Netlify.
+```bash
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Contributing
 
 Feel free to submit a PR with any improvements, I'll have a look.
 
-`src/lib/vendors.json` contains most of the relevant information, the rest is rendered from there.
+`src/notebookTools.ts` contains most of the relevant information, the rest is rendered from there.

@@ -29,7 +29,7 @@ export const notebookTools = {
     id: "jupyter",
     description:
       "Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages. There's a number of vendors offering Jupyter notebooks as a managed service.",
-    lastUpdatedAt: "2022-09-07T23:40:01.819Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     screenshot: jupyterScreenshot,
     websiteUrl: "https://jupyter.org/",
     features: {
@@ -63,7 +63,7 @@ export const notebookTools = {
   observable: createNotebookTool({
     name: "Observable",
     id: "observable",
-    lastUpdatedAt: "2022-09-07T23:40:01.819Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Make sense of the world with data, together. Explore, visualize, and analyze data. Collaborate with the community. Learn and be inspired. Share insights with the world.",
     screenshot: observableScreenshot,
@@ -119,7 +119,7 @@ export const notebookTools = {
   sagemaker: createNotebookTool({
     name: "Amazon Sagemaker",
     id: "sagemaker",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Amazon SageMaker helps data scientists and developers to prepare, build, train, and deploy high-quality machine learning (ML) models quickly by bringing together a broad set of capabilities purpose-built for ML.",
     screenshot: sagemakerScreenshot,
@@ -151,7 +151,7 @@ export const notebookTools = {
   colab: createNotebookTool({
     name: "Google Colab",
     id: "colab",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Colab notebooks allow you to combine executable code and rich text in a single document, along with images, HTML, LaTeX and more.",
     screenshot: colabScreenshot,
@@ -183,7 +183,7 @@ export const notebookTools = {
   databricks: createNotebookTool({
     name: "Databricks Notebooks",
     id: "databricks",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Collaborate across engineering, data science, and machine learning teams with support for multiple languages, built-in data visualizations, automatic versioning, and operationalization with jobs.",
     screenshot: databricksScreenshot,
@@ -218,7 +218,7 @@ export const notebookTools = {
   cocalc: createNotebookTool({
     name: "CoCalc",
     id: "cocalc",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description: "Your best choice for teaching remote scientific courses.",
     screenshot: cocalcScreenshot,
     websiteUrl: "https://cocalc.com/",
@@ -251,7 +251,7 @@ export const notebookTools = {
     id: "deepnote",
     description:
       "Deepnote is a new kind of data notebook that’s built for collaboration — Jupyter compatible, works magically in the cloud, and sharing is as easy as sending a link.",
-    lastUpdatedAt: "2022-09-07T23:40:01.819Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     screenshot: deepnoteScreenshot,
     websiteUrl: "https://deepnote.com/",
     features: {
@@ -359,7 +359,7 @@ export const notebookTools = {
   hex: createNotebookTool({
     name: "Hex",
     id: "hex",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "The Data Workspace for Teams. Work with data in collaborative SQL and Python notebooks. Share as interactive data apps that anyone can use.",
     screenshot: hexScreenshot,
@@ -410,7 +410,7 @@ export const notebookTools = {
   kaggle: createNotebookTool({
     name: "Kaggle",
     id: "kaggle",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Explore and run machine learning code with Kaggle Notebooks, a cloud computational environment that enables reproducible and collaborative analysis.",
     screenshot: kaggleScreenshot,
@@ -442,7 +442,7 @@ export const notebookTools = {
   nextjournal: createNotebookTool({
     name: "Nextjournal",
     id: "nextjournal",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Runs anything you can put into a Docker container. Improve your workflow with polyglot notebooks, automatic versioning and real-time collaboration. Save time and money with on-demand provisioning, including GPU support.",
     screenshot: nextjournalScreenshot,
@@ -494,7 +494,7 @@ export const notebookTools = {
   datalore: createNotebookTool({
     name: "Jetbrains Datalore",
     id: "datalore",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "A powerful online environment for Jupyter notebooks. Use smart coding assistance for Python in online Jupyter notebooks, run code on powerful CPUs and GPUs, collaborate in real-time, and easily share the results.",
     screenshot: dataloreScreenshot,
@@ -535,7 +535,7 @@ export const notebookTools = {
   vscode: createNotebookTool({
     name: "VS Code",
     id: "vscode",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Visual Studio Code is a lightweight but powerful source code editor. It supports working with Jupyter Notebooks natively, as well as through Python code files.",
     screenshot: vscodeScreenshot,
@@ -564,7 +564,7 @@ export const notebookTools = {
   mode: createNotebookTool({
     name: "Mode Notebooks",
     id: "mode",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Native R & Python Notebooks. From SQL, explore your analysis using R or Python Notebooks.",
     screenshot: modeScreenshot,
@@ -603,7 +603,7 @@ export const notebookTools = {
   noteable: createNotebookTool({
     name: "Noteable",
     id: "noteable",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Noteable is a collaborative notebook platform that enables teams to use and visualize data, together.",
     screenshot: noteableScreenshot,
@@ -632,7 +632,7 @@ export const notebookTools = {
   polynote: createNotebookTool({
     name: "Polynote",
     id: "polynote",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Polynote is a different kind of notebook. It supports mixing multiple languages in one notebook, and sharing data between them seamlessly. It encourages reproducible notebooks with its immutable data model.",
     screenshot: polynoteScreenshot,
@@ -664,7 +664,7 @@ export const notebookTools = {
   zeppelin: createNotebookTool({
     name: "Zeppelin",
     id: "zeppelin",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala and more.",
     screenshot: zeppelinScreenshot,
@@ -713,7 +713,7 @@ export const notebookTools = {
   zepl: createNotebookTool({
     name: "Zepl",
     id: "zepl",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     screenshot: zeplScreenshot,
     description: "Notebook-powered analytics for enterprise teams.",
     websiteUrl: "https://zepl.com/",
@@ -753,7 +753,7 @@ export const notebookTools = {
   count: createNotebookTool({
     name: "Count",
     id: "count",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Count helps your data team work closer with the business so everyone is working on the problems that matter. Fast.",
     screenshot: undefined,
@@ -785,7 +785,7 @@ export const notebookTools = {
   nteract: createNotebookTool({
     name: "nteract",
     id: "nteract",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "nteract is an open-source organization committed to creating fantastic interactive computing experiences that allow people to collaborate with ease.",
     screenshot: nteractScreenshot,
@@ -814,7 +814,7 @@ export const notebookTools = {
   pluto: createNotebookTool({
     name: "Pluto.jl",
     id: "pluto",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Writing a notebook is not just about writing the final document — Pluto empowers the experiments and discoveries that are essential to getting there.",
     websiteUrl: "https://github.com/fonsp/Pluto.jl",
@@ -843,7 +843,7 @@ export const notebookTools = {
   "query-me": createNotebookTool({
     name: "Query.me",
     id: "queryme",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Collaborative SQL Notebooks. A better way for data teams to analyze, unite & deliver.",
     websiteUrl: "https://query.me",
@@ -884,7 +884,7 @@ export const notebookTools = {
   querybook: createNotebookTool({
     name: "Querybook",
     id: "querybook",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Querybook is Pinterest’s open-source big data IDE via a notebook interface.",
     websiteUrl: "https://querybook.org",
@@ -919,7 +919,7 @@ export const notebookTools = {
   husprey: createNotebookTool({
     name: "Husprey",
     id: "husprey",
-    lastUpdatedAt: "2022-09-22T04:27:53.532Z",
+    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Husprey provides a SQL data workspace designed for Data Analytics teams. Collaborate, analyze and share within your data team and with Business teams.",
     websiteUrl: "https://husprey.com",

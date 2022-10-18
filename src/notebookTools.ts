@@ -840,7 +840,7 @@ export const notebookTools = {
     },
   }),
 
-  queryme: createNotebookTool({
+  "query-me": createNotebookTool({
     name: "Query.me",
     id: "queryme",
     lastUpdatedAt: "2022-09-22T04:27:53.532Z",

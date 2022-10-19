@@ -842,7 +842,7 @@ export const notebookTools = {
 
   "query-me": createNotebookTool({
     name: "Query.me",
-    id: "queryme",
+    id: "query-me",
     lastUpdatedAt: "2022-10-18T22:01:37.573Z",
     description:
       "Collaborative SQL Notebooks. A better way for data teams to analyze, unite & deliver.",

@@ -69,7 +69,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
               <Image
                 sizes="(max-width: 500px) 100vw, 500px"
                 layout="responsive"
-                alt=""
+                alt={`A screenshot of ${tool.name}`}
                 src={tool.screenshot}
               />
             </Box>

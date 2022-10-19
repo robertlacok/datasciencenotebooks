@@ -63,7 +63,7 @@ export function SidebarContent() {
                   layout="responsive"
                   priority
                   sizes="128px"
-                  alt=""
+                  alt="Robert Lacok"
                 />
               </Box>
             }

@@ -952,7 +952,7 @@ export const notebookTools = {
   }),
 };
 
-type NotebookToolId = keyof typeof notebookTools;
+export type NotebookToolId = keyof typeof notebookTools;
 
 export function getNotebookTool(toolId: string) {
   if (!(toolId in notebookTools)) {
@@ -1000,7 +1000,9 @@ function countNotebookToolFeatures(tool: NotebookTool) {
 
 export const JUPYTER_NOTEBOOK_ID: NotebookToolId = "jupyter";
 
-export const notebookToolIds = Object.keys(notebookTools) as NotebookToolId[];
+export const notebookToolIds = notebookToolsInCanonicalOrder.map(
+  (tool) => tool.id
+) as NotebookToolId[];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _dummyExampleNotebookTool = createNotebookTool({

@@ -34,8 +34,24 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
           continue;
         }
 
+        const compareUrl = routes.compare({
+          tool1: toolId,
+          tool2: toolCompareId,
+        });
+        const compareCanonical = routes.compareCanonical({
+          tool1: toolId,
+          tool2: toolCompareId,
+        });
+
+        // non-canonical URLs should not be in sitemap
+        // https://help.ahrefs.com/en/articles/2652498-non-canonical-page-in-sitemap-error-in-site-audit
+
+        if (compareUrl !== compareCanonical) {
+          continue;
+        }
+
         stream.write({
-          url: routes.compare({ tool1: toolId, tool2: toolCompareId }),
+          url: compareCanonical,
           changefreq: "weekly",
           priority: 0.9,
           lastmod: findLastUpdated([

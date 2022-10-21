@@ -45,7 +45,7 @@ export function SidebarContent() {
           </NextLink>
         ) : null}
         <Heading as="h1" size="md" mb={4} color="gray.800">
-          Data science notebooks
+          Data Science Notebooks
         </Heading>
 
         <Text mb={2} lineHeight="tall" fontSize="md" color="gray.700">

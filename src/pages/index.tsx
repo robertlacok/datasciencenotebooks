@@ -16,14 +16,14 @@ function Home() {
   return (
     <Fragment>
       <Seo
-        title="Data science notebooks"
+        title="Data Science Notebooks"
         description="Data science gets done in notebooks. Compare different notebook tools at datasciencenotebook.org."
       />
       <SidebarLayout>
         <ContentContainer mb={8}>
           <Box mb={8} display={{ base: "block", [SIDEBAR_BREAKPOINT]: "none" }}>
             <Heading size="2xl" as="h1" color="gray.800">
-              Data science notebooks
+              Data Science Notebooks
             </Heading>
           </Box>
           {/* this would be better as a masonry layout, but */}

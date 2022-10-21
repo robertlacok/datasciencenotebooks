@@ -58,7 +58,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
 
   return (
     <Fragment>
-      <Seo title={`${tool.name} | Data science notebooks`} />
+      <Seo title={`${tool.name} | Data Science Notebooks`} />
       <SidebarLayout>
         <ContentContainer mb={8}>
           <Heading as="h1" size="2xl" color="gray.800" mb={4}>

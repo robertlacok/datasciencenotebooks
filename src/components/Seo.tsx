@@ -7,7 +7,7 @@ interface SeoProps {
 }
 
 export function Seo({
-  title = "Data science notebooks | Find your next notebook tool",
+  title = "Data Science Notebooks | Find your next notebook tool",
   description,
 }: SeoProps) {
   return (

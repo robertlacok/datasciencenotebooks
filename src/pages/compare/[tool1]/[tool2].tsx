@@ -54,7 +54,7 @@ function IndividualToolPage({}: IndividualToolPageProps) {
   return (
     <Fragment>
       <Seo
-        title={`${tool1.name} vs ${tool2.name} | Data science notebooks`}
+        title={`${tool1.name} vs ${tool2.name} | Data Science Notebooks`}
         description={`The differences and similarities between the data science notebook tools ${tool1.name} and ${tool2.name}.`}
       />
       <Head>

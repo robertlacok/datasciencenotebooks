@@ -21,7 +21,7 @@ export function JupyterVersionControlContent({
         Using Git works to version control Jupyter notebooks, but there are more
         ergonomic options when using other Jupyter-compatible tools.
       </P>
-      <P>
+      <P as="div">
         <SkipButton />
       </P>
 

@@ -49,7 +49,7 @@ export function H3(props: ComponentProps<"h3">) {
   );
 }
 
-export function P(props: ComponentProps<"p">) {
+export function P(props: ComponentProps<typeof Text>) {
   return (
     <Text
       as="p"

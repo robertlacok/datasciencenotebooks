@@ -106,4 +106,5 @@ JupyterVersionControlContent.meta = {
   title: "Version control in Jupyter notebooks",
   description:
     "Using Git works to version control Jupyter notebooks, but there are more ergonomic options when using other Jupyter-compatible tools.",
+  lastModifiedAt: "2022-10-25T05:22:23.707Z",
 };

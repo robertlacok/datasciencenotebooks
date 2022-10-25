@@ -9,6 +9,7 @@ import {
   notebookToolsInCanonicalOrder,
 } from "../../notebookTools";
 import type { NotebookTool } from "../../NotebookTool";
+import { JupyterVersionControlContent } from "../../content/JupyterVersionControlContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
   const sitemapStream = new SitemapStream({ hostname: PUBLIC_URL });
@@ -19,6 +20,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "daily",
       priority: 0.7,
       lastmod: findLastUpdated(notebookToolsInCanonicalOrder),
+    });
+
+    stream.write({
+      url: routes["jupyter-version-control"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: JupyterVersionControlContent.meta.lastModifiedAt,
     });
 
     for (const toolId of notebookToolIds) {

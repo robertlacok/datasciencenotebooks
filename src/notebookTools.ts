@@ -22,6 +22,7 @@ import plutoScreenshot from "./toolScreenshots/pluto.png";
 import querymeScreenshot from "./toolScreenshots/query-me.png";
 import querybookScreenshot from "./toolScreenshots/querybook.png";
 import huspreyScreenshot from "./toolScreenshots/husprey.png";
+import jupyterLabScreenshot from "./toolScreenshots/jupyterlab.png";
 
 export const notebookTools = {
   jupyter: createNotebookTool({
@@ -29,7 +30,7 @@ export const notebookTools = {
     id: "jupyter",
     description:
       "Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages. There's a number of vendors offering Jupyter notebooks as a managed service.",
-    lastUpdatedAt: "2022-10-18T22:01:37.573Z",
+    lastUpdatedAt: "2022-10-25T21:07:33.708Z",
     screenshot: jupyterScreenshot,
     websiteUrl: "https://jupyter.org/",
     features: {
@@ -42,10 +43,7 @@ export const notebookTools = {
       featuresReactivity: [{ type: "none" }],
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
 
-      managementCollaborativeEditing: [
-        { type: "fileBased" },
-        { type: "jupyterRealtime" },
-      ],
+      managementCollaborativeEditing: [{ type: "fileBased" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
       managementComments: [
         {
@@ -353,6 +351,42 @@ export const notebookTools = {
           type: "payPerUser",
         },
       ],
+    },
+  }),
+
+  jupyterlab: createNotebookTool({
+    name: "JupyterLab",
+    id: "jupyterlab",
+    lastUpdatedAt: "2022-10-25T21:07:33.708Z",
+    description:
+      "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
+    screenshot: jupyterLabScreenshot,
+    websiteUrl: "https://jupyterlab.readthedocs.io/en/stable/",
+    features: {
+      setupManaged: [{ type: "no" }],
+      setupSelfHost: [{ type: "yes", setupTime: "hours" }],
+
+      featuresJupyterCompatible: [{ type: "yes" }],
+      featuresLanguages: [{ type: "jupyterLanguages" }],
+      featuresDataSources: [{ type: "jupyterDataSources" }],
+      featuresReactivity: [{ type: "none" }],
+      featuresDataVisualization: [{ type: "jupyterVisualization" }],
+
+      managementCollaborativeEditing: [
+        { type: "fileBased" },
+        { type: "jupyterRealtime" },
+      ],
+      managementNotebookOrganization: [{ type: "fileBased" }],
+      managementComments: [
+        {
+          type: "fileBased",
+        },
+      ],
+      managementReproducability: [{ type: "effortful" }],
+      managementVersioning: [{ type: "fileBased" }],
+
+      licensingLicense: [{ type: "openSource", ossLicense: "BSD" }],
+      licensingPrice: [{ type: "free" }],
     },
   }),
 
@@ -969,6 +1003,7 @@ const topNotebookToolOrder: NotebookToolId[] = [
   "deepnote",
   "hex",
   "databricks",
+  "jupyterlab",
 ];
 
 /**

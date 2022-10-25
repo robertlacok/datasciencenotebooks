@@ -258,7 +258,7 @@ export const notebookFeatureDetails: {
         case "jupyterRealtime":
           return (
             <NotebookFeatureListItem icon={ClipboardDocumentIcon}>
-              Experimental Jupyter support
+              Experimental JupyterLab support
             </NotebookFeatureListItem>
           );
         case "fileBased":

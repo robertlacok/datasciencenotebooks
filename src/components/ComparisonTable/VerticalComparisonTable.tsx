@@ -91,7 +91,10 @@ export function VerticalComparisonTable({
                           color="gray.800"
                           mb={1}
                         >
-                          {notebookFeatureDetails[featureId].title}
+                          {notebookFeatureDetails[featureId].title}{" "}
+                          {notebookFeatureDetails[featureId]?.getHelpIcon?.(
+                            tool
+                          )}
                         </Heading>
                         {toolFeatureCapabilities ? (
                           toolFeatureCapabilities.map((capability, index) => (

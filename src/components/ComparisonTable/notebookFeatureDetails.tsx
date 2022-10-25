@@ -1,4 +1,11 @@
-import { Box, Flex, FlexProps } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  FlexProps,
+  Link,
+  LinkProps,
+  Tooltip,
+} from "@chakra-ui/react";
 import {
   ClipboardDocumentCheckIcon,
   BuildingOfficeIcon,
@@ -26,11 +33,15 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import type { ComponentProps, ComponentType, ReactNode } from "react";
-import type { NotebookFeatures } from "../../NotebookTool";
+import NextLink from "next/link";
+import type { NotebookFeatures, NotebookTool } from "../../NotebookTool";
+import { routes } from "../../routes";
+import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
 interface NotebookFeatureDetails<T> {
   title: ReactNode;
   getFeatureItem: (feature: T) => ReactNode;
+  getHelpIcon?: (tool: NotebookTool) => ReactNode;
 }
 
 export function renderFeatureItem<TName extends keyof NotebookFeatures>(
@@ -382,6 +393,23 @@ export const notebookFeatureDetails: {
           );
       }
     },
+
+    getHelpIcon: (tool) => {
+      const isJupyterCompatible = tool.features.featuresJupyterCompatible?.some(
+        (capability) => capability.type === "yes"
+      );
+
+      if (isJupyterCompatible) {
+        return (
+          <FeatureInfoIcon
+            title="More about version control in Jupyter notebooks"
+            href={routes["jupyter-version-control"]()}
+          />
+        );
+      }
+
+      return null;
+    },
   },
 
   licensingLicense: {
@@ -493,6 +521,47 @@ export function NotebookFeatureListItem({
       </Flex>
       <Box color="gray.800">{children}</Box>
     </Flex>
+  );
+}
+
+function FeatureInfoIcon({
+  href,
+  title,
+  ...props
+}: Omit<LinkProps, "href" | "title" | "children"> & {
+  href: string;
+  title: string;
+}) {
+  return (
+    <Tooltip
+      label={title}
+      size="sm"
+      bgColor="gray.50"
+      borderWidth="1px"
+      borderColor="gray.300"
+      borderStyle="solid"
+      color="gray.700"
+      boxShadow="xl"
+      borderRadius="xl"
+      px={4}
+      py={2}
+    >
+      <Box
+        w={5}
+        h={5}
+        display="inline-block"
+        verticalAlign="middle"
+        position="relative"
+        top={"-1px"}
+        color="gray.400"
+      >
+        <NextLink href={href} passHref>
+          <Link w={"100%"} h={"100%"} display="block" title={title} {...props}>
+            <InformationCircleIcon />
+          </Link>
+        </NextLink>
+      </Box>
+    </Tooltip>
   );
 }
 

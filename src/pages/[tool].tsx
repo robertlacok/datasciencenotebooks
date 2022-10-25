@@ -139,7 +139,8 @@ function FeatureCard({ tool, featureCategory }: FeatureCardProps) {
               color="gray.600"
               mb={1}
             >
-              {notebookFeatureDetails[featureId].title}
+              {notebookFeatureDetails[featureId].title}{" "}
+              {notebookFeatureDetails[featureId]?.getHelpIcon?.(tool)}
             </Heading>
             {toolFeatureCapabilities ? (
               toolFeatureCapabilities.map((capability, index) => (

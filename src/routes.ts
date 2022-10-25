@@ -18,4 +18,5 @@ export const routes = {
   tool: ({ tool }: { tool: string }) => `/${tool}`,
   toolAlternatives: ({ tool }: { tool: string }) =>
     `${routes.tool({ tool })}#alternatives`,
+  "jupyter-version-control": () => "/jupyter-version-control",
 };

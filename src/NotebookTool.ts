@@ -51,6 +51,11 @@ export interface NotebookFeatures {
     | { type: "ui" }
     | { type: "js" }
     | { type: "julia" };
+  featuresScheduling:
+    | { type: "none" }
+    | { type: "builtIn" }
+    | { type: "thirdParty" }
+    | { type: "limited" };
 
   managementVersioning:
     | { type: "fileBased" }
@@ -107,6 +112,7 @@ export const featureCategories: FeatureCategory[] = [
       "featuresDataSources",
       "featuresDataVisualization",
       "featuresReactivity",
+      "featuresScheduling",
     ],
   },
   {

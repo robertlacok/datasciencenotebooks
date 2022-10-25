@@ -31,6 +31,9 @@ import {
   ArrowPathRoundedSquareIcon,
   ClockIcon,
   QuestionMarkCircleIcon,
+  CalendarDaysIcon,
+  CalendarIcon,
+  WrenchIcon,
 } from "@heroicons/react/24/outline";
 import type { ComponentProps, ComponentType, ReactNode } from "react";
 import NextLink from "next/link";
@@ -233,6 +236,37 @@ export const notebookFeatureDetails: {
           return (
             <NotebookFeatureListItem icon={XCircleIcon}>
               No reactivity, you decide the execution order
+            </NotebookFeatureListItem>
+          );
+      }
+    },
+  },
+  featuresScheduling: {
+    title: "Notebook scheduling",
+    getFeatureItem: (feature) => {
+      switch (feature.type) {
+        case "none":
+          return (
+            <NotebookFeatureListItem icon={XCircleIcon}>
+              No notebook scheduling
+            </NotebookFeatureListItem>
+          );
+        case "thirdParty":
+          return (
+            <NotebookFeatureListItem icon={WrenchIcon}>
+              Notebook scheduling with additional tools
+            </NotebookFeatureListItem>
+          );
+        case "builtIn":
+          return (
+            <NotebookFeatureListItem icon={CalendarDaysIcon}>
+              Notebook scheduling is built in
+            </NotebookFeatureListItem>
+          );
+        case "limited":
+          return (
+            <NotebookFeatureListItem icon={CalendarIcon}>
+              Limited scheduling capabilities
             </NotebookFeatureListItem>
           );
       }

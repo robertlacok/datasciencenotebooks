@@ -13,9 +13,9 @@ export function JupyterOnlineContent({
       <P>
         Jupyter notebooks are useful for sharing insights about data. If the
         notebook is just on your own device, how are you supposed to share it?
-        Sending an ipynb file to someone else is not a great experience. Ideally
-        you could send a link, and the recipient doesn’t have to worry about
-        installing Jupyter or Python environments or anything like that.
+        Sending an ipynb file to someone else is not a great experience.
+        Ideally, you could send a link, and the recipient doesn’t have to worry
+        about installing Jupyter or Python environments or anything like that.
       </P>
       <P>
         A difficult way to do this is to run a “Jupyter server” and expose it to

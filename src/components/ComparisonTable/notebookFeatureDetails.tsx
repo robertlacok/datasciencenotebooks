@@ -82,6 +82,22 @@ export const notebookFeatureDetails: {
           );
       }
     },
+    getHelpIcon: (tool) => {
+      const isJupyterCompatible = tool.features.featuresJupyterCompatible?.some(
+        (capability) => capability.type === "yes"
+      );
+
+      if (isJupyterCompatible) {
+        return (
+          <FeatureInfoIcon
+            title="More about managed Jupyter notebooks"
+            href={routes["jupyter-notebook-online"]()}
+          />
+        );
+      }
+
+      return null;
+    },
   },
   setupSelfHost: {
     title: "Can you self-host?",

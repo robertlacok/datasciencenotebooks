@@ -11,6 +11,7 @@ import {
 import type { NotebookTool } from "../../NotebookTool";
 import { JupyterVersionControlContent } from "../../content/JupyterVersionControlContent";
 import { JupyterSchedulingContent } from "../../content/JupyterSchedulingContent";
+import { JupyterOnlineContent } from "../../content/JupyterOnlineContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
   const sitemapStream = new SitemapStream({ hostname: PUBLIC_URL });
@@ -35,6 +36,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "weekly",
       priority: 0.9,
       lastmod: JupyterSchedulingContent.meta.lastModifiedAt,
+    });
+
+    stream.write({
+      url: routes["jupyter-notebook-online"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: JupyterOnlineContent.meta.lastModifiedAt,
     });
 
     for (const toolId of notebookToolIds) {

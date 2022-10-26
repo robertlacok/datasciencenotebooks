@@ -20,4 +20,5 @@ export const routes = {
     `${routes.tool({ tool })}#alternatives`,
   "jupyter-version-control": () => "/jupyter-version-control",
   "jupyter-schedule-notebooks": () => "/jupyter-schedule-notebooks",
+  "jupyter-notebook-online": () => "/jupyter-notebook-online",
 };

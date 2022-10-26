@@ -485,7 +485,7 @@ export const notebookFeatureDetails: {
         case "openSource":
           return (
             <NotebookFeatureListItem icon={BuildingLibraryIcon}>
-              Open source ({feature.ossLicense})
+              Open-source ({feature.ossLicense})
             </NotebookFeatureListItem>
           );
         case "proprietary":
@@ -495,6 +495,22 @@ export const notebookFeatureDetails: {
             </NotebookFeatureListItem>
           );
       }
+    },
+    getHelpIcon: (tool) => {
+      const isOpenSource = tool.features.licensingLicense?.some(
+        (capability) => capability.type === "openSource"
+      );
+
+      if (isOpenSource) {
+        return (
+          <FeatureInfoIcon
+            title="More open-source notebooks"
+            href={routes["open-source-notebooks"]()}
+          />
+        );
+      }
+
+      return null;
     },
   },
   licensingPrice: {

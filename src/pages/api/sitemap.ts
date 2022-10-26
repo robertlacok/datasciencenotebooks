@@ -12,6 +12,7 @@ import type { NotebookTool } from "../../NotebookTool";
 import { JupyterVersionControlContent } from "../../content/JupyterVersionControlContent";
 import { JupyterSchedulingContent } from "../../content/JupyterSchedulingContent";
 import { JupyterOnlineContent } from "../../content/JupyterOnlineContent";
+import { OpenSourceNotebooksContent } from "../../content/OpenSourceNotebooksContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
   const sitemapStream = new SitemapStream({ hostname: PUBLIC_URL });
@@ -43,6 +44,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "weekly",
       priority: 0.9,
       lastmod: JupyterOnlineContent.meta.lastModifiedAt,
+    });
+
+    stream.write({
+      url: routes["open-source-notebooks"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: OpenSourceNotebooksContent.meta.lastModifiedAt,
     });
 
     for (const toolId of notebookToolIds) {

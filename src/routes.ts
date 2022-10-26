@@ -21,4 +21,5 @@ export const routes = {
   "jupyter-version-control": () => "/jupyter-version-control",
   "jupyter-schedule-notebooks": () => "/jupyter-schedule-notebooks",
   "jupyter-notebook-online": () => "/jupyter-notebook-online",
+  "open-source-notebooks": () => "/open-source-notebooks",
 };

@@ -271,6 +271,22 @@ export const notebookFeatureDetails: {
           );
       }
     },
+    getHelpIcon: (tool) => {
+      const isJupyterCompatible = tool.features.featuresJupyterCompatible?.some(
+        (capability) => capability.type === "yes"
+      );
+
+      if (isJupyterCompatible) {
+        return (
+          <FeatureInfoIcon
+            title="More about scheduling Jupyter notebooks"
+            href={routes["jupyter-schedule-notebooks"]()}
+          />
+        );
+      }
+
+      return null;
+    },
   },
 
   managementCollaborativeEditing: {

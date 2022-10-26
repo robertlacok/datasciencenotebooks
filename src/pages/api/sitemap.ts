@@ -10,6 +10,7 @@ import {
 } from "../../notebookTools";
 import type { NotebookTool } from "../../NotebookTool";
 import { JupyterVersionControlContent } from "../../content/JupyterVersionControlContent";
+import { JupyterSchedulingContent } from "../../content/JupyterSchedulingContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
   const sitemapStream = new SitemapStream({ hostname: PUBLIC_URL });
@@ -27,6 +28,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "weekly",
       priority: 0.9,
       lastmod: JupyterVersionControlContent.meta.lastModifiedAt,
+    });
+
+    stream.write({
+      url: routes["jupyter-schedule-notebooks"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: JupyterSchedulingContent.meta.lastModifiedAt,
     });
 
     for (const toolId of notebookToolIds) {

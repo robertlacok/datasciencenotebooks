@@ -19,4 +19,5 @@ export const routes = {
   toolAlternatives: ({ tool }: { tool: string }) =>
     `${routes.tool({ tool })}#alternatives`,
   "jupyter-version-control": () => "/jupyter-version-control",
+  "jupyter-schedule-notebooks": () => "/jupyter-schedule-notebooks",
 };

@@ -661,24 +661,46 @@ export const notebookTools = {
     screenshot: noteableScreenshot,
     websiteUrl: "https://noteable.io/",
     features: {
-      setupManaged: [{ type: "yes", setupTime: "hours" }],
-      setupSelfHost: undefined,
-
+      setupManaged: [{ type: "yes", setupTime: "minutes" }],
+      setupSelfHost: [{ type: "yes", setupTime: "hours" }],
       featuresJupyterCompatible: [{ type: "yes" }],
-      featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }],
-      featuresReactivity: undefined,
-      featuresDataVisualization: [{ type: "jupyterVisualization" }],
-      featuresScheduling: [{ type: "builtIn" }],
-
+      featuresLanguages: [
+        { type: "jupyterLanguages" },
+        { type: "language", language: "sql" },
+      ],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        {
+          type: "databases",
+          examples: "Trino, Snowflake, CockroachDB, PostgreSQL",
+        },
+        {
+          type: "dataWarehouses",
+          examples: "Amazon Redshift, Google BigQuery, Databricks",
+        },
+        { type: "fileStorage" },
+      ],
+      featuresReactivity: [{ type: "none" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
+      featuresScheduling: [{ type: "builtIn" }, { type: "thirdParty" }],
       managementCollaborativeEditing: [{ type: "realtime" }],
-      managementNotebookOrganization: undefined,
-      managementReproducability: [{ type: "environment" }],
-      managementVersioning: undefined,
-      managementComments: undefined,
-
+      managementNotebookOrganization: [{ type: "fileBased" }],
+      managementReproducability: [
+        { type: "environment" },
+        { type: "execution" },
+        { type: "containers" },
+      ],
+      managementVersioning: [{ type: "builtIn" }],
+      managementComments: [{ type: "inNotebook" }, { type: "outOfNotebook" }],
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: undefined,
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 

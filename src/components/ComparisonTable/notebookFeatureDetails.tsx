@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  FlexProps,
-  Link,
-  LinkProps,
-  Tooltip,
-} from "@chakra-ui/react";
+import { Box, Flex, FlexProps, LinkProps, Tooltip } from "@chakra-ui/react";
 import {
   ClipboardDocumentCheckIcon,
   BuildingOfficeIcon,
@@ -36,10 +29,10 @@ import {
   WrenchIcon,
 } from "@heroicons/react/24/outline";
 import type { ComponentProps, ComponentType, ReactNode } from "react";
-import NextLink from "next/link";
 import type { NotebookFeatures, NotebookTool } from "../../NotebookTool";
 import { routes } from "../../routes";
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
+import { NextLink } from "../NextLink";
 
 interface NotebookFeatureDetails<T> {
   title: ReactNode;
@@ -637,10 +630,15 @@ function FeatureInfoIcon({
         top={"-1px"}
         color="gray.400"
       >
-        <NextLink href={href} passHref>
-          <Link w={"100%"} h={"100%"} display="block" title={title} {...props}>
-            <InformationCircleIcon />
-          </Link>
+        <NextLink
+          href={href}
+          w={"100%"}
+          h={"100%"}
+          display="block"
+          title={title}
+          {...props}
+        >
+          <InformationCircleIcon />
         </NextLink>
       </Box>
     </Tooltip>

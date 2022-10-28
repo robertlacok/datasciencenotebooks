@@ -2,7 +2,7 @@ import { Box, Button, Flex, FlexProps } from "@chakra-ui/react";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import type { NotebookTool } from "../NotebookTool";
 import { routes } from "../routes";
-import NextLink from "next/link";
+import { NextLink } from "./NextLink";
 
 interface ToolLinkListProps extends FlexProps {
   tool: NotebookTool;
@@ -35,11 +35,15 @@ export function ToolLinkList({
         </Button>
       )}
       {includeAlternatives && (
-        <NextLink href={routes.toolAlternatives({ tool: tool.id })} passHref>
-          <Button m={1} as="a" variant="outline" size="sm">
-            Alternatives
-          </Button>
-        </NextLink>
+        <Button
+          m={1}
+          as={NextLink}
+          href={routes.toolAlternatives({ tool: tool.id })}
+          variant="outline"
+          size="sm"
+        >
+          Alternatives
+        </Button>
       )}
     </Flex>
   );

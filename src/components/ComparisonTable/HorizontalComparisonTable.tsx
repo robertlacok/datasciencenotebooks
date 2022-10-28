@@ -7,7 +7,6 @@ import {
   Th,
   Thead,
   Tr,
-  Link,
   TableContainerProps,
   chakra,
 } from "@chakra-ui/react";
@@ -15,11 +14,11 @@ import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import { Fragment, ReactNode } from "react";
 import type { NotebookTool } from "../../NotebookTool";
 import { languageNameMap } from "./notebookFeatureDetails";
-import NextLink from "next/link";
 import { routes } from "../../routes";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { cssVar, HTMLChakraProps } from "@chakra-ui/system";
 import { sidebarWidthVar } from "../SidebarLayout";
+import { NextLink } from "../NextLink";
 
 interface HorizontalComparisonTableProps {
   tools: NotebookTool[];
@@ -183,18 +182,17 @@ function TableToolRow({
         w={CELL_WIDTH}
         bg="white"
       >
-        <NextLink href={routes.tool({ tool: tool.id })} passHref>
-          <Link
-            display="flex"
-            alignItems="center"
-            fontSize="lg"
-            fontWeight="bold"
-          >
-            <Box w={6} h={6} mr={2} flex="0 0 auto">
-              <ArrowRightCircleIcon />
-            </Box>
-            {tool.name}
-          </Link>
+        <NextLink
+          href={routes.tool({ tool: tool.id })}
+          display="flex"
+          alignItems="center"
+          fontSize="lg"
+          fontWeight="bold"
+        >
+          <Box w={6} h={6} mr={2} flex="0 0 auto">
+            <ArrowRightCircleIcon />
+          </Box>
+          {tool.name}
         </NextLink>
         {usableToolsToCompare.length > 0 ? (
           <Box fontSize="xs" mt={2}>
@@ -208,9 +206,9 @@ function TableToolRow({
                       tool1: tool.id,
                       tool2: toolToCompare.id,
                     })}
-                    passHref
+                    color="blue.600"
                   >
-                    <Link color="blue.600">{toolToCompare.name}</Link>
+                    {toolToCompare.name}
                   </NextLink>,
                 ];
 

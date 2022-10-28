@@ -28,21 +28,20 @@ export function SidebarContent() {
     <Fragment>
       <Box mb={8}>
         {router.pathname !== homeRoute ? (
-          <NextLink href={homeRoute} passHref>
-            <Button
-              as="a"
-              variant="outline"
-              mb={3}
-              size="sm"
-              leftIcon={
-                <Box w={5} h={5}>
-                  <ArrowLeftIcon />
-                </Box>
-              }
-            >
-              View all notebooks
-            </Button>
-          </NextLink>
+          <Button
+            as={NextLink}
+            href={homeRoute}
+            variant="outline"
+            mb={3}
+            size="sm"
+            leftIcon={
+              <Box w={5} h={5}>
+                <ArrowLeftIcon />
+              </Box>
+            }
+          >
+            View all notebooks
+          </Button>
         ) : null}
         <Heading as="h1" size="md" mb={4} color="gray.800">
           Data Science Notebooks

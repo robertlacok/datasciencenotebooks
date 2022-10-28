@@ -18,12 +18,13 @@ export function JupyterOnlineContent({
         about installing Jupyter or Python environments or anything like that.
       </P>
       <P>
-        A difficult way to do this is to run a “Jupyter server” and expose it to
-        the internet. It’s a lot of effort, but valid in some situations.{" "}
-        <A href={links.jupyterServer}>
-          Jupyter has docs on how to do just this
-        </A>
-        .
+        A difficult way to do this is to run{" "}
+        <A href={links.jupyterHub}>JupyterHub</A> and expose it to the internet.
+        It’s a lot of effort, but valid in some situations. If only you need to
+        access it, running{" "}
+        <A href={links.jupyterServer}>Jupyter in server mode</A> is slightly
+        easier. Both of these options require you to run a server such as a
+        machine on a cloud service like AWS.
       </P>
       <P>
         Managed, or hosted, notebooks are a much more reliable way to do this.
@@ -40,6 +41,7 @@ export function JupyterOnlineContent({
 const links = {
   jupyterServer:
     "https://jupyter-notebook.readthedocs.io/en/stable/public_server.html",
+  jupyterHub: "https://jupyterhub.readthedocs.io/en/latest/",
 };
 
 JupyterOnlineContent.meta = {

@@ -22,6 +22,16 @@ module.exports = (phase, config) => {
           destination: "/:slug#alternatives",
           permanent: true,
         },
+        {
+          source: "/features/realtime-collaboration",
+          destination: "/jupyter-realtime-collaboration",
+          permanent: true,
+        },
+        {
+          source: "/features/versioning",
+          destination: "/jupyter-version-control",
+          permanent: true,
+        },
       ];
     },
   };

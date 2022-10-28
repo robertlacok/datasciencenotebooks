@@ -39,7 +39,7 @@ export function JupyterOnlineContent({
 
 const links = {
   jupyterServer:
-    "https://filipstollar.medium.com/how-to-schedule-a-jupyter-notebook-to-run-every-day-week-or-month-ae3f992f3afc",
+    "https://jupyter-notebook.readthedocs.io/en/stable/public_server.html",
 };
 
 JupyterOnlineContent.meta = {

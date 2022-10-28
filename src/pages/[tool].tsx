@@ -5,7 +5,6 @@ import type {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import {
@@ -16,6 +15,7 @@ import {
   UnknownFeatureListItem,
 } from "../components/ComparisonTable";
 import { ContentContainer } from "../components/ContentContainer";
+import { ResponsiveImage } from "../components/Image";
 import { Seo } from "../components/Seo";
 import { SidebarLayout } from "../components/SidebarLayout";
 import { ToolLinkList } from "../components/ToolLinkList";
@@ -66,11 +66,10 @@ function IndividualToolPage({}: IndividualToolPageProps) {
           </Heading>
           {tool.screenshot ? (
             <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
-              <Image
-                sizes="(max-width: 500px) 100vw, 500px"
-                layout="responsive"
+              <ResponsiveImage
                 alt={`A screenshot of ${tool.name}`}
                 src={tool.screenshot}
+                sizes="(max-width: 500px) 100vw, 500px"
               />
             </Box>
           ) : null}

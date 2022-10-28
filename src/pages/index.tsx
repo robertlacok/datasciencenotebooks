@@ -1,5 +1,4 @@
 import { Box, Heading, Text, chakra, Flex } from "@chakra-ui/react";
-import Image from "next/legacy/image";
 import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
 import { Seo } from "../components/Seo";
@@ -11,6 +10,7 @@ import { ToolLinkList } from "../components/ToolLinkList";
 import NextLink from "next/link";
 import { routes } from "../routes";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import { ResponsiveImage } from "../components/Image";
 
 function Home() {
   return (
@@ -70,12 +70,11 @@ function ToolCard({ tool, isAboveTheFold }: ToolCardProps) {
     >
       {tool.screenshot ? (
         <Box mb={4} borderRadius="md" overflow="hidden">
-          <Image
-            sizes="(max-width: 500px) 100vw, 500px"
+          <ResponsiveImage
             src={tool.screenshot}
-            layout="responsive"
             alt={`A screenshot of ${tool.name}`}
             priority={isAboveTheFold}
+            sizes="(max-width: 500px) 100vw, 500px"
           />
         </Box>
       ) : null}

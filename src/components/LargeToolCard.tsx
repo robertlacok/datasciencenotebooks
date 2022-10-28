@@ -1,10 +1,10 @@
 import { Box, Heading, Text, chakra, Flex, FlexProps } from "@chakra-ui/react";
-import Image from "next/legacy/image";
 import type { NotebookTool } from "../NotebookTool";
 import { ToolLinkList } from "../components/ToolLinkList";
 import NextLink from "next/link";
 import { routes } from "../routes";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import { ResponsiveImage } from "./Image";
 
 interface LargeToolCardProps extends FlexProps {
   tool: NotebookTool;
@@ -30,11 +30,10 @@ export function LargeToolCard({ tool, ...props }: LargeToolCardProps) {
       >
         {tool.screenshot ? (
           <Box borderRadius="md" overflow="hidden">
-            <Image
-              sizes="(max-width: 500px) 100vw, 500px"
+            <ResponsiveImage
               src={tool.screenshot}
-              layout="responsive"
               alt={`A screenshot of ${tool.name}`}
+              sizes="(max-width: 500px) 100vw, 500px"
             />
           </Box>
         ) : null}

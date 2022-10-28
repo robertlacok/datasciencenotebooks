@@ -10,7 +10,6 @@ import {
   HeadingProps,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
-import Image from "next/legacy/image";
 import NextLink from "next/link";
 import { routes } from "../../routes";
 import { useRouter } from "next/router";
@@ -19,6 +18,7 @@ import {
   ArrowLeftIcon,
 } from "@heroicons/react/20/solid";
 import imageRobertUrl from "./image-robert.jpeg";
+import { ResponsiveImage } from "../Image";
 
 export function SidebarContent() {
   const router = useRouter();
@@ -57,15 +57,14 @@ export function SidebarContent() {
         <SidebarSection mb={8}>
           <SidebarSectionHeading
             icon={
-              <Box w="100%" h="100%">
-                <Image
-                  src={imageRobertUrl}
-                  layout="responsive"
-                  priority
-                  sizes="128px"
-                  alt="Robert Lacok"
-                />
-              </Box>
+              <ResponsiveImage
+                src={imageRobertUrl}
+                priority
+                alt="Robert Lacok"
+                sizes="128px"
+                w="100%"
+                h="100%"
+              />
             }
           >
             About the author

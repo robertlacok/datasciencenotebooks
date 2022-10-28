@@ -1,9 +1,10 @@
 import { Box, Heading, Link, Text, chakra, Button } from "@chakra-ui/react";
 import type { ComponentProps, ReactNode } from "react";
-import Image, { type ImageProps } from "next/legacy/image";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
+import { ResponsiveImage } from "./Image";
 
-interface ProseImageProps extends Pick<ImageProps, "src" | "alt"> {
+interface ProseImageProps
+  extends Pick<ComponentProps<typeof ResponsiveImage>, "src" | "alt"> {
   caption?: ReactNode;
 }
 
@@ -17,11 +18,10 @@ export function ProseImage({ src, alt, caption }: ProseImageProps) {
         borderStyle="solid"
         overflow="hidden"
       >
-        <Image
-          sizes="(max-width: 800px) 100vw, 800px"
+        <ResponsiveImage
           src={src}
           alt={alt}
-          layout="responsive"
+          sizes="(max-width: 800px) 100vw, 800px"
         />
       </Box>
       {caption ? (

@@ -15,9 +15,6 @@ module.exports = (phase, config) => {
         },
       ];
     },
-    experimental: {
-      nextScriptWorkers: true,
-    },
     async redirects() {
       return [
         {

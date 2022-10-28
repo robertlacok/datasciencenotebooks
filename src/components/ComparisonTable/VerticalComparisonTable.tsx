@@ -1,5 +1,5 @@
 import { Heading, Flex, BoxProps, Box, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Fragment } from "react";
 import { featureCategories, NotebookTool } from "../../NotebookTool";
 import {

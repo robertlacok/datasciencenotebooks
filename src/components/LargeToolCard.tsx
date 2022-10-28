@@ -1,5 +1,5 @@
 import { Box, Heading, Text, chakra, Flex, FlexProps } from "@chakra-ui/react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import type { NotebookTool } from "../NotebookTool";
 import { ToolLinkList } from "../components/ToolLinkList";
 import NextLink from "next/link";

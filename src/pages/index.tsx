@@ -1,5 +1,5 @@
 import { Box, Heading, Text, chakra, Flex } from "@chakra-ui/react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
 import { Seo } from "../components/Seo";

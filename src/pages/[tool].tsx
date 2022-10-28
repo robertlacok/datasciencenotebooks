@@ -5,7 +5,7 @@ import type {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import {

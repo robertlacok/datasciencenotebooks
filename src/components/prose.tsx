@@ -1,6 +1,6 @@
 import { Box, Heading, Link, Text, chakra, Button } from "@chakra-ui/react";
 import type { ComponentProps, ReactNode } from "react";
-import Image, { type ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/legacy/image";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 
 interface ProseImageProps extends Pick<ImageProps, "src" | "alt"> {

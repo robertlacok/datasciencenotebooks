@@ -1,5 +1,4 @@
 import { Heading, Flex, BoxProps, Box, Text } from "@chakra-ui/react";
-import Image from "next/image";
 import { Fragment } from "react";
 import { featureCategories, NotebookTool } from "../../NotebookTool";
 import {
@@ -9,6 +8,7 @@ import {
   UnknownFeatureListItem,
 } from "./notebookFeatureDetails";
 import { ToolLinkList } from "../ToolLinkList";
+import { ResponsiveImage } from "../Image";
 
 interface VerticalComparisonTableProps {
   tools: NotebookTool[];
@@ -42,14 +42,11 @@ export function VerticalComparisonTable({
             <ComparisonTableToolCell key={tool.id}>
               {tool.screenshot ? (
                 <Box mb={4} borderRadius="lg" overflow="hidden">
-                  <Image
+                  <ResponsiveImage
                     src={tool.screenshot}
                     alt={`A screenshot of ${tool.name}`}
                     sizes="(max-width: 500px) 100vw, 500px"
-                    style={{
-                      width: "100%",
-                      height: "auto"
-                    }} />
+                  />
                 </Box>
               ) : null}
               <Text color="gray.600" mb={4}>

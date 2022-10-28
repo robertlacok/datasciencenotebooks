@@ -12,6 +12,7 @@ import type { NotebookTool } from "../../NotebookTool";
 import { JupyterVersionControlContent } from "../../content/JupyterVersionControlContent";
 import { JupyterSchedulingContent } from "../../content/JupyterSchedulingContent";
 import { JupyterOnlineContent } from "../../content/JupyterOnlineContent";
+import { JupyterRealtimeCollaborationContent } from "../../content/JupyterRealtimeCollaborationContent";
 import { OpenSourceNotebooksContent } from "../../content/OpenSourceNotebooksContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
@@ -44,6 +45,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "weekly",
       priority: 0.9,
       lastmod: JupyterOnlineContent.meta.lastModifiedAt,
+    });
+
+    stream.write({
+      url: routes["jupyter-realtime-collaboration"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: JupyterRealtimeCollaborationContent.meta.lastModifiedAt,
     });
 
     stream.write({

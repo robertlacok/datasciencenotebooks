@@ -1,7 +1,8 @@
-import { Box, Heading, Link, Text, chakra, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, chakra, Button } from "@chakra-ui/react";
 import type { ComponentProps, ReactNode } from "react";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 import { ResponsiveImage } from "./Image";
+import { NextLink } from "./NextLink";
 
 interface ProseImageProps
   extends Pick<ComponentProps<typeof ResponsiveImage>, "src" | "alt"> {
@@ -63,8 +64,8 @@ export function P(props: ComponentProps<typeof Text>) {
   );
 }
 
-export function A(props: ComponentProps<"a">) {
-  return <Link as="a" color="blue.600" textDecoration="underline" {...props} />;
+export function A(props: ComponentProps<typeof NextLink>) {
+  return <NextLink color="blue.600" textDecoration="underline" {...props} />;
 }
 
 export function Ul(props: ComponentProps<"ul">) {
@@ -88,7 +89,16 @@ export function Li(props: ComponentProps<"li">) {
 }
 
 export function Ol(props: ComponentProps<"ol">) {
-  return <chakra.ol mb={6} pl={6} {...props} />;
+  return (
+    <chakra.ol
+      fontSize="md"
+      color="gray.600"
+      lineHeight="tall"
+      mb={6}
+      pl={6}
+      {...props}
+    />
+  );
 }
 
 export function SkipButton({
@@ -108,5 +118,19 @@ export function SkipButton({
     >
       {children}
     </Button>
+  );
+}
+
+export function Code(props: ComponentProps<"code">) {
+  return (
+    <chakra.code
+      display="inline-block"
+      borderRadius="md"
+      px={2}
+      bgColor="gray.100"
+      color="teal.700"
+      fontFamily="mono"
+      {...props}
+    />
   );
 }

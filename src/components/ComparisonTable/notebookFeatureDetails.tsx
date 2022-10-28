@@ -334,6 +334,22 @@ export const notebookFeatureDetails: {
           );
       }
     },
+    getHelpIcon: (tool) => {
+      const isJupyterCompatible = tool.features.featuresJupyterCompatible?.some(
+        (capability) => capability.type === "yes"
+      );
+
+      if (isJupyterCompatible) {
+        return (
+          <FeatureInfoIcon
+            title="More about collaborative editing in Jupyter notebooks"
+            href={routes["jupyter-realtime-collaboration"]()}
+          />
+        );
+      }
+
+      return null;
+    },
   },
   managementComments: {
     title: "Comments",

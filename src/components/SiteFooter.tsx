@@ -16,6 +16,7 @@ export function SiteFooter({ size = "wide" }: SiteFooterProps) {
         <Heading as="h2" size="lg" color="gray.300" mb={12}>
           Data Science Notebooks
         </Heading>
+        {/* This list is based on pages that are popular from our analytics, and search queries that are popular. */}
         <Box display="flex" flexWrap="wrap" justifyContent="flex-start" m={-1}>
           <Section>
             <SectionHeading>Popular notebook tools</SectionHeading>

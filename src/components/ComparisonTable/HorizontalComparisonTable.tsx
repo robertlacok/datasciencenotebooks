@@ -196,29 +196,31 @@ function TableToolRow({
         </NextLink>
         {usableToolsToCompare.length > 0 ? (
           <Box fontSize="xs" mt={2}>
-            Compare with{" "}
-            <Box display="inline-block">
-              {usableToolsToCompare.map((toolToCompare, index) => {
-                const elements: ReactNode[] = [
-                  <NextLink
-                    key={toolToCompare.id}
-                    href={routes.compareCanonical({
-                      tool1: tool.id,
-                      tool2: toolToCompare.id,
-                    })}
-                    color="blue.600"
-                  >
-                    {toolToCompare.name}
-                  </NextLink>,
-                ];
+            <span data-nosnippet>
+              Compare with{" "}
+              <Box display="inline-block">
+                {usableToolsToCompare.map((toolToCompare, index) => {
+                  const elements: ReactNode[] = [
+                    <NextLink
+                      key={toolToCompare.id}
+                      href={routes.compareCanonical({
+                        tool1: tool.id,
+                        tool2: toolToCompare.id,
+                      })}
+                      color="blue.600"
+                    >
+                      {toolToCompare.name}
+                    </NextLink>,
+                  ];
 
-                if (index !== usableToolsToCompare.length - 1) {
-                  elements.push(", ");
-                }
+                  if (index !== usableToolsToCompare.length - 1) {
+                    elements.push(", ");
+                  }
 
-                return elements;
-              })}
-            </Box>
+                  return elements;
+                })}
+              </Box>
+            </span>
           </Box>
         ) : null}
       </Td>

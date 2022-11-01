@@ -1,5 +1,5 @@
 import { Box, Heading, Text, chakra, Button } from "@chakra-ui/react";
-import type { ComponentProps, ReactNode } from "react";
+import type { Component, ComponentProps, ReactNode } from "react";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 import { ResponsiveImage } from "./Image";
 import { NextLink } from "./NextLink";
@@ -133,4 +133,8 @@ export function Code(props: ComponentProps<"code">) {
       {...props}
     />
   );
+}
+
+export function Strong(props: ComponentProps<"strong">) {
+  return <chakra.strong {...props} />;
 }

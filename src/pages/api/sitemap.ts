@@ -14,6 +14,7 @@ import { JupyterSchedulingContent } from "../../content/JupyterSchedulingContent
 import { JupyterOnlineContent } from "../../content/JupyterOnlineContent";
 import { JupyterRealtimeCollaborationContent } from "../../content/JupyterRealtimeCollaborationContent";
 import { OpenSourceNotebooksContent } from "../../content/OpenSourceNotebooksContent";
+import { JupyterCommentsContent } from "../../content/JupyterCommentsContent";
 
 async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
   const sitemapStream = new SitemapStream({ hostname: PUBLIC_URL });
@@ -59,6 +60,13 @@ async function sitemapApiHandler(req: NextApiRequest, res: NextApiResponse) {
       changefreq: "weekly",
       priority: 0.9,
       lastmod: OpenSourceNotebooksContent.meta.lastModifiedAt,
+    });
+
+    stream.write({
+      url: routes["jupyter-comments"](),
+      changefreq: "weekly",
+      priority: 0.9,
+      lastmod: JupyterCommentsContent.meta.lastModifiedAt,
     });
 
     for (const toolId of notebookToolIds) {

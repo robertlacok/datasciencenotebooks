@@ -1,18 +1,18 @@
 import { chakra } from "@chakra-ui/system";
 import LibNextLink from "next/link";
-import type { ComponentProps } from "react";
+import { ComponentProps, forwardRef, Ref } from "react";
 
-export const NextLinkUnstyled = ({
-  href,
-  ...props
-}: ComponentProps<typeof LibNextLink>) => {
+export const NextLinkUnstyled = forwardRef(function NextLinkUnstyled(
+  { href, ...props }: ComponentProps<typeof LibNextLink>,
+  ref: Ref<HTMLAnchorElement>
+) {
   if (typeof href === "object" || !isUrlRelative(href)) {
-    return <LibNextLink href={href} {...props} />;
+    return <LibNextLink ref={ref} href={href} {...props} />;
   }
 
   // eslint-disable-next-line jsx-a11y/anchor-has-content
-  return <a href={href} {...props} />;
-};
+  return <a ref={ref} href={href} {...props} />;
+});
 
 const isUrlRelative = (url: string) => {
   const parsedUrl = new URL(url, DUMMY_RELATIVE_ORIGIN);

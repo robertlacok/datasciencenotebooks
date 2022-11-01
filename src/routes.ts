@@ -23,4 +23,5 @@ export const routes = {
   "jupyter-notebook-online": () => "/jupyter-notebook-online",
   "jupyter-realtime-collaboration": () => "/jupyter-realtime-collaboration",
   "open-source-notebooks": () => "/open-source-notebooks",
+  "jupyter-comments": () => "/jupyter-comments",
 };

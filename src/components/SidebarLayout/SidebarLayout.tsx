@@ -19,6 +19,7 @@ import {
   sidebarWidthVar,
 } from "./constants";
 import { SidebarContent } from "./SidebarContent";
+import { SiteFooter } from "../SiteFooter";
 
 export function Sidebar(props: BoxProps) {
   return (
@@ -62,6 +63,7 @@ export function SidebarMain(props: BoxProps) {
 
 interface SidebarLayoutProps {
   children?: ReactNode;
+  footerSize?: "wide" | "narrow";
 }
 
 const sidebarWidthVaraibles = {
@@ -70,7 +72,7 @@ const sidebarWidthVaraibles = {
   [SIDEBAR_BREAKPOINT_LARGE]: `var(--chakra-sizes-${SIDEBAR_WIDTH[SIDEBAR_BREAKPOINT_LARGE]})`,
 };
 
-export function SidebarLayout({ children }: SidebarLayoutProps) {
+export function SidebarLayout({ children, footerSize }: SidebarLayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const router = useRouter();
@@ -98,6 +100,7 @@ export function SidebarLayout({ children }: SidebarLayoutProps) {
         }}
       >
         {children}
+        <SiteFooter size={footerSize} />
       </SidebarMain>
       <Button
         ref={btnRef}

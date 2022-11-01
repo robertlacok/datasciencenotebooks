@@ -29,8 +29,8 @@ function JupyterRealtimeCollaborationPage({}: JupyterRealtimeCollaborationPagePr
         title={`${JupyterRealtimeCollaborationContent.meta.title} | Data Science Notebooks`}
         description={JupyterRealtimeCollaborationContent.meta.description}
       />
-      <SidebarLayout>
-        <ContentContainer maxWidth="container.md">
+      <SidebarLayout footerSize="narrow">
+        <ContentContainer size="narrow">
           <Heading color="gray.800" as="h1" size="xl" mb={12} mt={12}>
             {JupyterRealtimeCollaborationContent.meta.title}
           </Heading>

@@ -28,8 +28,8 @@ function JupyterNotebookOnlinePage({}: JupyterNotebookOnlinePageProps) {
         title={`${JupyterOnlineContent.meta.title} | Data Science Notebooks`}
         description={JupyterOnlineContent.meta.description}
       />
-      <SidebarLayout>
-        <ContentContainer maxWidth="container.md">
+      <SidebarLayout footerSize="narrow">
+        <ContentContainer size="narrow">
           <Heading color="gray.800" as="h1" size="xl" mb={12} mt={12}>
             {JupyterOnlineContent.meta.title}
           </Heading>

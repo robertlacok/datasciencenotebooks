@@ -28,8 +28,8 @@ function JupyterCommentsPage({}: JupyterCommentsPageProps) {
         title={`${JupyterCommentsContent.meta.title} | Data Science Notebooks`}
         description={JupyterCommentsContent.meta.description}
       />
-      <SidebarLayout>
-        <ContentContainer maxWidth="container.md">
+      <SidebarLayout footerSize="narrow">
+        <ContentContainer size="narrow">
           <Heading color="gray.800" as="h1" size="xl" mb={12} mt={12}>
             {JupyterCommentsContent.meta.title}
           </Heading>

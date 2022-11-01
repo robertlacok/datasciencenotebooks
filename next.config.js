@@ -32,6 +32,11 @@ module.exports = (phase, config) => {
           destination: "/jupyter-version-control",
           permanent: true,
         },
+        {
+          source: "/features/comments",
+          destination: "/jupyter-comments",
+          permanent: true,
+        },
       ];
     },
   };

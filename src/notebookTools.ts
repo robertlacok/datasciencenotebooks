@@ -23,6 +23,7 @@ import querymeScreenshot from "./toolScreenshots/query-me.png";
 import querybookScreenshot from "./toolScreenshots/querybook.png";
 import huspreyScreenshot from "./toolScreenshots/husprey.png";
 import jupyterLabScreenshot from "./toolScreenshots/jupyterlab.png";
+import workspaceScreenshot from "./toolScreenshots/workspace.png";
 
 export const notebookTools = {
   jupyter: createNotebookTool({
@@ -1012,6 +1013,106 @@ export const notebookTools = {
       licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }],
     },
   }),
+
+  workspace: createNotebookTool({
+    name: "DataCamp Workspace",
+    id: "workspace",
+    description:
+      "DataCamp Workspace is a cloud-based data science notebook to analyze data, collaborate with others, and share insights — no installation required.",
+    lastUpdatedAt: "2022-11-03T00:00:00.000Z",
+    screenshot: workspaceScreenshot,
+    websiteUrl: "https://www.datacamp.com/workspace",
+    features: {
+      setupManaged: [
+        {
+          type: "yes",
+          setupTime: "minutes",
+        },
+      ],
+      setupSelfHost: [
+        {
+          type: "no",
+        },
+      ],
+      featuresJupyterCompatible: [
+        {
+          type: "yes",
+        },
+      ],
+      featuresLanguages: [
+        {
+          type: "jupyterLanguages",
+        },
+        {
+          type: "language",
+          language: "sql",
+        },
+      ],
+      featuresDataSources: [
+        {
+          type: "jupyterDataSources",
+        },
+        {
+          type: "dataWarehouses",
+          examples: "AWS, GCP, etc.",
+        },
+        {
+          type: "databases",
+          examples: "Postgres, MS SQL, etc.",
+        },
+        { type: "fileStorage" },
+      ],
+      featuresReactivity: [
+        {
+          type: "none",
+        },
+      ],
+      featuresDataVisualization: [
+        {
+          type: "jupyterVisualization",
+        },
+        {
+          type: "ui",
+        },
+      ],
+      featuresScheduling: [
+        {
+          type: "none",
+        },
+      ],
+
+      managementCollaborativeEditing: [
+        {
+          type: "realtime",
+        },
+      ],
+      managementNotebookOrganization: [
+        {
+          type: "list",
+        },
+      ],
+      managementComments: [
+        {
+          type: "inNotebook",
+        },
+      ],
+      managementReproducability: [{ type: "environment" }],
+      managementVersioning: [{ type: "none" }],
+      licensingLicense: [
+        {
+          type: "proprietary",
+        },
+      ],
+      licensingPrice: [
+        {
+          type: "freeTier",
+        },
+        {
+          type: "payPerUser",
+        },
+      ],
+    },
+  }),
 };
 
 export type NotebookToolId = keyof typeof notebookTools;
@@ -1031,6 +1132,7 @@ const topNotebookToolOrder: NotebookToolId[] = [
   "deepnote",
   "hex",
   "databricks",
+  "workspace",
   "jupyterlab",
 ];
 

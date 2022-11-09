@@ -76,7 +76,7 @@ export interface NotebookFeatures {
     | { type: "fileBased" }
     | { type: "wiki" }
     | { type: "list" };
-  managementReproducability:
+  managementReproducibility:
     | { type: "none" }
     | { type: "effortful" }
     | { type: "environment" }
@@ -118,7 +118,7 @@ export const featureCategories: FeatureCategory[] = [
   {
     type: "management",
     features: [
-      "managementReproducability",
+      "managementReproducibility",
       "managementVersioning",
       "managementCollaborativeEditing",
       "managementComments",

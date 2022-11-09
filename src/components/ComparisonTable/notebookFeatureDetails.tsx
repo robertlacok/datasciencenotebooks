@@ -407,8 +407,8 @@ export const notebookFeatureDetails: {
       }
     },
   },
-  managementReproducability: {
-    title: "Reproducability",
+  managementReproducibility: {
+    title: "Reproducibility",
     getFeatureItem: (feature) => {
       switch (feature.type) {
         case "containers":
@@ -438,7 +438,7 @@ export const notebookFeatureDetails: {
         case "none":
           return (
             <NotebookFeatureListItem icon={XCircleIcon}>
-              There is no support for reproducability
+              There is no support for reproducibility
             </NotebookFeatureListItem>
           );
       }

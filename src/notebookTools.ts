@@ -52,7 +52,7 @@ export const notebookTools = {
           type: "fileBased",
         },
       ],
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
 
       licensingLicense: [{ type: "openSource", ossLicense: "BSD" }],
@@ -91,7 +91,7 @@ export const notebookTools = {
           type: "inNotebook",
         },
       ],
-      managementReproducability: [
+      managementReproducibility: [
         { type: "environment" },
         { type: "execution" },
       ],
@@ -141,7 +141,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "none" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "none" }],
+      managementReproducibility: [{ type: "none" }],
       managementComments: [{ type: "fileBased" }],
       managementVersioning: [{ type: "fileBased" }],
 
@@ -174,7 +174,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "none" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "none" }],
+      managementReproducibility: [{ type: "none" }],
       managementComments: [{ type: "none" }],
       managementVersioning: [{ type: "none" }],
 
@@ -210,7 +210,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
@@ -242,7 +242,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "none" }],
 
@@ -333,7 +333,7 @@ export const notebookTools = {
           type: "inNotebook",
         },
       ],
-      managementReproducability: [
+      managementReproducibility: [
         {
           type: "environment",
         },
@@ -395,7 +395,7 @@ export const notebookTools = {
           type: "fileBased",
         },
       ],
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
 
       licensingLicense: [{ type: "openSource", ossLicense: "BSD" }],
@@ -438,7 +438,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [
+      managementReproducibility: [
         { type: "environment" },
         { type: "execution" },
         { type: "containers" },
@@ -479,7 +479,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "none" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "outOfNotebook" }],
 
@@ -525,7 +525,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [
+      managementReproducibility: [
         { type: "environment" },
         { type: "containers" },
       ],
@@ -570,7 +570,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "wiki" }],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
@@ -604,7 +604,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "fileBased" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducability: [{ type: "none" }],
+      managementReproducibility: [{ type: "none" }],
       managementVersioning: [{ type: "fileBased" }],
       managementComments: [{ type: "fileBased" }],
 
@@ -644,7 +644,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "asynchronous" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "none" }],
       managementComments: [{ type: "none" }],
 
@@ -662,24 +662,46 @@ export const notebookTools = {
     screenshot: noteableScreenshot,
     websiteUrl: "https://noteable.io/",
     features: {
-      setupManaged: [{ type: "yes", setupTime: "hours" }],
-      setupSelfHost: undefined,
-
+      setupManaged: [{ type: "yes", setupTime: "minutes" }],
+      setupSelfHost: [{ type: "yes", setupTime: "hours" }],
       featuresJupyterCompatible: [{ type: "yes" }],
-      featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }],
-      featuresReactivity: undefined,
-      featuresDataVisualization: [{ type: "jupyterVisualization" }],
-      featuresScheduling: [{ type: "builtIn" }],
-
+      featuresLanguages: [
+        { type: "jupyterLanguages" },
+        { type: "language", language: "sql" },
+      ],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        {
+          type: "databases",
+          examples: "Trino, Snowflake, CockroachDB, PostgreSQL",
+        },
+        {
+          type: "dataWarehouses",
+          examples: "Amazon Redshift, Google BigQuery, Databricks",
+        },
+        { type: "fileStorage" },
+      ],
+      featuresReactivity: [{ type: "none" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
+      featuresScheduling: [{ type: "builtIn" }, { type: "thirdParty" }],
       managementCollaborativeEditing: [{ type: "realtime" }],
-      managementNotebookOrganization: undefined,
-      managementReproducability: [{ type: "environment" }],
-      managementVersioning: undefined,
-      managementComments: undefined,
-
+      managementNotebookOrganization: [{ type: "fileBased" }],
+      managementReproducibility: [
+        { type: "environment" },
+        { type: "execution" },
+        { type: "containers" },
+      ],
+      managementVersioning: [{ type: "builtIn" }],
+      managementComments: [{ type: "inNotebook" }, { type: "outOfNotebook" }],
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: undefined,
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -707,7 +729,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "fileBased" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
       managementComments: [{ type: "fileBased" }],
 
@@ -757,7 +779,7 @@ export const notebookTools = {
         { type: "asynchronous" },
       ],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
       managementComments: [{ type: "fileBased" }],
 
@@ -798,7 +820,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: undefined,
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
@@ -831,7 +853,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: undefined,
-      managementReproducability: undefined,
+      managementReproducibility: undefined,
       managementVersioning: undefined,
       managementComments: undefined,
 
@@ -861,7 +883,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "fileBased" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
       managementComments: [{ type: "fileBased" }],
 
@@ -891,7 +913,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "fileBased" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducability: [{ type: "execution" }],
+      managementReproducibility: [{ type: "execution" }],
       managementVersioning: [{ type: "fileBased" }],
       managementComments: [{ type: "fileBased" }],
 
@@ -933,7 +955,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "asynchronous" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: [],
+      managementReproducibility: [],
       managementVersioning: [{ type: "none" }],
       managementComments: [{ type: "none" }],
 
@@ -969,7 +991,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: undefined,
-      managementReproducability: [{ type: "effortful" }],
+      managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "none" }],
       managementComments: [{ type: "none" }],
 
@@ -1005,7 +1027,7 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "asynchronous" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducability: undefined,
+      managementReproducibility: undefined,
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
@@ -1189,7 +1211,7 @@ const _dummyExampleNotebookTool = createNotebookTool({
 
     managementCollaborativeEditing: [],
     managementNotebookOrganization: [],
-    managementReproducability: [],
+    managementReproducibility: [],
     managementVersioning: [],
     managementComments: [],
 

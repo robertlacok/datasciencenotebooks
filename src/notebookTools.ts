@@ -1118,7 +1118,7 @@ export const notebookTools = {
           type: "inNotebook",
         },
       ],
-      managementReproducability: [{ type: "environment" }],
+      managementReproducibility: [{ type: "environment" }],
       managementVersioning: [{ type: "none" }],
       licensingLicense: [
         {

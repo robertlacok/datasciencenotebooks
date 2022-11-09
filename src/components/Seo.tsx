@@ -6,9 +6,13 @@ interface SeoProps {
   description?: string;
 }
 
+export const SITE_TITLE = "Data Science Notebooks";
+export const SITE_DESCRIPTION =
+  "Data science gets done in notebooks. Compare different notebook tools at datasciencenotebook.org.";
+
 export function Seo({
-  title = "Data Science Notebooks | Find your next notebook tool",
-  description,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
 }: SeoProps) {
   return (
     <Head>

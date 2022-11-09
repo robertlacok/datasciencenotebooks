@@ -6,6 +6,7 @@ export interface NotebookTool {
   lastUpdatedAt: string;
   features: NotebookFeaturesRecord;
   description: string;
+  metaDescription?: string;
   screenshot?: StaticImageData;
   websiteUrl?: string;
 }

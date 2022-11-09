@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import { Fragment } from "react";
 import { HorizontalComparisonTable } from "../components/ComparisonTable";
-import { Seo } from "../components/Seo";
+import { Seo, SITE_DESCRIPTION, SITE_TITLE } from "../components/Seo";
 import { SidebarLayout, SIDEBAR_BREAKPOINT } from "../components/SidebarLayout";
 import { notebookToolsInCanonicalOrder } from "../notebookTools";
 import type { NotebookTool } from "../NotebookTool";
@@ -15,10 +15,7 @@ import { NextLink } from "../components/NextLink";
 function Home() {
   return (
     <Fragment>
-      <Seo
-        title="Data Science Notebooks"
-        description="Data science gets done in notebooks. Compare different notebook tools at datasciencenotebook.org."
-      />
+      <Seo title={SITE_TITLE} description={SITE_DESCRIPTION} />
       <SidebarLayout>
         <ContentContainer mb={8}>
           <Box mb={8} display={{ base: "block", [SIDEBAR_BREAKPOINT]: "none" }}>

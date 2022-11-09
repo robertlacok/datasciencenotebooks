@@ -31,6 +31,7 @@ export const notebookTools = {
     id: "jupyter",
     description:
       "Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages. There's a number of vendors offering Jupyter notebooks as a managed service.",
+    metaDescription: "Jupyter is the most popular open-source data notebook.",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
     screenshot: jupyterScreenshot,
     websiteUrl: "https://jupyter.org/",
@@ -371,6 +372,8 @@ export const notebookTools = {
     id: "jupyterlab",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
     description:
+      "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
+    metaDescription:
       "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
     screenshot: jupyterLabScreenshot,
     websiteUrl: "https://jupyterlab.readthedocs.io/en/stable/",

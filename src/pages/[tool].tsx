@@ -58,7 +58,12 @@ function IndividualToolPage({}: IndividualToolPageProps) {
 
   return (
     <Fragment>
-      <Seo title={`${tool.name} | Data Science Notebooks`} />
+      <Seo
+        title={`${tool.name} | Data Science Notebooks`}
+        description={`${summarizeNotebookToolDescription(tool)} Compare ${
+          tool.name
+        } with other notebook tools.`}
+      />
       <SidebarLayout>
         <ContentContainer mb={8}>
           <Heading as="h1" size="2xl" color="gray.800" mb={4}>
@@ -156,5 +161,41 @@ function FeatureCard({ tool, featureCategory }: FeatureCardProps) {
     </Box>
   );
 }
+
+const summarizeNotebookToolDescription = (tool: NotebookTool) => {
+  if (tool.metaDescription != null) {
+    return tool.metaDescription;
+  }
+
+  const isJupyterCompatible = tool.features.featuresJupyterCompatible?.some(
+    (capability) => capability.type === "yes"
+  );
+  const isManaged = tool.features.setupManaged?.some(
+    (capability) => capability.type === "yes"
+  );
+  const isOpenSource = tool.features.licensingLicense?.some(
+    (capability) => capability.type === "openSource"
+  );
+  const isRealtimeCollaborative =
+    tool.features.managementCollaborativeEditing?.some(
+      (capability) => capability.type === "realtime"
+    );
+
+  const descriptionParts = [
+    tool.name,
+    isJupyterCompatible && isManaged
+      ? "is a fully-managed Jupyter-compatible data notebook"
+      : isJupyterCompatible && isOpenSource
+      ? "is an open-source Jupyter-compatible data notebook"
+      : isManaged
+      ? "is a fully-managed data notebook"
+      : isOpenSource
+      ? "is an open-source data notebook"
+      : "is a data notebook",
+    isRealtimeCollaborative ? "with realtime collaborative editing" : null,
+  ];
+
+  return descriptionParts.filter((part) => part).join(" ") + ".";
+};
 
 export default IndividualToolPage;

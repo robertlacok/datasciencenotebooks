@@ -17,7 +17,13 @@ export function SiteFooter({ size = "wide" }: SiteFooterProps) {
           Data Science Notebooks
         </Heading>
         {/* This list is based on pages that are popular from our analytics, and search queries that are popular. */}
-        <Box display="flex" flexWrap="wrap" justifyContent="flex-start" m={-1}>
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="flex-start"
+          alignItems="flex-end"
+          m={-2}
+        >
           <Section>
             <SectionHeading>Popular notebook tools</SectionHeading>
             <SectionLink
@@ -126,10 +132,10 @@ export function SiteFooter({ size = "wide" }: SiteFooterProps) {
 function Section(props: BoxProps) {
   return (
     <Box
-      flex="0 0 auto"
+      flex="1 0 auto"
       maxWidth="100%"
-      w={64}
-      p={1}
+      w={{ base: "100%", lg: "0" }}
+      p={2}
       color="gray.500"
       fontSize="sm"
       mb={4}
@@ -147,8 +153,11 @@ function SectionLink(props: ComponentProps<typeof NextLink>) {
     <NextLink
       display="block"
       mb={1}
-      {...props}
       _hover={{ textDecoration: "underline" }}
+      textOverflow="ellipsis"
+      overflow="hidden"
+      whiteSpace="nowrap"
+      {...props}
     />
   );
 }

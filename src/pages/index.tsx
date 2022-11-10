@@ -29,7 +29,7 @@ function Home() {
             {notebookToolsInCanonicalOrder.map((tool, index) => (
               <Flex
                 key={tool.id}
-                flex="1 1 auto"
+                flex="0 0 auto"
                 direction="column"
                 w={{ base: "100%", sm: "50%" }}
                 p={2}

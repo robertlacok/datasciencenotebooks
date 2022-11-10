@@ -8,10 +8,14 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { Fragment, ReactNode, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import { InformationCircleIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowLeftIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/20/solid";
 import {
   SIDEBAR_BREAKPOINT,
   SIDEBAR_BREAKPOINT_LARGE,
@@ -20,6 +24,9 @@ import {
 } from "./constants";
 import { SidebarContent } from "./SidebarContent";
 import { SiteFooter } from "../SiteFooter";
+import { routes } from "../../routes";
+import { NextLink } from "../NextLink";
+import { ContentContainer } from "../ContentContainer";
 
 export function Sidebar(props: BoxProps) {
   return (
@@ -52,10 +59,7 @@ export function SidebarMain(props: BoxProps) {
         base: "0",
         ...SIDEBAR_WIDTH,
       }}
-      paddingTop={{
-        base: 24,
-        [SIDEBAR_BREAKPOINT]: 8,
-      }}
+      paddingTop={8}
       {...props}
     />
   );
@@ -63,7 +67,7 @@ export function SidebarMain(props: BoxProps) {
 
 interface SidebarLayoutProps {
   children?: ReactNode;
-  footerSize?: "wide" | "narrow";
+  contentSize?: "wide" | "narrow";
 }
 
 const sidebarWidthVaraibles = {
@@ -72,10 +76,12 @@ const sidebarWidthVaraibles = {
   [SIDEBAR_BREAKPOINT_LARGE]: `var(--chakra-sizes-${SIDEBAR_WIDTH[SIDEBAR_BREAKPOINT_LARGE]})`,
 };
 
-export function SidebarLayout({ children, footerSize }: SidebarLayoutProps) {
+export function SidebarLayout({ children, contentSize }: SidebarLayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const router = useRouter();
+  const homeRoute = routes.home();
+  const isHome = router.pathname === homeRoute;
 
   useEffect(() => {
     router.events.on("routeChangeComplete", onClose);
@@ -99,23 +105,60 @@ export function SidebarLayout({ children, footerSize }: SidebarLayoutProps) {
           [sidebarWidthVar.variable]: sidebarWidthVaraibles,
         }}
       >
+        <ContentContainer
+          size={contentSize}
+          display={
+            isHome
+              ? {
+                  base: "block",
+                  [SIDEBAR_BREAKPOINT]: "none",
+                }
+              : "block"
+          }
+          mb={4}
+        >
+          <ButtonGroup>
+            {router.pathname !== homeRoute ? (
+              <Button
+                as={NextLink}
+                href={homeRoute}
+                variant="outline"
+                mb={3}
+                size="sm"
+                leftIcon={
+                  <Box w={5} h={5}>
+                    <ArrowLeftIcon />
+                  </Box>
+                }
+              >
+                View all notebooks
+              </Button>
+            ) : null}
+            <Box
+              display={{
+                base: "block",
+                [SIDEBAR_BREAKPOINT]: "none",
+              }}
+            >
+              <Button
+                ref={btnRef}
+                onClick={onOpen}
+                size="sm"
+                leftIcon={
+                  <Box w={5}>
+                    <InformationCircleIcon />
+                  </Box>
+                }
+              >
+                About
+              </Button>
+            </Box>
+          </ButtonGroup>
+        </ContentContainer>
         {children}
-        <SiteFooter size={footerSize} />
+        <SiteFooter size={contentSize} />
       </SidebarMain>
-      <Button
-        ref={btnRef}
-        onClick={onOpen}
-        position="absolute"
-        top="4"
-        left="4"
-        leftIcon={
-          <Box w={5}>
-            <InformationCircleIcon />
-          </Box>
-        }
-      >
-        About this website
-      </Button>
+
       <Drawer
         finalFocusRef={btnRef}
         isOpen={isOpen}

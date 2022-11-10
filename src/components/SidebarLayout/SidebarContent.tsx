@@ -1,7 +1,6 @@
 import {
   Box,
   Text,
-  Button,
   Link,
   LinkProps,
   Heading,
@@ -10,39 +9,14 @@ import {
   HeadingProps,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
-import NextLink from "next/link";
-import { routes } from "../../routes";
-import { useRouter } from "next/router";
-import {
-  ChatBubbleOvalLeftIcon,
-  ArrowLeftIcon,
-} from "@heroicons/react/20/solid";
+import { ChatBubbleOvalLeftIcon } from "@heroicons/react/20/solid";
 import imageRobertUrl from "./image-robert.jpeg";
 import { ResponsiveImage } from "../Image";
 
 export function SidebarContent() {
-  const router = useRouter();
-  const homeRoute = routes.home();
-
   return (
     <Fragment>
       <Box mb={8}>
-        {router.pathname !== homeRoute ? (
-          <Button
-            as={NextLink}
-            href={homeRoute}
-            variant="outline"
-            mb={3}
-            size="sm"
-            leftIcon={
-              <Box w={5} h={5}>
-                <ArrowLeftIcon />
-              </Box>
-            }
-          >
-            View all notebooks
-          </Button>
-        ) : null}
         <Heading as="h1" size="md" mb={4} color="gray.800">
           Data Science Notebooks
         </Heading>

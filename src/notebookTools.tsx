@@ -24,6 +24,9 @@ import querybookScreenshot from "./toolScreenshots/querybook.png";
 import huspreyScreenshot from "./toolScreenshots/husprey.png";
 import jupyterLabScreenshot from "./toolScreenshots/jupyterlab.png";
 import workspaceScreenshot from "./toolScreenshots/workspace.png";
+import { Fragment } from "react";
+import { A, Li, P, Ul } from "./components/prose";
+import { routes } from "./routes";
 
 export const notebookTools = {
   jupyter: createNotebookTool({
@@ -154,11 +157,53 @@ export const notebookTools = {
   colab: createNotebookTool({
     name: "Google Colab",
     id: "colab",
-    lastUpdatedAt: "2022-10-25T21:49:23.311Z",
+    lastUpdatedAt: "2022-11-16T06:25:17.679Z",
     description:
       "Colab notebooks allow you to combine executable code and rich text in a single document, along with images, HTML, LaTeX and more.",
     screenshot: colabScreenshot,
     websiteUrl: "https://colab.research.google.com/",
+    pageContent: () => (
+      <Fragment>
+        <P>
+          Google Colab (which is short for Colaboratory) is a{" "}
+          <A href={routes["jupyter-notebook-online"]()}>
+            hosted Jupyter notebook
+          </A>
+          . It is a great option for data scientists and python library authors
+          because:
+        </P>
+        <Ul>
+          <Li>It is free to use.</Li>
+          <Li>It is easy to open notebooks directly from GitHub.</Li>
+        </Ul>
+        <P>
+          If you’re browsing Github for notebooks, you’ll find a lot of links to
+          open them on Google Colab for this reason.
+        </P>
+        <P>
+          Because it’s based on Jupyter, you can use the vast array of
+          scientific computing libraries available on Python. However, just like
+          Jupyter, it’s got a bit of a steep learning curve. It works best for
+          technical people who are comfortable with Git.
+        </P>
+        <P>
+          It has rich integration with Google Drive. You can load files directly
+          from Google Drive which is especially convenient if you have datasets
+          in Google Sheets. If you’re not opening notebooks from GitHub, you can
+          conveniently open notebooks from and save to Google Drive, meaning
+          notebooks live alongside your other Google Drive files.
+        </P>
+        <P>
+          Despite “colab” being in its name, it’s not the best option for teams.
+          It lacks{" "}
+          <A href={routes["jupyter-realtime-collaboration"]()}>
+            realtime collaboration
+          </A>{" "}
+          and <A href={routes["jupyter-version-control"]()}>versioning</A>,
+          which means you’ll have a much harder time working with other people.
+        </P>
+      </Fragment>
+    ),
     examples: [
       {
         url: "https://colab.research.google.com/notebooks/basic_features_overview.ipynb",
@@ -171,9 +216,9 @@ export const notebookTools = {
         description: null,
       },
       {
-        url: "https://colab.research.google.com/notebooks/snippets/altair.ipynb",
-        title: "Altair chart snippets",
-        description: "Easily turning dataframes into charts",
+        url: "https://colab.research.google.com/notebooks/io.ipynb",
+        title: "Loading external data",
+        description: "Read data from Google Drive and more",
       },
     ],
     features: {
@@ -197,14 +242,18 @@ export const notebookTools = {
       managementVersioning: [{ type: "none" }],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
   databricks: createNotebookTool({
     name: "Databricks Notebooks",
     id: "databricks",
-    lastUpdatedAt: "2022-10-25T21:49:23.311Z",
+    lastUpdatedAt: "2022-11-16T06:25:17.679Z",
     description:
       "Collaborate across engineering, data science, and machine learning teams with support for multiple languages, built-in data visualizations, automatic versioning, and operationalization with jobs.",
     screenshot: databricksScreenshot,
@@ -293,7 +342,7 @@ export const notebookTools = {
     id: "deepnote",
     description:
       "Deepnote is a new kind of data notebook that’s built for collaboration — Jupyter compatible, works magically in the cloud, and sharing is as easy as sending a link.",
-    lastUpdatedAt: "2022-10-25T21:49:23.311Z",
+    lastUpdatedAt: "2022-11-16T06:25:17.679Z",
     screenshot: deepnoteScreenshot,
     websiteUrl: "https://deepnote.com/",
     examples: [
@@ -315,6 +364,41 @@ export const notebookTools = {
         description: "Parameterizing SQL with calculations from Python.",
       },
     ],
+    pageContent: () => (
+      <Fragment>
+        <P>
+          Deepnote is a{" "}
+          <A href={routes["jupyter-notebook-online"]()}>
+            hosted Jupyter notebook
+          </A>{" "}
+          with a host of features to make notebooks better for collaboration and
+          easier to use for less technical users.
+        </P>
+        <P>
+          By having{" "}
+          <A href={routes["jupyter-realtime-collaboration"]()}>
+            realtime collaboration
+          </A>
+          , <A href={routes["jupyter-version-control"]()}>versioning</A>, and{" "}
+          <A href={routes["jupyter-comments"]()}>comments</A>, it’s a great fit
+          for teams who need to collaborate on the same notebook. Furthermore,
+          teams can organize their notebooks in a wiki-like structure so
+          everything is easy to find.
+        </P>
+        <P>
+          It adds a number of features to make working in notebooks easier. For
+          example, it lets you connect directly to external data sources (e.g.
+          Snowflake and Postgres) and has a visual chart builder.
+        </P>
+        <P>
+          Deepnote has a free tier and offers{" "}
+          <A href="https://deepnote.com/education">
+            even more free perks to educational users
+          </A>
+          .
+        </P>
+      </Fragment>
+    ),
     features: {
       setupManaged: [
         {
@@ -464,7 +548,7 @@ export const notebookTools = {
   hex: createNotebookTool({
     name: "Hex",
     id: "hex",
-    lastUpdatedAt: "2022-10-25T21:49:23.311Z",
+    lastUpdatedAt: "2022-11-16T06:25:17.679Z",
     description:
       "The Data Workspace for Teams. Work with data in collaborative SQL and Python notebooks. Share as interactive data apps that anyone can use.",
     screenshot: hexScreenshot,

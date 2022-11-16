@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { ReactNode } from "react";
 
 export interface NotebookTool {
   name: string;
@@ -10,6 +11,7 @@ export interface NotebookTool {
   examples?: NotebookToolExample[];
   screenshot?: StaticImageData;
   websiteUrl?: string;
+  pageContent?: () => ReactNode;
 }
 
 export interface NotebookToolExample {

@@ -71,21 +71,25 @@ function IndividualToolPage({}: IndividualToolPageProps) {
           <Heading as="h1" size="2xl" color="gray.800" mb={4}>
             {tool.name}
           </Heading>
-          {tool.screenshot ? (
-            <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
-              <ResponsiveImage
-                alt={`A screenshot of ${tool.name}`}
-                src={tool.screenshot}
-                sizes="(max-width: 500px) 100vw, 500px"
-              />
-            </Box>
-          ) : null}
-          {tool.description ? (
-            <Text fontSize="lg" color="gray.600" mt={4}>
-              {tool.description}
-            </Text>
-          ) : null}
-          <ToolLinkList mt={4} tool={tool} />
+          <Box maxW="container.md">
+            {tool.screenshot ? (
+              <Box maxWidth="md" mt={4} borderRadius="md" overflow="hidden">
+                <ResponsiveImage
+                  alt={`A screenshot of ${tool.name}`}
+                  src={tool.screenshot}
+                  sizes="(max-width: 500px) 100vw, 500px"
+                />
+              </Box>
+            ) : null}
+            {tool.description ? (
+              <Text fontSize="lg" color="gray.700" mt={4} fontWeight="semibold">
+                {tool.description}
+              </Text>
+            ) : null}
+            <ToolLinkList mt={4} tool={tool} />
+            {tool.pageContent ? <Box mt={4}>{tool.pageContent()}</Box> : null}
+          </Box>
+
           <Heading as="h2" size="lg" color="gray.800" mt={8} mb={4}>
             {tool.name} capabilities
           </Heading>

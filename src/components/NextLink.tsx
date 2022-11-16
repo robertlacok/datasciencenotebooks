@@ -6,12 +6,19 @@ export const NextLinkUnstyled = forwardRef(function NextLinkUnstyled(
   { href, ...props }: ComponentProps<typeof LibNextLink>,
   ref: Ref<HTMLAnchorElement>
 ) {
-  if (typeof href === "object" || !isUrlRelative(href)) {
+  if (typeof href === "object" || isUrlRelative(href)) {
     return <LibNextLink ref={ref} href={href} {...props} />;
   }
 
-  // eslint-disable-next-line jsx-a11y/anchor-has-content
-  return <a ref={ref} href={href} {...props} />;
+  return (
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    <a
+      ref={ref}
+      href={href}
+      rel={!isUrlRelative(href) ? "noopener noreferrer" : undefined}
+      {...props}
+    />
+  );
 });
 
 const isUrlRelative = (url: string) => {

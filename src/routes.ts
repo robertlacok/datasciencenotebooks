@@ -1,5 +1,8 @@
 import { notebookToolIds, NotebookToolId } from "./notebookTools";
 
+export const ALTERNATIVES_ANCHOR_ID = "alternatives";
+export const EXAMPLES_ANCHOR_ID = "examples";
+
 export const routes = {
   home: () => "/",
   compare: ({ tool1, tool2 }: { tool1: string; tool2: string }) =>
@@ -17,7 +20,9 @@ export const routes = {
   },
   tool: ({ tool }: { tool: string }) => `/${tool}`,
   toolAlternatives: ({ tool }: { tool: string }) =>
-    `${routes.tool({ tool })}#alternatives`,
+    `${routes.tool({ tool })}#${ALTERNATIVES_ANCHOR_ID}`,
+  toolExamples: ({ tool }: { tool: string }) =>
+    `${routes.tool({ tool })}#${EXAMPLES_ANCHOR_ID}`,
   "jupyter-version-control": () => "/jupyter-version-control",
   "jupyter-schedule-notebooks": () => "/jupyter-schedule-notebooks",
   "jupyter-notebook-online": () => "/jupyter-notebook-online",

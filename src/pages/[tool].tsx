@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text } from "@chakra-ui/react";
 import type {
   GetStaticPathsContext,
   GetStaticPathsResult,
@@ -16,6 +16,7 @@ import {
 } from "../components/ComparisonTable";
 import { ContentContainer } from "../components/ContentContainer";
 import { ResponsiveImage } from "../components/Image";
+import { NextLink } from "../components/NextLink";
 import { Seo } from "../components/Seo";
 import { SidebarLayout } from "../components/SidebarLayout";
 import { ToolLinkList } from "../components/ToolLinkList";
@@ -23,13 +24,14 @@ import {
   featureCategories,
   FeatureCategory,
   NotebookTool,
+  NotebookToolExample,
 } from "../NotebookTool";
 import {
   getNotebookTool,
   notebookToolIds,
   notebookToolsInCanonicalOrder,
 } from "../notebookTools";
-import { routes } from "../routes";
+import { ALTERNATIVES_ANCHOR_ID, EXAMPLES_ANCHOR_ID, routes } from "../routes";
 
 export function getStaticProps({
   params,
@@ -84,7 +86,10 @@ function IndividualToolPage({}: IndividualToolPageProps) {
             </Text>
           ) : null}
           <ToolLinkList mt={4} tool={tool} />
-          <Box columnGap={4} sx={{ columnCount: 2 }} mt={12}>
+          <Heading as="h2" size="lg" color="gray.800" mt={8} mb={4}>
+            {tool.name} capabilities
+          </Heading>
+          <Box columnGap={4} sx={{ columnCount: 2 }}>
             {featureCategories.map((category) => (
               <FeatureCard
                 key={category.type}
@@ -93,9 +98,35 @@ function IndividualToolPage({}: IndividualToolPageProps) {
               />
             ))}
           </Box>
+          {tool.examples && tool.examples.length > 0 ? (
+            <Box mt={8}>
+              <Heading
+                as="h2"
+                size="lg"
+                color="gray.800"
+                mb={4}
+                id={EXAMPLES_ANCHOR_ID}
+              >
+                {tool.name} examples
+              </Heading>
+              <Grid
+                gridTemplateColumns="repeat(auto-fill, minmax(256px, 1fr))"
+                gap="4"
+              >
+                {tool.examples.map((example, index) => {
+                  return <ExampleCard example={example} key={index} />;
+                })}
+              </Grid>
+            </Box>
+          ) : null}
         </ContentContainer>
         <ContentContainer mb={12}>
-          <Heading as="h2" size="lg" color="gray.800" id="alternatives">
+          <Heading
+            as="h2"
+            size="lg"
+            color="gray.800"
+            id={ALTERNATIVES_ANCHOR_ID}
+          >
             Alternatives to {tool.name}
           </Heading>
         </ContentContainer>
@@ -159,6 +190,51 @@ function FeatureCard({ tool, featureCategory }: FeatureCardProps) {
         );
       })}
     </Box>
+  );
+}
+
+interface ExampleCardProps {
+  example: NotebookToolExample;
+}
+
+function ExampleCard({ example }: ExampleCardProps) {
+  return (
+    <NextLink
+      p={4}
+      bgColor="gray.50"
+      borderRadius="lg"
+      as="div"
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-end"
+      href={example.url}
+      rel="noopener noreferrer"
+      transition="0.2s"
+      cursor="pointer"
+      _hover={{
+        bgColor: "gray.100",
+      }}
+      data-group
+    >
+      <Box fontWeight="semibold" fontSize="lg">
+        {example.title}
+      </Box>
+      {example.description ? (
+        <Box mt={1} color="gray.600">
+          {example.description}
+        </Box>
+      ) : null}
+      <Box
+        fontSize="sm"
+        mt={1}
+        color="gray.500"
+        _groupHover={{
+          color: "blue.600",
+        }}
+      >
+        Open →
+      </Box>
+    </NextLink>
   );
 }
 

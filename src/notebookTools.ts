@@ -159,6 +159,23 @@ export const notebookTools = {
       "Colab notebooks allow you to combine executable code and rich text in a single document, along with images, HTML, LaTeX and more.",
     screenshot: colabScreenshot,
     websiteUrl: "https://colab.research.google.com/",
+    examples: [
+      {
+        url: "https://colab.research.google.com/notebooks/basic_features_overview.ipynb",
+        title: "Overview of Colaboratory features",
+        description: "The different types of cells in Google Colab",
+      },
+      {
+        url: "https://colab.research.google.com/notebooks/bigquery.ipynb",
+        title: "Getting started with BigQuery",
+        description: null,
+      },
+      {
+        url: "https://colab.research.google.com/notebooks/snippets/altair.ipynb",
+        title: "Altair chart snippets",
+        description: "Easily turning dataframes into charts",
+      },
+    ],
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "no" }],
@@ -192,6 +209,25 @@ export const notebookTools = {
       "Collaborate across engineering, data science, and machine learning teams with support for multiple languages, built-in data visualizations, automatic versioning, and operationalization with jobs.",
     screenshot: databricksScreenshot,
     websiteUrl: "https://databricks.com/product/collaborative-notebooks",
+    examples: [
+      {
+        url: "https://www.databricks.com/notebooks/gallery/ContinuousApplicationMLServing.html",
+        title: "Build a streaming ML application with Spark",
+        description:
+          "Build an application to monitor credit card fraud in real time.",
+      },
+      {
+        url: "https://www.databricks.com/notebooks/gallery/IntroductionDeltaLake.html",
+        title: "Intro to Delta Lake",
+        description:
+          "Bringing ACID transactions to Apache Spark and big data workloads.",
+      },
+      {
+        url: "https://www.databricks.com/notebooks/gallery/MLEndToEndExampleAWS.html",
+        title: "Machine learning on tabular data",
+        description: "MLFlow in an end-to-end ML lifecycle for tabular data.",
+      },
+    ],
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "yes", setupTime: "hours" }],
@@ -260,6 +296,25 @@ export const notebookTools = {
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
     screenshot: deepnoteScreenshot,
     websiteUrl: "https://deepnote.com/",
+    examples: [
+      {
+        url: "https://deepnote.com/workspace/Deepnote-Templates-71742312-24f2-4c10-9bf7-786d17280b92/project/AB-Testing-acbf46b5-33cd-4582-b435-dace370df20f/notebook/notebook-7cecad828f284f3486e38b923442fd77",
+        title: "A/B testing",
+        description:
+          "Comparing conversion rates for different versions of a website.",
+      },
+      {
+        url: "https://deepnote.com/@deepnote/Was-the-NYT-the-end-of-Wordles-popularity-A-story-told-with-tweet-sentiment-fe71dd32-fe73-4383-9439-874c943a1d9c",
+        title: "Rise and fall of Wordle",
+        description:
+          "Analyzing the popularity of Wordle using sentiment analysis of tweets.",
+      },
+      {
+        url: "https://deepnote.com/@allan-campopiano/Intro-to-SQL-Cells-1f1b6e36-942b-4ab3-b098-49306fca81f3",
+        title: "SQL cells",
+        description: "Parameterizing SQL with calculations from Python.",
+      },
+    ],
     features: {
       setupManaged: [
         {
@@ -414,6 +469,24 @@ export const notebookTools = {
       "The Data Workspace for Teams. Work with data in collaborative SQL and Python notebooks. Share as interactive data apps that anyone can use.",
     screenshot: hexScreenshot,
     websiteUrl: "https://hex.tech",
+    examples: [
+      {
+        url: "https://hex.tech/gallery/cost-spike-investigation",
+        title: "Why did costs spike this month?",
+        description: "Investigating an anomaly in production data.",
+      },
+      {
+        url: "https://hex.tech/gallery/churn-monitor",
+        title: "Churn monitor",
+        description:
+          "Staying ahead of customer churn in the ornithopter business.",
+      },
+      {
+        url: "https://hex.tech/gallery/mise-en-place",
+        title: "Modeling chopping onions",
+        description: "The importance of mise en place.",
+      },
+    ],
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "no" }],

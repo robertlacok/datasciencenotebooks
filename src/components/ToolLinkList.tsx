@@ -8,12 +8,14 @@ interface ToolLinkListProps extends FlexProps {
   tool: NotebookTool;
   includeWebsite?: boolean;
   includeAlternatives?: boolean;
+  includeExamples?: boolean;
 }
 
 export function ToolLinkList({
   tool,
   includeAlternatives = true,
   includeWebsite = true,
+  includeExamples = true,
   ...props
 }: ToolLinkListProps) {
   return (
@@ -43,6 +45,17 @@ export function ToolLinkList({
           size="sm"
         >
           Alternatives
+        </Button>
+      )}
+      {includeExamples && tool.examples && tool.examples.length > 0 && (
+        <Button
+          m={1}
+          as={NextLink}
+          href={routes.toolExamples({ tool: tool.id })}
+          variant="outline"
+          size="sm"
+        >
+          Examples
         </Button>
       )}
     </Flex>

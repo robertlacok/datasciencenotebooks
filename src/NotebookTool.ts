@@ -7,8 +7,15 @@ export interface NotebookTool {
   features: NotebookFeaturesRecord;
   description: string;
   metaDescription?: string;
+  examples?: NotebookToolExample[];
   screenshot?: StaticImageData;
   websiteUrl?: string;
+}
+
+export interface NotebookToolExample {
+  url: string;
+  title: string;
+  description: string | null;
 }
 
 export const createNotebookTool = (tool: NotebookTool) => tool;

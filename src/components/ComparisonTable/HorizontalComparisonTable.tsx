@@ -9,6 +9,7 @@ import {
   Tr,
   TableContainerProps,
   chakra,
+  BoxProps,
 } from "@chakra-ui/react";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import { Fragment, ReactNode } from "react";
@@ -90,6 +91,7 @@ export function HorizontalComparisonTable({
                     })}
                   </Tbody>
                 </Table>
+                <ScrollIndicator />
               </OffsetHorizontalScrollBox>
             </TableContainer>
           </ScrollSyncPane>
@@ -102,6 +104,7 @@ export function HorizontalComparisonTable({
                 scrollbarWidth: "none",
               }}
               whiteSpace="break-spaces"
+              zIndex={0}
             >
               <OffsetHorizontalScrollBox>
                 <Table sx={{ tableLayout: "fixed" }}>
@@ -121,6 +124,7 @@ export function HorizontalComparisonTable({
                     })}
                   </Tbody>
                 </Table>
+                <ScrollIndicator />
               </OffsetHorizontalScrollBox>
             </TableContainer>
           </ScrollSyncPane>
@@ -141,6 +145,7 @@ export function HorizontalComparisonTable({
                     </Tr>
                   </Tbody>
                 </Table>
+                <ScrollIndicator />
               </OffsetHorizontalScrollBox>
             </TableContainer>
           </ScrollSyncPane>
@@ -257,12 +262,32 @@ function TableTh(props: HTMLChakraProps<"th">) {
   );
 }
 
-function OffsetHorizontalScrollBox(props: TableContainerProps) {
+function OffsetHorizontalScrollBox({
+  children,
+  ...props
+}: TableContainerProps) {
   return (
     <Box
       sx={{
         paddingLeft: mainContainerGutter.reference,
+        ">*": { flex: "0 0 auto" },
       }}
+      position="relative"
+      display="flex"
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+}
+
+function ScrollIndicator(props: BoxProps) {
+  return (
+    <Box
+      position="sticky"
+      right={0}
+      w="16"
+      bgImage="linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%)"
       {...props}
     />
   );

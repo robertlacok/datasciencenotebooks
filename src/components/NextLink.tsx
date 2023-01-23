@@ -15,7 +15,7 @@ export const NextLinkUnstyled = forwardRef(function NextLinkUnstyled(
     <a
       ref={ref}
       href={href}
-      rel={!isUrlRelative(href) ? "noopener noreferrer" : undefined}
+      rel={!isUrlRelative(href) ? "noopener" : undefined}
       {...props}
     />
   );

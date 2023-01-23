@@ -25,7 +25,7 @@ export function ToolLinkList({
           m={1}
           as="a"
           href={tool.websiteUrl}
-          rel="noopener noreferrer"
+          rel="noopener"
           rightIcon={
             <Box w={5}>
               <ArrowTopRightOnSquareIcon />

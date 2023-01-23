@@ -207,12 +207,11 @@ function ExampleCard({ example }: ExampleCardProps) {
       p={4}
       bgColor="gray.50"
       borderRadius="lg"
-      as="div"
       display="flex"
       flexDirection="column"
       justifyContent="flex-end"
       href={example.url}
-      rel="noopener noreferrer"
+      rel="noopener"
       transition="0.2s"
       cursor="pointer"
       _hover={{

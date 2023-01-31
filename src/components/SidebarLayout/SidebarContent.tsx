@@ -95,7 +95,7 @@ export function SidebarContent() {
 function SidebarLink({ isExternal, ...props }: LinkProps) {
   return (
     <Link
-      rel={isExternal ? "noopener noreferrer" : undefined}
+      rel={isExternal ? "noopener" : undefined}
       color="blue.600"
       textDecoration="underline"
       {...props}

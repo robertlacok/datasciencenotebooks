@@ -97,7 +97,10 @@ export const notebookTools = {
           type: "inNotebook",
         },
       ],
-      managementReproducibility: [{ type: "environment" }, { type: "execution" }],
+      managementReproducibility: [
+        { type: "environment" },
+        { type: "execution" },
+      ],
       managementVersioning: [{ type: "builtIn" }],
 
       licensingLicense: [
@@ -134,7 +137,10 @@ export const notebookTools = {
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }, { type: "generic", text: "AWS" }],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        { type: "generic", text: "AWS" },
+      ],
       featuresReactivity: [{ type: "none" }],
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
       featuresScheduling: [{ type: "thirdParty" }],
@@ -162,33 +168,41 @@ export const notebookTools = {
       <Fragment>
         <P>
           Google Colab (which is short for Colaboratory) is a{" "}
-          <A href={routes["jupyter-notebook-online"]()}>hosted Jupyter notebook</A>. It is a great option for data
-          scientists and python library authors because:
+          <A href={routes["jupyter-notebook-online"]()}>
+            hosted Jupyter notebook
+          </A>
+          . It is a great option for data scientists and python library authors
+          because:
         </P>
         <Ul>
           <Li>It is free to use.</Li>
           <Li>It is easy to open notebooks directly from GitHub.</Li>
         </Ul>
         <P>
-          If you’re browsing Github for notebooks, you’ll find a lot of links to open them on Google Colab for this
-          reason.
+          If you’re browsing Github for notebooks, you’ll find a lot of links to
+          open them on Google Colab for this reason.
         </P>
         <P>
-          Because it’s based on Jupyter, you can use the vast array of scientific computing libraries available on
-          Python. However, just like Jupyter, it’s got a bit of a steep learning curve. It works best for technical
-          people who are comfortable with Git.
+          Because it’s based on Jupyter, you can use the vast array of
+          scientific computing libraries available on Python. However, just like
+          Jupyter, it’s got a bit of a steep learning curve. It works best for
+          technical people who are comfortable with Git.
         </P>
         <P>
-          It has rich integration with Google Drive. You can load files directly from Google Drive which is especially
-          convenient if you have datasets in Google Sheets. If you’re not opening notebooks from GitHub, you can
-          conveniently open notebooks from and save to Google Drive, meaning notebooks live alongside your other Google
-          Drive files.
+          It has rich integration with Google Drive. You can load files directly
+          from Google Drive which is especially convenient if you have datasets
+          in Google Sheets. If you’re not opening notebooks from GitHub, you can
+          conveniently open notebooks from and save to Google Drive, meaning
+          notebooks live alongside your other Google Drive files.
         </P>
         <P>
-          Despite “colab” being in its name, it’s not the best option for teams. It lacks{" "}
-          <A href={routes["jupyter-realtime-collaboration"]()}>realtime collaboration</A> and{" "}
-          <A href={routes["jupyter-version-control"]()}>versioning</A>, which means you’ll have a much harder time
-          working with other people.
+          Despite “colab” being in its name, it’s not the best option for teams.
+          It lacks{" "}
+          <A href={routes["jupyter-realtime-collaboration"]()}>
+            realtime collaboration
+          </A>{" "}
+          and <A href={routes["jupyter-version-control"]()}>versioning</A>,
+          which means you’ll have a much harder time working with other people.
         </P>
       </Fragment>
     ),
@@ -215,7 +229,10 @@ export const notebookTools = {
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }, { type: "generic", text: "Google Drive" }],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        { type: "generic", text: "Google Drive" },
+      ],
       featuresReactivity: [{ type: "none" }],
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
       featuresScheduling: [{ type: "none" }],
@@ -227,7 +244,11 @@ export const notebookTools = {
       managementVersioning: [{ type: "none" }],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }, { type: "payForCompute" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -243,12 +264,14 @@ export const notebookTools = {
       {
         url: "https://www.databricks.com/notebooks/gallery/ContinuousApplicationMLServing.html",
         title: "Build a streaming ML application with Spark",
-        description: "Build an application to monitor credit card fraud in real time.",
+        description:
+          "Build an application to monitor credit card fraud in real time.",
       },
       {
         url: "https://www.databricks.com/notebooks/gallery/IntroductionDeltaLake.html",
         title: "Intro to Delta Lake",
-        description: "Bringing ACID transactions to Apache Spark and big data workloads.",
+        description:
+          "Bringing ACID transactions to Apache Spark and big data workloads.",
       },
       {
         url: "https://www.databricks.com/notebooks/gallery/MLEndToEndExampleAWS.html",
@@ -262,9 +285,15 @@ export const notebookTools = {
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }, { type: "dataWarehouses", examples: "Databricks" }],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        { type: "dataWarehouses", examples: "Databricks" },
+      ],
       featuresReactivity: [{ type: "none" }],
-      featuresDataVisualization: [{ type: "jupyterVisualization" }, { type: "ui" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
       featuresScheduling: [{ type: "builtIn" }],
 
       managementCollaborativeEditing: [{ type: "realtime" }],
@@ -291,7 +320,10 @@ export const notebookTools = {
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }, { type: "fileStorage" }],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        { type: "fileStorage" },
+      ],
       featuresReactivity: [{ type: "none" }],
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
       featuresScheduling: [{ type: "none" }],
@@ -319,12 +351,14 @@ export const notebookTools = {
       {
         url: "https://deepnote.com/workspace/Deepnote-Templates-71742312-24f2-4c10-9bf7-786d17280b92/project/AB-Testing-acbf46b5-33cd-4582-b435-dace370df20f/notebook/notebook-7cecad828f284f3486e38b923442fd77",
         title: "A/B testing",
-        description: "Comparing conversion rates for different versions of a website.",
+        description:
+          "Comparing conversion rates for different versions of a website.",
       },
       {
         url: "https://deepnote.com/@deepnote/Was-the-NYT-the-end-of-Wordles-popularity-A-story-told-with-tweet-sentiment-fe71dd32-fe73-4383-9439-874c943a1d9c",
         title: "Rise and fall of Wordle",
-        description: "Analyzing the popularity of Wordle using sentiment analysis of tweets.",
+        description:
+          "Analyzing the popularity of Wordle using sentiment analysis of tweets.",
       },
       {
         url: "https://deepnote.com/@allan-campopiano/Intro-to-SQL-Cells-1f1b6e36-942b-4ab3-b098-49306fca81f3",
@@ -335,23 +369,35 @@ export const notebookTools = {
     pageContent: () => (
       <Fragment>
         <P>
-          Deepnote is a <A href={routes["jupyter-notebook-online"]()}>hosted Jupyter notebook</A> with a host of
-          features to make notebooks better for collaboration and easier to use for less technical users.
+          Deepnote is a{" "}
+          <A href={routes["jupyter-notebook-online"]()}>
+            hosted Jupyter notebook
+          </A>{" "}
+          with a host of features to make notebooks better for collaboration and
+          easier to use for less technical users.
         </P>
         <P>
-          By having <A href={routes["jupyter-realtime-collaboration"]()}>realtime collaboration</A>,{" "}
-          <A href={routes["jupyter-version-control"]()}>versioning</A>, and{" "}
-          <A href={routes["jupyter-comments"]()}>comments</A>, it’s a great fit for teams who need to collaborate on the
-          same notebook. Furthermore, teams can organize their notebooks in a wiki-like structure so everything is easy
-          to find.
+          By having{" "}
+          <A href={routes["jupyter-realtime-collaboration"]()}>
+            realtime collaboration
+          </A>
+          , <A href={routes["jupyter-version-control"]()}>versioning</A>, and{" "}
+          <A href={routes["jupyter-comments"]()}>comments</A>, it’s a great fit
+          for teams who need to collaborate on the same notebook. Furthermore,
+          teams can organize their notebooks in a wiki-like structure so
+          everything is easy to find.
         </P>
         <P>
-          It adds a number of features to make working in notebooks easier. For example, it lets you connect directly to
-          external data sources (e.g. Snowflake and Postgres) and has a visual chart builder.
+          It adds a number of features to make working in notebooks easier. For
+          example, it lets you connect directly to external data sources (e.g.
+          Snowflake and Postgres) and has a visual chart builder.
         </P>
         <P>
           Deepnote has a free tier and offers{" "}
-          <A href="https://deepnote.com/education">even more free perks to educational users</A>.
+          <A href="https://deepnote.com/education">
+            even more free perks to educational users
+          </A>
+          .
         </P>
       </Fragment>
     ),
@@ -466,8 +512,10 @@ export const notebookTools = {
     name: "JupyterLab",
     id: "jupyterlab",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
-    description: "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
-    metaDescription: "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
+    description:
+      "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
+    metaDescription:
+      "JupyterLab is the next-generation web-based user interface for Project Jupyter.",
     screenshot: jupyterLabScreenshot,
     websiteUrl: "https://jupyterlab.readthedocs.io/en/stable/",
     features: {
@@ -481,7 +529,10 @@ export const notebookTools = {
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
       featuresScheduling: [{ type: "thirdParty" }],
 
-      managementCollaborativeEditing: [{ type: "fileBased" }, { type: "jupyterRealtime" }],
+      managementCollaborativeEditing: [
+        { type: "fileBased" },
+        { type: "jupyterRealtime" },
+      ],
       managementNotebookOrganization: [{ type: "fileBased" }],
       managementComments: [
         {
@@ -513,7 +564,8 @@ export const notebookTools = {
       {
         url: "https://hex.tech/gallery/churn-monitor",
         title: "Churn monitor",
-        description: "Staying ahead of customer churn in the ornithopter business.",
+        description:
+          "Staying ahead of customer churn in the ornithopter business.",
       },
       {
         url: "https://hex.tech/gallery/mise-en-place",
@@ -526,7 +578,10 @@ export const notebookTools = {
       setupSelfHost: [{ type: "no" }],
 
       featuresJupyterCompatible: [{ type: "yes" }],
-      featuresLanguages: [{ type: "jupyterLanguages" }, { type: "language", language: "sql" }],
+      featuresLanguages: [
+        { type: "jupyterLanguages" },
+        { type: "language", language: "sql" },
+      ],
       featuresDataSources: [
         { type: "jupyterDataSources" },
         {
@@ -537,17 +592,28 @@ export const notebookTools = {
         { type: "fileStorage" },
       ],
       featuresReactivity: [{ type: "full" }],
-      featuresDataVisualization: [{ type: "jupyterVisualization" }, { type: "ui" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
       featuresScheduling: [{ type: "builtIn" }],
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducibility: [{ type: "environment" }, { type: "execution" }, { type: "containers" }],
+      managementReproducibility: [
+        { type: "environment" },
+        { type: "execution" },
+        { type: "containers" },
+      ],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }, { type: "payForCompute" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -565,7 +631,10 @@ export const notebookTools = {
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],
-      featuresDataSources: [{ type: "jupyterDataSources" }, { type: "generic", text: "Kaggle datasets" }],
+      featuresDataSources: [
+        { type: "jupyterDataSources" },
+        { type: "generic", text: "Kaggle datasets" },
+      ],
       featuresReactivity: [{ type: "none" }],
       featuresDataVisualization: [{ type: "jupyterVisualization" }],
       featuresScheduling: [{ type: "limited" }],
@@ -618,12 +687,19 @@ export const notebookTools = {
 
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "list" }],
-      managementReproducibility: [{ type: "environment" }, { type: "containers" }],
+      managementReproducibility: [
+        { type: "environment" },
+        { type: "containers" },
+      ],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }, { type: "payForCompute" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -648,7 +724,10 @@ export const notebookTools = {
         { type: "fileStorage" },
       ],
       featuresReactivity: [{ type: "full" }],
-      featuresDataVisualization: [{ type: "jupyterVisualization" }, { type: "ui" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
       featuresScheduling: [{ type: "builtIn" }],
 
       managementCollaborativeEditing: [{ type: "realtime" }],
@@ -658,7 +737,11 @@ export const notebookTools = {
       managementComments: [{ type: "inNotebook" }],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }, { type: "payForCompute" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -696,7 +779,8 @@ export const notebookTools = {
     name: "Mode Notebooks",
     id: "mode",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
-    description: "Native R & Python Notebooks. From SQL, explore your analysis using R or Python Notebooks.",
+    description:
+      "Native R & Python Notebooks. From SQL, explore your analysis using R or Python Notebooks.",
     screenshot: modeScreenshot,
     websiteUrl: "https://mode.com/notebooks/",
     features: {
@@ -743,7 +827,10 @@ export const notebookTools = {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
       setupSelfHost: [{ type: "yes", setupTime: "hours" }],
       featuresJupyterCompatible: [{ type: "yes" }],
-      featuresLanguages: [{ type: "jupyterLanguages" }, { type: "language", language: "sql" }],
+      featuresLanguages: [
+        { type: "jupyterLanguages" },
+        { type: "language", language: "sql" },
+      ],
       featuresDataSources: [
         { type: "jupyterDataSources" },
         {
@@ -757,15 +844,26 @@ export const notebookTools = {
         { type: "fileStorage" },
       ],
       featuresReactivity: [{ type: "none" }],
-      featuresDataVisualization: [{ type: "jupyterVisualization" }, { type: "ui" }],
+      featuresDataVisualization: [
+        { type: "jupyterVisualization" },
+        { type: "ui" },
+      ],
       featuresScheduling: [{ type: "builtIn" }, { type: "thirdParty" }],
       managementCollaborativeEditing: [{ type: "realtime" }],
       managementNotebookOrganization: [{ type: "fileBased" }],
-      managementReproducibility: [{ type: "environment" }, { type: "execution" }, { type: "containers" }],
+      managementReproducibility: [
+        { type: "environment" },
+        { type: "execution" },
+        { type: "containers" },
+      ],
       managementVersioning: [{ type: "builtIn" }],
       managementComments: [{ type: "inNotebook" }, { type: "outOfNotebook" }],
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: [{ type: "freeTier" }, { type: "payPerUser" }, { type: "payForCompute" }],
+      licensingPrice: [
+        { type: "freeTier" },
+        { type: "payPerUser" },
+        { type: "payForCompute" },
+      ],
     },
   }),
 
@@ -838,7 +936,10 @@ export const notebookTools = {
       featuresDataVisualization: undefined,
       featuresScheduling: [{ type: "builtIn" }],
 
-      managementCollaborativeEditing: [{ type: "fileBased" }, { type: "asynchronous" }],
+      managementCollaborativeEditing: [
+        { type: "fileBased" },
+        { type: "asynchronous" },
+      ],
       managementNotebookOrganization: [{ type: "fileBased" }],
       managementReproducibility: [{ type: "effortful" }],
       managementVersioning: [{ type: "fileBased" }],
@@ -1012,7 +1113,8 @@ export const notebookTools = {
     name: "Query.me",
     id: "query-me",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
-    description: "Collaborative SQL Notebooks. A better way for data teams to analyze, unite & deliver.",
+    description:
+      "Collaborative SQL Notebooks. A better way for data teams to analyze, unite & deliver.",
     websiteUrl: "https://query.me",
     screenshot: querymeScreenshot,
     features: {
@@ -1053,7 +1155,8 @@ export const notebookTools = {
     name: "Querybook",
     id: "querybook",
     lastUpdatedAt: "2022-10-25T21:49:23.311Z",
-    description: "Querybook is Pinterest’s open-source big data IDE via a notebook interface.",
+    description:
+      "Querybook is Pinterest’s open-source big data IDE via a notebook interface.",
     websiteUrl: "https://querybook.org",
     screenshot: querybookScreenshot,
     features: {
@@ -1224,7 +1327,8 @@ export const notebookTools = {
     name: "Hyperquery",
     id: "hyperquery",
     lastUpdatedAt: "2023-03-16T11:51:23.311Z",
-    description: "Hyperquery is a data notebook that enables you to easily build shareable analyses in SQL and Python.",
+    description:
+      "Hyperquery is a data notebook that enables you to easily build shareable analyses in SQL and Python.",
     websiteUrl: "https://www.hyperquery.ai/",
     screenshot: hyperqueryScreenshot,
     features: {
@@ -1370,7 +1474,9 @@ function countNotebookToolFeatures(tool: NotebookTool) {
 
 export const JUPYTER_NOTEBOOK_ID: NotebookToolId = "jupyter";
 
-export const notebookToolIds = notebookToolsInCanonicalOrder.map((tool) => tool.id) as NotebookToolId[];
+export const notebookToolIds = notebookToolsInCanonicalOrder.map(
+  (tool) => tool.id
+) as NotebookToolId[];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _dummyExampleNotebookTool = createNotebookTool({

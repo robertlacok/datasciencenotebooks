@@ -903,23 +903,48 @@ export const notebookTools = {
       setupSelfHost: [{ type: "no" }],
 
       featuresJupyterCompatible: [{ type: "no" }],
-      featuresLanguages: [
-        { type: "language", language: "sql" },
-        { type: "language", language: "python" },
+      featuresLanguages: [{ type: "language", language: "sql" }],
+      featuresDataSources: [
+        {
+          type: "dataWarehouses",
+          examples: "AWS, GCP, etc.",
+        },
+        {
+          type: "databases",
+          examples: "Postgres, MongoDB, etc.",
+        },
       ],
-      featuresDataSources: undefined,
       featuresReactivity: undefined,
       featuresDataVisualization: [{ type: "ui" }],
       featuresScheduling: [{ type: "none" }],
 
       managementCollaborativeEditing: [{ type: "realtime" }],
-      managementNotebookOrganization: undefined,
+      managementNotebookOrganization: [
+        {
+          type: "list",
+        },
+      ],
       managementReproducibility: undefined,
-      managementVersioning: undefined,
-      managementComments: undefined,
+      managementVersioning: [
+        {
+          type: "builtIn",
+        },
+      ],
+      managementComments: [
+        {
+          type: "inNotebook",
+        },
+      ],
 
       licensingLicense: [{ type: "proprietary" }],
-      licensingPrice: undefined,
+      licensingPrice: [
+        {
+          type: "freeTier",
+        },
+        {
+          type: "payPerUser",
+        },
+      ],
     },
   }),
 

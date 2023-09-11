@@ -46,7 +46,16 @@ export interface NotebookFeatures {
     | { type: "jupyterLanguages" }
     | {
         type: "language";
-        language: "sql" | "js" | "python" | "r" | "scala" | "spark" | "julia";
+        language:
+          | "sql"
+          | "js"
+          | "python"
+          | "r"
+          | "scala"
+          | "spark"
+          | "julia"
+          | "erlang"
+          | "elixir";
       };
   featuresDataSources:
     | { type: "jupyterDataSources" }

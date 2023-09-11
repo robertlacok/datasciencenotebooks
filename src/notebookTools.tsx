@@ -26,6 +26,7 @@ import jupyterLabScreenshot from "./toolScreenshots/jupyterlab.png";
 import workspaceScreenshot from "./toolScreenshots/workspace.png";
 import hyperqueryScreenshot from "./toolScreenshots/hyperquery.png";
 import countScreenshot from "./toolScreenshots/countco.png";
+import livebookScreenshot from "./toolScreenshots/livebook.png";
 import { Fragment } from "react";
 import { A, Li, P, Ul } from "./components/prose";
 import { routes } from "./routes";
@@ -1451,6 +1452,45 @@ export const notebookTools = {
           type: "payPerUser",
         },
       ],
+    },
+  }),
+
+  livebook: createNotebookTool({
+    name: "Livebook",
+    id: "livebook",
+    description:
+      "Get rid of scripts, manual steps, and outdated docs. Start using Elixir and Livebook to share knowledge, deploy apps, visualize data, run machine learning models, and much more!",
+    metaDescription:
+      "Automate code & data workflows with interactive Elixir notebooks",
+    lastUpdatedAt: "2023-04-14T15:23:29Z",
+    screenshot: livebookScreenshot,
+    websiteUrl: "https://livebook.dev/",
+    features: {
+      setupManaged: [{ type: "no" }],
+      setupSelfHost: [{ type: "yes", setupTime: "minutes" }],
+
+      featuresJupyterCompatible: [{ type: "no" }],
+      featuresLanguages: [
+        { type: "language", language: "elixir" },
+        { type: "language", language: "sql" },
+        { type: "language", language: "erlang" },
+      ],
+      featuresDataSources: [
+        { type: "databases", examples: "MySQL, PostgreSQL and SQLite" },
+        { type: "dataWarehouses", examples: "BigQuery and AWS Athena" },
+      ],
+      featuresReactivity: [{ type: "full" }],
+      featuresDataVisualization: [{ type: "ui" }],
+      featuresScheduling: [{ type: "none" }],
+
+      managementCollaborativeEditing: [{ type: "realtime" }],
+      managementNotebookOrganization: [{ type: "fileBased" }],
+      managementComments: [{ type: "none" }],
+      managementReproducibility: [{ type: "execution" }],
+      managementVersioning: [{ type: "fileBased" }],
+
+      licensingLicense: [{ type: "openSource", ossLicense: "Apache 2.0" }],
+      licensingPrice: [{ type: "free" }],
     },
   }),
 };

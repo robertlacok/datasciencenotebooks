@@ -1317,7 +1317,7 @@ export const notebookTools = {
       ],
       featuresScheduling: [
         {
-          type: "builtin",
+          type: "builtIn",
         },
       ],
 
@@ -1337,7 +1337,7 @@ export const notebookTools = {
         },
       ],
       managementReproducibility: [{ type: "environment" }],
-      managementVersioning: [{ type: "builtin" }],
+      managementVersioning: [{ type: "builtIn" }],
       licensingLicense: [
         {
           type: "proprietary",

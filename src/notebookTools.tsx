@@ -1227,10 +1227,41 @@ export const notebookTools = {
     name: "DataCamp Workspace",
     id: "workspace",
     description:
-      "DataCamp Workspace is a cloud-based data science notebook to analyze data, collaborate with others, and share insights — no installation required.",
-    lastUpdatedAt: "2022-11-03T00:00:00.000Z",
+      "DataCamp Workspace is an AI-powered data notebook to help you get from data to insights, faster.",
+    lastUpdatedAt: "2022-08-24T00:00:00.000Z",
     screenshot: workspaceScreenshot,
     websiteUrl: "https://www.datacamp.com/workspace",
+    pageContent: () => (
+      <Fragment>
+        <P>
+          DataCamp Workspace is an AI-enabled{" "}
+          <A href={routes["jupyter-notebook-online"]()}>
+            data science notebook
+          </A>{" "}
+          that caters to users of all skill levels, from beginners taking their
+          first coding steps to seasoned experts in search of a polished
+          experience.
+        </P>
+        <P>
+          Get started in seconds with pre-configured Python and R environments,
+          complete with built-in SQL support. All commonly used data science
+          packages pre-installed.
+        </P>
+        <P>
+          Enjoy the ability to schedule and automate your notebook executions,
+          look back with a one-year version history, and intelligent code
+          suggestions and debugging help from the AI Assistant.
+        </P>
+        <P>
+          Collaborate effortlessly with others through{" "}
+          <A href={routes["jupyter-realtime-collaboration"]()}>
+            realtime collaboration
+          </A>{" "}
+          and built-in commenting.
+        </P>
+        <P>Get from data to insights, faster. All skill levels are welcome.</P>
+      </Fragment>
+    ),
     features: {
       setupManaged: [
         {
@@ -1286,7 +1317,7 @@ export const notebookTools = {
       ],
       featuresScheduling: [
         {
-          type: "none",
+          type: "builtin",
         },
       ],
 
@@ -1306,7 +1337,7 @@ export const notebookTools = {
         },
       ],
       managementReproducibility: [{ type: "environment" }],
-      managementVersioning: [{ type: "none" }],
+      managementVersioning: [{ type: "builtin" }],
       licensingLicense: [
         {
           type: "proprietary",

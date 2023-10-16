@@ -713,7 +713,7 @@ export const notebookTools = {
     websiteUrl: "https://datalore.jetbrains.com/",
     features: {
       setupManaged: [{ type: "yes", setupTime: "minutes" }],
-      setupSelfHost: [{ type: "no" }],
+      setupSelfHost: [{ type: "yes" }],
 
       featuresJupyterCompatible: [{ type: "yes" }],
       featuresLanguages: [{ type: "jupyterLanguages" }],

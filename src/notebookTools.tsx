@@ -26,6 +26,7 @@ import jupyterLabScreenshot from "./toolScreenshots/jupyterlab.png";
 import workspaceScreenshot from "./toolScreenshots/workspace.png";
 import hyperqueryScreenshot from "./toolScreenshots/hyperquery.png";
 import countScreenshot from "./toolScreenshots/countco.png";
+import callistoScreenshot from "./toolScreenshots/callisto.png";
 import { Fragment } from "react";
 import { A, Li, P, Ul } from "./components/prose";
 import { routes } from "./routes";
@@ -1446,6 +1447,93 @@ export const notebookTools = {
       licensingPrice: [
         {
           type: "freeTier",
+        },
+        {
+          type: "payPerUser",
+        },
+      ],
+    },
+  }),
+
+  callisto: createNotebookTool({
+    name: "Callisto",
+    id: "callisto",
+    lastUpdatedAt: "2023-05-24T12:00:00.000Z",
+    description:
+      "Callisto makes it easy for you to clean, prepare, and visualize your data - on your Mac, iPad, or in the cloud.",
+    websiteUrl: "https://www.callistoapp.com",
+    screenshot: callistoScreenshot,
+    features: {
+      setupManaged: [
+        {
+          type: "yes",
+          setupTime: "minutes",
+        },
+      ],
+      setupSelfHost: [
+        {
+          type: "yes",
+          setupTime: "minutes",
+        },
+      ],
+      featuresJupyterCompatible: [
+        {
+          type: "yes",
+        },
+      ],
+      featuresLanguages: [
+        {
+          type: "jupyterLanguages",
+        },
+      ],
+      featuresDataSources: [
+        {
+          type: "generic",
+          text: "Google Drive, Dropbox",
+        },
+      ],
+      featuresReactivity: [
+        {
+          type: "none",
+        },
+      ],
+      featuresDataVisualization: [
+        {
+          type: "jupyterVisualization",
+        },
+      ],
+      featuresScheduling: [
+        {
+          type: "limited",
+        },
+      ],
+
+      managementCollaborativeEditing: [
+        {
+          type: "none",
+        },
+      ],
+      managementNotebookOrganization: [
+        {
+          type: "fileBased",
+        },
+      ],
+      managementComments: [
+        {
+          type: "none",
+        },
+      ],
+      managementReproducibility: [{ type: "none" }],
+      managementVersioning: [{ type: "none" }],
+      licensingLicense: [
+        {
+          type: "proprietary",
+        },
+      ],
+      licensingPrice: [
+        {
+          type: "freeTrial",
+          length: "2 weeks",
         },
         {
           type: "payPerUser",

@@ -1,6 +1,7 @@
 import { createNotebookTool, NotebookTool } from "./NotebookTool";
 
 import jupyterScreenshot from "./toolScreenshots/jupyter.png";
+import marimoScreenshot from "./toolScreenshots/marimo.png";
 import deepnoteScreenshot from "./toolScreenshots/deepnote.png";
 import observableScreenshot from "./toolScreenshots/observable.png";
 import sagemakerScreenshot from "./toolScreenshots/sagemaker.png";
@@ -63,6 +64,47 @@ export const notebookTools = {
 
       licensingLicense: [{ type: "openSource", ossLicense: "BSD" }],
       licensingPrice: [{ type: "free" }],
+    },
+  }),
+
+  marimo: createNotebookTool({
+    name: "marimo",
+    id: "marimo",
+    lastUpdatedAt: "2023-12-13T18:31:42.211Z",
+    description:
+      "marimo is a next-generation Python notebook where every notebook is also shareable as an interactive web app, making it seamless to go from prototype to production.",
+    screenshot: marimoScreenshot,
+    websiteUrl: "https://marimo.io/",
+    features: {
+      setupManaged: [{ type: "yes", setupTime: "minutes" }],
+      setupSelfHost: [{ type: "yes", setupTime: "hours" }],
+
+      featuresJupyterCompatible: [{ type: "no" }],
+      featuresLanguages: [{ type: "language", language: "python" }],
+      featuresDataSources: [
+        { type: "generic", text: "Connect with any Python library" },
+        { type: "databases", examples: "pip install duckdb, psycopg2" },
+        { type: "dataWarehouses", examples: "pip install google-cloud-bigquery, snowflake-connector-python" },
+      ],
+      featuresReactivity: [{ type: "full" }],
+      featuresDataVisualization: [{ type: "ui" }, { type: "jupyterVisualization" }],
+      featuresScheduling: [{ type: "thirdParty" }],
+
+      managementCollaborativeEditing: [{ type: "fileBased" }],
+      managementNotebookOrganization: [{ type: "fileBased" }],
+      managementComments: [{ type: "fileBased", }],
+      managementReproducibility: [
+        { type: "execution" },
+        { type: "containers" },
+      ],
+      managementVersioning: [{ type: "fileBased" }],
+
+      licensingLicense: [{
+        type: "openSource", ossLicense: "Apache 2.0",
+      }],
+      licensingPrice: [{
+        type: "free",
+      }],
     },
   }),
 
